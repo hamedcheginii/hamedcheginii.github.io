@@ -2,31 +2,173 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>Hamed Chegini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamed Chegini - Resume</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* --- Global --- */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+      direction: rtl;
+    }
+    a { text-decoration: none; color: #3498db; }
+    a:hover { text-decoration: underline; }
+
+    /* --- Header --- */
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+    header h1 { font-size: 36px; margin-bottom: 5px; }
+    header p { font-size: 18px; color: #ecf0f1; }
+
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+    nav a:hover { color: #1abc9c; }
+
+    /* --- Sections --- */
+    section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #2c3e50;
+    }
+
+    /* --- Skills --- */
+    .skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .skills li {
+      background: #3498db;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    /* --- Footer --- */
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* --- Responsive --- */
+    @media(max-width: 600px){
+      header h1 { font-size: 28px; }
+      nav a { display: block; margin: 10px 0; }
+      .skills ul { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <h1> چگینی</h1>
-    <p>دانشجوی مهندسی مالی | پژوهشگر پرتفوی و بازار سرمایه</p>
+    <img src="profile.jpg" alt="Hamed Chegini Profile Picture">
+    <h1>Hamed Chegini</h1>
+    <p>Financial Engineering Student | Portfolio & Market Researcher</p>
     <nav>
-      <a href="index.html">خانه</a>
-      <a href="about.html">درباره من</a>
-      <a href="projects.html">پروژه‌ها</a>
-      <a href="contact.html">تماس</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section>
+  <!-- About Section -->
+  <section id="about">
     <div class="card">
-      <h2>خوش آمدید!</h2>
-      <p>این سایت شخصی من است. در اینجا می‌توانید درباره تحصیلات، مهارت‌ها و پروژه‌های من اطلاعات پیدا کنید.</p>
-      <p>برای دیدن پروفایل کامل LinkedIn من، <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">اینجا کلیک کنید</a>.</p>
+      <h2>About Me</h2>
+      <p>Hello! I am Hamed Chegini, a financial engineering student with a passion for portfolio optimization and market research. I have experience in data analysis, Python programming, and financial modeling.</p>
     </div>
   </section>
 
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="card">
+      <h2>Experience</h2>
+      <ul>
+        <li><strong>Internship at XYZ Bank</strong> - Summer 2024</li>
+        <li><strong>Research Assistant</strong> - Portfolio Optimization Project</li>
+        <li><strong>Financial Analyst Trainee</strong> - ABC Company</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="card skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>Python</li>
+        <li>Pandas & NumPy</li>
+        <li>Plotly & Matplotlib</li>
+        <li>Financial Modeling</li>
+        <li>Portfolio Optimization</li>
+        <li>Excel & VBA</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="card">
+      <h2>Projects</h2>
+      <ul>
+        <li><strong>Dynamic Portfolio Optimization</strong> - Tehran Stock Exchange dataset</li>
+        <li><strong>Financial Analysis Dashboard</strong> - Interactive visualization using Plotly</li>
+        <li><strong>Gold Price Forecasting</strong> - Statistical modeling and prediction</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="card">
+      <h2>Contact Me</h2>
+      <p>Email: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
+      <p>Phone: +98 912 345 6789</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>©</p>
+    <p>© 2025 Hamed Chegini. All Rights Reserved.</p>
   </footer>
+
 </body>
 </html>
