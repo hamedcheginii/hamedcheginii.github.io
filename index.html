@@ -8,8 +8,6 @@
 @font-face {
   font-family: 'IRANSansXFaNum';
   src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -39,20 +37,10 @@ header {
   z-index: 999;
 }
 header.small { padding: 10px 20px; }
-
-header img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  object-fit: cover;
-  transition: all 0.3s ease;
-}
+header img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; transition: all 0.3s ease; }
 header.small img { width: 60px; height: 60px; margin-bottom: 5px; }
-
 header h1 { font-size: 36px; margin-bottom: 5px; transition: all 0.3s ease; }
 header.small h1 { font-size: 24px; }
-
 header p { font-size: 18px; color: #ecf0f1; text-align: center; transition: all 0.3s ease; }
 header.small p { font-size: 14px; }
 
@@ -65,6 +53,7 @@ nav a:hover { color: #1abc9c; }
 main {
   padding-top: 260px; /* ارتفاع هدر اولیه */
   transition: padding-top 0.3s ease;
+  width: 100%;
 }
 
 /* کارت‌ها */
@@ -77,38 +66,18 @@ section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
+/* عنوان‌ها */
 h2 { margin-bottom: 15px; color: #2c3e50; }
 
-.skills ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-}
-.skills li {
-  background: #3498db;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
+/* مهارت‌ها */
+.skills ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
+.skills li { background: #3498db; color: #fff; padding: 5px 10px; border-radius: 5px; }
 
 /* متن‌ها justify */
-p, li {
-  text-align: justify;
-  text-justify: inter-word;
-  word-spacing: normal;
-  letter-spacing: normal;
-}
+p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
 
 /* فوتر */
-footer {
-  background: #2c3e50;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
+footer { background: #2c3e50; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
 
 /* ریسپانسیو */
 @media(max-width:600px){
@@ -142,20 +111,9 @@ footer {
   <section id="about">
     <div class="card">
       <h2>درباره من</h2>
-      <p>
-       مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
-        <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. 
-        تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.
-      </p>
-      <p>
-        انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. 
-        ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. 
-        <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong>
-      </p>
-      <p>
-        <strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> 
-        توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.
-      </p>
+      <p>مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی. <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام.</p>
+      <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی. <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong></p>
+      <p><strong>مسلط بر Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong></p>
     </div>
   </section>
 
@@ -228,6 +186,7 @@ footer {
 <script>
 const header = document.getElementById('header');
 const main = document.querySelector('main');
+
 window.addEventListener('scroll', () => {
   if(window.scrollY > 50) {
     header.classList.add('small');
