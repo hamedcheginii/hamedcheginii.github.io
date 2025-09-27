@@ -23,7 +23,6 @@
       line-height: 1.6;
     }
 
-    /* --- لینک‌ها --- */
     a { text-decoration: none; color: #3498db; }
     a:hover { text-decoration: underline; }
 
@@ -45,7 +44,7 @@
     header p {
       font-size: 18px;
       color: #ecf0f1;
-      text-align: center; /* هدر وسط */
+      text-align: center;
     }
 
     nav { margin-top: 20px; }
@@ -87,14 +86,15 @@
       margin-top: 40px;
     }
 
-    /* --- Justify فقط دسکتاپ --- */
+    /* --- متن‌ها --- */
+    /* دسکتاپ: justify */
     @media(min-width:601px){
       body, p, li {
         text-align: justify;
       }
     }
 
-    /* --- RWD موبایل --- */
+    /* موبایل: راست‌چین */
     @media(max-width:600px){
       header h1 { font-size: 28px; }
       header p { font-size: 16px; }
@@ -103,10 +103,9 @@
       section { padding: 0 10px; }
       .card { padding: 15px; }
       body, p, li {
-        text-align: left; /* روی موبایل فاصله بین حروف درست */
+        text-align: right; /* متن فارسی موبایل راست‌چین */
       }
     }
-
   </style>
 </head>
 <body>
