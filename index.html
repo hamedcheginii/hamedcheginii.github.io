@@ -22,6 +22,7 @@ body {
   line-height: 1.6;
 }
 
+/* لینک‌ها */
 a { text-decoration: none; color: #3498db; }
 a:hover { text-decoration: underline; }
 
@@ -38,33 +39,29 @@ header {
   z-index: 999;
 }
 header.small { padding: 10px 20px; }
-
-header img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  object-fit: cover;
-  transition: all 0.3s ease;
-}
+header img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; transition: all 0.3s ease; }
 header.small img { width: 60px; height: 60px; margin-bottom: 5px; }
-
 header h1 { font-size: 36px; margin-bottom: 5px; transition: all 0.3s ease; }
 header.small h1 { font-size: 24px; }
-
 header p { font-size: 18px; color: #ecf0f1; text-align: center; transition: all 0.3s ease; }
 header.small p { font-size: 14px; }
 
 /* منو */
-nav { margin-top: 20px; transition: all 0.3s ease; }
-nav a { margin: 0 10px; font-weight: bold; color: #fff; }
-nav a:hover { color: #1abc9c; }
+nav { margin-top: 20px; transition: all 0.3s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); }
+nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
 /* محتویات صفحه */
 main { padding-top: 260px; transition: padding-top 0.3s ease; }
 
 /* کارت‌ها */
-section { max-width: 900px; margin: 40px auto; padding: 0 20px; scroll-margin-top: 140px; }
+section { 
+  max-width: 900px; 
+  margin: 40px auto; 
+  padding: 0 20px; 
+  scroll-margin-top: 140px; /* برای اسکرول به لینک‌ها */
+}
+
 .card {
   background: #fff;
   padding: 25px;
@@ -73,8 +70,13 @@ section { max-width: 900px; margin: 40px auto; padding: 0 20px; scroll-margin-to
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-h2 { margin-bottom: 15px; color: #2c3e50; }
+/* عنوان بخش‌ها */
+section h2 {
+  margin-bottom: 15px; 
+  color: #2c3e50; 
+}
 
+/* مهارت‌ها */
 .skills ul {
   list-style: none;
   display: flex;
@@ -89,8 +91,13 @@ h2 { margin-bottom: 15px; color: #2c3e50; }
   border-radius: 5px;
 }
 
-/* متن‌ها justify */
-p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
+/* متن‌ها justify بدون فاصله بین حروف */
+p, li {
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: normal;
+  letter-spacing: normal;
+}
 
 /* فوتر */
 footer {
@@ -105,11 +112,10 @@ footer {
 @media(max-width:600px){
   header h1 { font-size: 28px; }
   header p { font-size: 16px; }
-  nav { display: flex; flex-wrap: wrap; justify-content: center; }
-  nav a { margin: 5px; }
-  .skills ul { flex-direction: column; }
+  nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap:5px; }
   section { padding: 0 10px; }
   .card { padding: 15px; }
+  .skills ul { flex-direction: column; }
 }
 </style>
 </head>
@@ -223,10 +229,10 @@ const main = document.querySelector('main');
 window.addEventListener('scroll', () => {
   if(window.scrollY > 50) {
     header.classList.add('small');
-    main.style.paddingTop = '140px'; // ارتفاع هدر کوچک
+    main.style.paddingTop = '120px';
   } else {
     header.classList.remove('small');
-    main.style.paddingTop = '260px'; // ارتفاع هدر بزرگ
+    main.style.paddingTop = '260px';
   }
 });
 </script>
