@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>رزومه حامد چگینی</title>
-  <link rel="stylesheet" href="style.css">
   <style>
     @font-face {
       font-family: 'IRANSansXFaNum';
@@ -41,11 +40,7 @@
       object-fit: cover;
     }
     header h1 { font-size: 36px; margin-bottom: 5px; }
-    header p {
-      font-size: 18px;
-      color: #ecf0f1;
-      text-align: center;
-    }
+    header p { font-size: 18px; color: #ecf0f1; text-align: center; }
 
     nav { margin-top: 20px; }
     nav a { margin: 0 10px; font-weight: bold; color: #fff; }
@@ -87,14 +82,14 @@
     }
 
     /* --- متن‌ها --- */
-    /* دسکتاپ: justify */
-    @media(min-width:601px){
-      body, p, li {
-        text-align: justify;
-      }
+    /* دسکتاپ و موبایل: justify بدون فاصله بین حروف */
+    p, li {
+      text-align: justify;
+      text-justify: inter-word; /* فقط بین کلمات فاصله */
+      word-spacing: normal;
+      letter-spacing: normal;
     }
 
-    /* موبایل: راست‌چین */
     @media(max-width:600px){
       header h1 { font-size: 28px; }
       header p { font-size: 16px; }
@@ -102,9 +97,6 @@
       .skills ul { flex-direction: column; }
       section { padding: 0 10px; }
       .card { padding: 15px; }
-      body, p, li {
-        text-align: right; /* متن فارسی موبایل راست‌چین */
-      }
     }
   </style>
 </head>
