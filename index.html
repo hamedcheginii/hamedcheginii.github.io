@@ -8,8 +8,6 @@
 @font-face {
   font-family: 'IRANSansXFaNum';
   src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -19,6 +17,9 @@ body {
   color: #333;
   direction: rtl;
   line-height: 1.6;
+  /* فضای بالا برای هدر ثابت */
+  padding-top: 200px; /* ارتفاع اولیه هدر */
+  transition: padding-top 0.3s ease;
 }
 
 a { text-decoration: none; color: #3498db; }
@@ -34,10 +35,11 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 header.shrink { padding: 10px 20px; }
@@ -62,8 +64,8 @@ header.shrink h1 { font-size: 24px; }
 header p {
   font-size: 18px;
   color: #ecf0f1;
-  transition: all 0.3s ease;
   text-align: center;
+  transition: all 0.3s ease;
 }
 header.shrink p { font-size: 14px; }
 
@@ -78,7 +80,7 @@ nav a { margin: 5px; font-weight: bold; color: #fff; }
 nav a:hover { color: #1abc9c; }
 
 /* --- Sections --- */
-section { max-width: 900px; margin: 0 auto 40px auto; padding: 0 20px; }
+section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 .card {
   background: #fff;
   padding: 25px;
@@ -122,16 +124,17 @@ p, li {
 }
 
 /* --- Scroll margin برای لینک‌ها --- */
-section { scroll-margin-top: 160px; } /* ارتفاع تقریبی هدر کوچک */
+section { scroll-margin-top: 200px; }
 
 @media(max-width:600px){
+  body { padding-top: 160px; }
   header { padding: 15px 10px; }
   header h1 { font-size: 20px; }
   header p { font-size: 12px; }
   nav { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   nav a { margin: 3px 5px; font-size: 12px; }
+  section { scroll-margin-top: 160px; }
   .card { padding: 15px; }
-  section { scroll-margin-top: 140px; } /* موبایل */
 }
 </style>
 </head>
@@ -151,7 +154,6 @@ section { scroll-margin-top: 160px; } /* ارتفاع تقریبی هدر کوچ
   </nav>
 </header>
 
-<!-- درباره من -->
 <section id="about">
   <div class="card">
     <h2>درباره من</h2>
@@ -172,7 +174,6 @@ section { scroll-margin-top: 160px; } /* ارتفاع تقریبی هدر کوچ
   </div>
 </section>
 
-<!-- بخش‌های دیگر -->
 <section id="experience"><div class="card"><h2>تجربه‌ها</h2><ul><li>کارآموزی در بانک XYZ</li></ul></div></section>
 <section id="education"><div class="card"><h2>تحصیلات</h2><ul><li>دکتری مهندسی مالی</li></ul></div></section>
 <section id="skills"><div class="card skills"><h2>مهارت‌ها</h2><ul><li>Python</li></ul></div></section>
@@ -188,8 +189,10 @@ window.addEventListener('scroll', function() {
   const header = document.getElementById('header');
   if(window.scrollY > 50){
     header.classList.add('shrink');
+    document.body.style.paddingTop = '120px'; // فضای بالا هنگام کوچک شدن هدر
   } else {
     header.classList.remove('shrink');
+    document.body.style.paddingTop = '200px'; // فضای اولیه
   }
 });
 </script>
