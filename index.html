@@ -78,7 +78,7 @@ nav a { margin: 5px; font-weight: bold; color: #fff; }
 nav a:hover { color: #1abc9c; }
 
 /* --- Sections --- */
-section { max-width: 900px; margin: 250px auto 40px auto; padding: 0 20px; }
+section { max-width: 900px; margin: 0 auto 40px auto; padding: 0 20px; }
 .card {
   background: #fff;
   padding: 25px;
@@ -121,15 +121,17 @@ p, li {
   letter-spacing: normal;
 }
 
-/* --- ریسپانسیو --- */
+/* --- Scroll margin برای لینک‌ها --- */
+section { scroll-margin-top: 160px; } /* ارتفاع تقریبی هدر کوچک */
+
 @media(max-width:600px){
   header { padding: 15px 10px; }
   header h1 { font-size: 20px; }
   header p { font-size: 12px; }
   nav { flex-direction: row; flex-wrap: wrap; justify-content: center; }
   nav a { margin: 3px 5px; font-size: 12px; }
-  section { margin-top: 180px; padding: 0 10px; }
   .card { padding: 15px; }
+  section { scroll-margin-top: 140px; } /* موبایل */
 }
 </style>
 </head>
