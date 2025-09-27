@@ -3,18 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hamed Chegini - Resume</title>
+  <title>رزومه حامد چگینی</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* --- Global --- */
+    @font-face {
+      font-family: 'IRANSansXFaNum';
+      src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      font-family: 'Roboto', sans-serif;
-      background: #f4f4f4;
+      font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
+      background: #f5f5f5;
       color: #333;
-      line-height: 1.6;
       direction: rtl;
+      line-height: 1.6;
     }
     a { text-decoration: none; color: #3498db; }
     a:hover { text-decoration: underline; }
@@ -23,8 +28,8 @@
     header {
       background: #2c3e50;
       color: #fff;
-      padding: 40px 20px;
       text-align: center;
+      padding: 40px 20px;
     }
     header img {
       width: 120px;
@@ -36,19 +41,12 @@
     header h1 { font-size: 36px; margin-bottom: 5px; }
     header p { font-size: 18px; color: #ecf0f1; }
 
-    nav {
-      margin-top: 20px;
-    }
-    nav a {
-      margin: 0 15px;
-      font-weight: bold;
-      color: #fff;
-    }
+    nav { margin-top: 20px; }
+    nav a { margin: 0 10px; font-weight: bold; color: #fff; }
     nav a:hover { color: #1abc9c; }
 
     /* --- Sections --- */
     section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-
     .card {
       background: #fff;
       padding: 25px;
@@ -57,10 +55,7 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
 
-    h2 {
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
+    h2 { margin-bottom: 15px; color: #2c3e50; }
 
     /* --- Skills --- */
     .skills ul {
@@ -76,7 +71,6 @@
       border-radius: 5px;
     }
 
-    /* --- Footer --- */
     footer {
       background: #2c3e50;
       color: #fff;
@@ -85,8 +79,7 @@
       margin-top: 40px;
     }
 
-    /* --- Responsive --- */
-    @media(max-width: 600px){
+    @media(max-width:600px){
       header h1 { font-size: 28px; }
       nav a { display: block; margin: 10px 0; }
       .skills ul { flex-direction: column; }
@@ -95,79 +88,93 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- هدر -->
   <header>
-    <img src="profile.jpg" alt="Hamed Chegini Profile Picture">
-    <h1>Hamed Chegini</h1>
-    <p>Financial Engineering Student | Portfolio & Market Researcher</p>
+    <img src="profile.jpg" alt="عکس پروفایل">
+    <h1>حامد چگینی</h1>
+    <p>دانشجوی مهندسی مالی | پژوهشگر پرتفوی و بازار سرمایه</p>
     <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">درباره من</a>
+      <a href="#experience">تجربه‌ها</a>
+      <a href="#education">تحصیلات</a>
+      <a href="#skills">مهارت‌ها</a>
+      <a href="#projects">پروژه‌ها</a>
+      <a href="#contact">تماس</a>
     </nav>
   </header>
 
-  <!-- About Section -->
+  <!-- درباره من -->
   <section id="about">
     <div class="card">
-      <h2>About Me</h2>
-      <p>Hello! I am Hamed Chegini, a financial engineering student with a passion for portfolio optimization and market research. I have experience in data analysis, Python programming, and financial modeling.</p>
+      <h2>درباره من</h2>
+      <p>سلام! من حامد چگینی هستم، دانشجوی مهندسی مالی با علاقه‌مندی به بهینه‌سازی پرتفوی و تحلیل بازار سرمایه. تجربه در تحلیل داده، برنامه‌نویسی Python و مدل‌سازی مالی دارم.</p>
     </div>
   </section>
 
-  <!-- Experience Section -->
+  <!-- تجربه‌ها -->
   <section id="experience">
     <div class="card">
-      <h2>Experience</h2>
+      <h2>تجربه‌ها</h2>
       <ul>
-        <li><strong>Internship at XYZ Bank</strong> - Summer 2024</li>
-        <li><strong>Research Assistant</strong> - Portfolio Optimization Project</li>
-        <li><strong>Financial Analyst Trainee</strong> - ABC Company</li>
+        <li><strong>کارآموزی در بانک XYZ</strong> - تابستان ۱۴۰۳</li>
+        <li><strong>دستیار پژوهشی</strong> - پروژه بهینه‌سازی پرتفوی</li>
+        <li><strong>کارشناس مالی</strong> - شرکت ABC</li>
       </ul>
     </div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- تحصیلات -->
+  <section id="education">
+    <div class="card">
+      <h2>تحصیلات</h2>
+      <ul>
+        <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
+        <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
+        <li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- مهارت‌ها -->
   <section id="skills">
     <div class="card skills">
-      <h2>Skills</h2>
+      <h2>مهارت‌ها</h2>
       <ul>
         <li>Python</li>
         <li>Pandas & NumPy</li>
         <li>Plotly & Matplotlib</li>
-        <li>Financial Modeling</li>
-        <li>Portfolio Optimization</li>
+        <li>مدل‌سازی مالی</li>
+        <li>بهینه‌سازی پرتفوی</li>
         <li>Excel & VBA</li>
       </ul>
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- پروژه‌ها -->
   <section id="projects">
     <div class="card">
-      <h2>Projects</h2>
+      <h2>پروژه‌ها</h2>
       <ul>
-        <li><strong>Dynamic Portfolio Optimization</strong> - Tehran Stock Exchange dataset</li>
-        <li><strong>Financial Analysis Dashboard</strong> - Interactive visualization using Plotly</li>
-        <li><strong>Gold Price Forecasting</strong> - Statistical modeling and prediction</li>
+        <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
+        <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
+        <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
       </ul>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- تماس -->
   <section id="contact">
     <div class="card">
-      <h2>Contact Me</h2>
-      <p>Email: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+      <h2>تماس با من</h2>
+      <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
-      <p>Phone: +98 912 345 6789</p>
+      <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- فوتر -->
   <footer>
-    <p>© 2025 Hamed Chegini. All Rights Reserved.</p>
+    <p>© ۱۴۰۴ حامد چگینی. تمام حقوق محفوظ است.</p>
   </footer>
 
 </body>
