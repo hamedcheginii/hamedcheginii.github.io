@@ -8,41 +8,37 @@
 @font-face {
   font-family: 'IRANSansXFaNum';
   src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
+
 body {
   font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
   background: #f5f5f5;
   color: #333;
   direction: rtl;
   line-height: 1.6;
-  /* فضای بالا برای هدر ثابت */
-  padding-top: 200px; /* ارتفاع اولیه هدر */
-  transition: padding-top 0.3s ease;
 }
 
+/* لینک‌ها */
 a { text-decoration: none; color: #3498db; }
 a:hover { text-decoration: underline; }
 
 /* --- Header --- */
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: #2c3e50;
   color: #fff;
   text-align: center;
   padding: 40px 20px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   transition: all 0.3s ease;
+  z-index: 999;
 }
-
-header.shrink { padding: 10px 20px; }
+header.small { padding: 10px 20px; }
 
 header img {
   width: 120px;
@@ -52,34 +48,26 @@ header img {
   object-fit: cover;
   transition: all 0.3s ease;
 }
-header.shrink img { width: 60px; height: 60px; margin-bottom: 5px; }
+header.small img { width: 60px; height: 60px; margin-bottom: 5px; }
 
-header h1 {
-  font-size: 36px;
-  margin-bottom: 5px;
-  transition: all 0.3s ease;
-}
-header.shrink h1 { font-size: 24px; }
+header h1 { font-size: 36px; margin-bottom: 5px; transition: all 0.3s ease; }
+header.small h1 { font-size: 24px; }
 
-header p {
-  font-size: 18px;
-  color: #ecf0f1;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-header.shrink p { font-size: 14px; }
+header p { font-size: 18px; color: #ecf0f1; text-align: center; transition: all 0.3s ease; }
+header.small p { font-size: 14px; }
 
-nav {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-nav a { margin: 5px; font-weight: bold; color: #fff; }
+/* منو */
+nav { margin-top: 20px; transition: all 0.3s ease; }
+nav a { margin: 0 10px; font-weight: bold; color: #fff; }
 nav a:hover { color: #1abc9c; }
 
-/* --- Sections --- */
+/* محتویات صفحه */
+main {
+  padding-top: 260px; /* ارتفاع هدر اولیه */
+  transition: padding-top 0.3s ease;
+}
+
+/* کارت‌ها */
 section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 .card {
   background: #fff;
@@ -91,7 +79,6 @@ section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
 
 h2 { margin-bottom: 15px; color: #2c3e50; }
 
-/* --- Skills --- */
 .skills ul {
   list-style: none;
   display: flex;
@@ -106,7 +93,15 @@ h2 { margin-bottom: 15px; color: #2c3e50; }
   border-radius: 5px;
 }
 
-/* --- Footer --- */
+/* متن‌ها justify */
+p, li {
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: normal;
+  letter-spacing: normal;
+}
+
+/* فوتر */
 footer {
   background: #2c3e50;
   color: #fff;
@@ -115,25 +110,13 @@ footer {
   margin-top: 40px;
 }
 
-/* --- متن‌ها --- */
-p, li {
-  text-align: justify;
-  text-justify: inter-word;
-  word-spacing: normal;
-  letter-spacing: normal;
-}
-
-/* --- Scroll margin برای لینک‌ها --- */
-section { scroll-margin-top: 200px; }
-
+/* ریسپانسیو */
 @media(max-width:600px){
-  body { padding-top: 160px; }
-  header { padding: 15px 10px; }
-  header h1 { font-size: 20px; }
-  header p { font-size: 12px; }
-  nav { flex-direction: row; flex-wrap: wrap; justify-content: center; }
-  nav a { margin: 3px 5px; font-size: 12px; }
-  section { scroll-margin-top: 160px; }
+  header h1 { font-size: 28px; }
+  header p { font-size: 16px; }
+  nav a { display: block; margin: 5px 0; }
+  .skills ul { flex-direction: column; }
+  section { padding: 0 10px; }
   .card { padding: 15px; }
 }
 </style>
@@ -154,45 +137,104 @@ section { scroll-margin-top: 200px; }
   </nav>
 </header>
 
-<section id="about">
-  <div class="card">
-    <h2>درباره من</h2>
-    <p>
-      مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
-      <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. 
-      تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.
-    </p>
-    <p>
-      انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. 
-      ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. 
-      <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong>
-    </p>
-    <p>
-      <strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> 
-      توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.
-    </p>
-  </div>
-</section>
+<main>
+  <!-- درباره من -->
+  <section id="about">
+    <div class="card">
+      <h2>درباره من</h2>
+      <p>
+       مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
+        <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. 
+        تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.
+      </p>
+      <p>
+        انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. 
+        ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. 
+        <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong>
+      </p>
+      <p>
+        <strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> 
+        توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.
+      </p>
+    </div>
+  </section>
 
-<section id="experience"><div class="card"><h2>تجربه‌ها</h2><ul><li>کارآموزی در بانک XYZ</li></ul></div></section>
-<section id="education"><div class="card"><h2>تحصیلات</h2><ul><li>دکتری مهندسی مالی</li></ul></div></section>
-<section id="skills"><div class="card skills"><h2>مهارت‌ها</h2><ul><li>Python</li></ul></div></section>
-<section id="projects"><div class="card"><h2>پروژه‌ها</h2><ul><li>بهینه‌سازی پرتفوی دینامیک</li></ul></div></section>
-<section id="contact"><div class="card"><h2>تماس با من</h2><p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p></div></section>
+  <!-- تجربه‌ها -->
+  <section id="experience">
+    <div class="card">
+      <h2>تجربه‌ها</h2>
+      <ul>
+        <li><strong>کارآموزی در بانک XYZ</strong> - تابستان ۱۴۰۳</li>
+        <li><strong>دستیار پژوهشی</strong> - پروژه بهینه‌سازی پرتفوی</li>
+        <li><strong>کارشناس مالی</strong> - شرکت ABC</li>
+      </ul>
+    </div>
+  </section>
 
-<footer>
-<p>© ۱۴۰۴ حامد چگینی. تمام حقوق محفوظ است.</p>
-</footer>
+  <!-- تحصیلات -->
+  <section id="education">
+    <div class="card">
+      <h2>تحصیلات</h2>
+      <ul>
+        <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
+        <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
+        <li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- مهارت‌ها -->
+  <section id="skills">
+    <div class="card skills">
+      <h2>مهارت‌ها</h2>
+      <ul>
+        <li>Python</li>
+        <li>Pandas & NumPy</li>
+        <li>Plotly & Matplotlib</li>
+        <li>مدل‌سازی مالی</li>
+        <li>بهینه‌سازی پرتفوی</li>
+        <li>Excel & VBA</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- پروژه‌ها -->
+  <section id="projects">
+    <div class="card">
+      <h2>پروژه‌ها</h2>
+      <ul>
+        <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
+        <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
+        <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- تماس -->
+  <section id="contact">
+    <div class="card">
+      <h2>تماس با من</h2>
+      <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
+      <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© ۱۴۰۴ حامد چگینی. تمام حقوق محفوظ است.</p>
+  </footer>
+</main>
 
 <script>
-window.addEventListener('scroll', function() {
-  const header = document.getElementById('header');
-  if(window.scrollY > 50){
-    header.classList.add('shrink');
-    document.body.style.paddingTop = '120px'; // فضای بالا هنگام کوچک شدن هدر
+const header = document.getElementById('header');
+const main = document.querySelector('main');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 50) {
+    header.classList.add('small');
+    main.style.paddingTop = '120px'; // ارتفاع هدر کوچک
   } else {
-    header.classList.remove('shrink');
-    document.body.style.paddingTop = '200px'; // فضای اولیه
+    header.classList.remove('small');
+    main.style.paddingTop = '260px'; // ارتفاع هدر بزرگ
   }
 });
 </script>
