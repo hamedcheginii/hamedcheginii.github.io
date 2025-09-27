@@ -1,5 +1,5 @@
 /* style.css */
-@import url('https://cdn.jsdelivr.net/gh/rastikerdar/iransans@1.1.0/dist/font-face.css');
+@import url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx@v1.2.3/dist/font-face-FaNum.css');
 
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: 'IRANSans', Tahoma, sans-serif;
+  font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
   background-color: #f5f5f5;
   color: #333;
   direction: rtl;
