@@ -21,9 +21,10 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   display: flex;
+  min-height: 100vh;
 }
 
-/* --- هدر عمودی --- */
+/* هدر عمودی */
 header {
   position: fixed;
   right: 0;
@@ -69,15 +70,15 @@ nav a {
   border-radius:5px;
   background: rgba(255,255,255,0.1);
   text-align: center;
-  transition: all 0.3s ease;
   cursor:pointer;
+  transition: all 0.3s ease;
 }
 nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
 /* محتویات صفحه */
 main {
   flex: 1;
-  padding: 40px 40px 40px 20px; /* فاصله از هدر سمت راست */
+  padding: 40px 40px 40px 20px;
   margin-right: 180px; /* فضای هدر */
 }
 
@@ -86,6 +87,7 @@ section {
   max-width: 900px; 
   margin: 40px auto; 
   padding: 0 20px; 
+  scroll-margin-top: 20px;
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease;
@@ -128,10 +130,10 @@ footer {
   margin-top: 40px;
 }
 
-/* ریسپانسیو */
+/* ریسپانسیو موبایل */
 @media(max-width:800px){
   body { flex-direction: column; }
-  header { position: relative; width: 100%; height: auto; flex-direction: row; justify-content: center; padding: 10px; }
+  header { position: relative; width: 100%; height: auto; flex-direction: row; justify-content: center; padding: 10px; overflow-x:auto;}
   header img { width: 60px; height: 60px; margin-bottom: 0; margin-right:10px; }
   nav { flex-direction: row; flex-wrap: wrap; gap:5px; }
   main { margin:0; padding:20px; }
@@ -155,7 +157,7 @@ footer {
 </header>
 
 <main>
-  <!-- درباره من -->
+  <!-- سکشن‌ها -->
   <section id="about">
     <div class="card">
       <h2>درباره من</h2>
@@ -176,7 +178,6 @@ footer {
     </div>
   </section>
 
-  <!-- بقیه سکشن‌ها -->
   <section id="experience">
     <div class="card">
       <h2>تجربه‌ها</h2>
@@ -248,14 +249,13 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.2 });
 sections.forEach(sec => observer.observe(sec));
 
-// اسکرول نرم با offset برای لینک‌ها
-const navLinks = document.querySelectorAll('nav a');
-navLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
+// اسکرول دقیق روی لینک‌ها
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
     const target = document.querySelector(link.dataset.target);
-    const headerWidth = document.getElementById('header').offsetWidth;
-    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 20;
-    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    const headerWidth = window.innerWidth >= 800 ? document.getElementById('header').offsetWidth : 0;
+    const topPos = target.offsetTop;
+    window.scrollTo({ top: topPos, behavior: 'smooth' });
   });
 });
 </script>
