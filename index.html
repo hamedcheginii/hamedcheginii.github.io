@@ -20,41 +20,68 @@ body {
   direction: rtl;
   line-height: 1.6;
   scroll-behavior: smooth;
+  display: flex;
 }
 
-/* لینک‌ها */
-a { text-decoration: none; color: #3498db; }
-a:hover { text-decoration: underline; }
-
-/* --- Header --- */
+/* --- هدر عمودی --- */
 header {
   position: fixed;
+  right: 0;
   top: 0;
-  width: 100%;
+  width: 180px;
+  height: 100vh;
   background: #2c3e50;
   color: #fff;
-  text-align: center;
-  padding: 40px 20px;
-  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
   z-index: 999;
+  overflow-y: auto;
 }
-header.small { padding: 10px 20px; }
-header img { width: 120px; height: 120px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; transition: all 0.3s ease; }
-header.small img { width: 60px; height: 60px; margin-bottom: 5px; }
-header h1 { font-size: 36px; margin-bottom: 5px; transition: all 0.3s ease; }
-header.small h1 { font-size: 24px; }
-header p { font-size: 18px; color: #ecf0f1; text-align: center; transition: all 0.3s ease; }
-header.small p { font-size: 14px; }
-
-/* منو */
-nav { margin-top: 20px; transition: all 0.3s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); transition: all 0.3s ease; cursor:pointer;}
+header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+header h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+header p {
+  font-size: 14px;
+  color: #ecf0f1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+nav a {
+  font-weight: bold;
+  color: #fff;
+  padding:8px 12px;
+  border-radius:5px;
+  background: rgba(255,255,255,0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor:pointer;
+}
 nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
 /* محتویات صفحه */
-main { padding-top: 260px; transition: padding-top 0.3s ease; }
+main {
+  flex: 1;
+  padding: 40px 40px 40px 20px; /* فاصله از هدر سمت راست */
+  margin-right: 180px; /* فضای هدر */
+}
 
-/* کارت‌ها */
+/* کارت‌ها و سکشن‌ها */
 section { 
   max-width: 900px; 
   margin: 40px auto; 
@@ -65,7 +92,6 @@ section {
 }
 section.visible { opacity: 1; transform: translateY(0); }
 
-/* کارت‌ها */
 .card {
   background: #fff;
   padding: 25px;
@@ -73,8 +99,6 @@ section.visible { opacity: 1; transform: translateY(0); }
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
-
-/* عنوان بخش‌ها */
 section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; }
 
 /* مهارت‌ها */
@@ -105,13 +129,12 @@ footer {
 }
 
 /* ریسپانسیو */
-@media(max-width:600px){
-  header h1 { font-size: 28px; }
-  header p { font-size: 16px; }
-  nav { flex-direction: row; flex-wrap: wrap; justify-content: center; gap:5px; }
-  section { padding: 0 10px; }
-  .card { padding: 15px; }
-  .skills ul { flex-direction: column; }
+@media(max-width:800px){
+  body { flex-direction: column; }
+  header { position: relative; width: 100%; height: auto; flex-direction: row; justify-content: center; padding: 10px; }
+  header img { width: 60px; height: 60px; margin-bottom: 0; margin-right:10px; }
+  nav { flex-direction: row; flex-wrap: wrap; gap:5px; }
+  main { margin:0; padding:20px; }
 }
 </style>
 </head>
@@ -153,7 +176,7 @@ footer {
     </div>
   </section>
 
-  <!-- تجربه‌ها -->
+  <!-- بقیه سکشن‌ها -->
   <section id="experience">
     <div class="card">
       <h2>تجربه‌ها</h2>
@@ -165,7 +188,6 @@ footer {
     </div>
   </section>
 
-  <!-- تحصیلات -->
   <section id="education">
     <div class="card">
       <h2>تحصیلات</h2>
@@ -177,7 +199,6 @@ footer {
     </div>
   </section>
 
-  <!-- مهارت‌ها -->
   <section id="skills">
     <div class="card skills">
       <h2>مهارت‌ها</h2>
@@ -192,7 +213,6 @@ footer {
     </div>
   </section>
 
-  <!-- پروژه‌ها -->
   <section id="projects">
     <div class="card">
       <h2>پروژه‌ها</h2>
@@ -204,7 +224,6 @@ footer {
     </div>
   </section>
 
-  <!-- تماس -->
   <section id="contact">
     <div class="card">
       <h2>تماس</h2>
@@ -220,13 +239,6 @@ footer {
 </main>
 
 <script>
-// کوچک شدن هدر
-const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  if(window.scrollY > 50) header.classList.add('small');
-  else header.classList.remove('small');
-});
-
 // افکت ورود سکشن‌ها
 const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
@@ -241,8 +253,8 @@ const navLinks = document.querySelectorAll('nav a');
 navLinks.forEach(link => {
   link.addEventListener('click', (e) => {
     const target = document.querySelector(link.dataset.target);
-    const headerHeight = header.offsetHeight;
-    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
+    const headerWidth = document.getElementById('header').offsetWidth;
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - 20;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   });
 });
