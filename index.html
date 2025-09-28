@@ -59,7 +59,11 @@ section {
   max-width: 900px; 
   margin: 40px auto; 
   padding: 0 20px; 
-  /* فاصله داینامیک با JS تنظیم میشه */
+}
+
+/* سکشن اول فاصله اضافی */
+#about {
+  margin-top: 120px; /* فاصله اضافه برای اینکه زیر هدر نره */
 }
 
 .card {
@@ -231,7 +235,7 @@ const sections = document.querySelectorAll("section");
 function updateScrollMargin() {
   const headerHeight = header.offsetHeight;
   sections.forEach(sec => {
-    sec.style.scrollMarginTop = headerHeight + 20 + "px"; // فاصله اضافه
+    sec.style.scrollMarginTop = headerHeight + 20 + "px"; // فاصله برای همه سکشن‌ها
   });
 }
 
