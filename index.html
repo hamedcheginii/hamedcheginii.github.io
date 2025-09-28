@@ -20,8 +20,7 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   display: flex;
-  flex-direction: column; /* اصلاح شد */
-  min-height: 100vh;
+  flex-direction: column;
 }
 
 /* --- دسکتاپ --- */
@@ -67,23 +66,37 @@ header.desktop nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); 
 /* --- محتوا --- */
 main { 
   flex: 1;
-  padding: 40px 40px 40px 20px; 
+  padding: 40px 20px; 
   margin-right: 180px; 
   display: flex;
   flex-direction: column;
+  align-items: center; /* وسط چین کردن سکشن‌ها */
 }
 section { 
-  max-width: 900px; 
-  margin: 40px auto; 
-  padding: 0 20px; 
-  scroll-margin-top: 20px; 
+  width: 900px; /* عرض یکسان */
+  max-width: 95%; /* ریسپانسیو */
+  margin: 40px 0; 
   opacity: 0; 
   transform: translateY(50px); 
   transition: all 0.8s ease; 
 }
 section.visible { opacity: 1; transform: translateY(0); }
-.card { background: #fff; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
-section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; display:flex; align-items:center; justify-content:center; gap:10px; }
+.card { 
+  background: #fff; 
+  padding: 25px; 
+  border-radius: 10px; 
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1); 
+  width: 100%; /* کارت هم عرض سکشن */
+}
+section h2 { 
+  margin-bottom: 15px; 
+  color: #2c3e50; 
+  text-align:center; 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  gap:10px; 
+}
 
 /* مهارت‌ها */
 .skills ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
@@ -91,15 +104,6 @@ section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; display:fle
 
 /* متن‌ها */
 p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
-
-/* فوتر */
-footer { 
-  background: #2c3e50; 
-  color: #fff; 
-  text-align: center; 
-  padding: 20px; 
-  margin-top: auto; /* اصلاح شد */
-}
 
 /* Drawer موبایل */
 header.mobile { display:none; }
@@ -146,6 +150,7 @@ header.mobile { display:none; }
   body { flex-direction: column; }
   header.desktop { display:none; }
   main { margin:0; padding:20px; }
+  section { width: 100%; margin: 30px 0; }
   #menuToggle { display:flex; }
   section h2 { font-size:18px; }
   .card { padding:15px; }
@@ -258,10 +263,6 @@ header.mobile { display:none; }
     </div>
   </section>
 </main>
-
-<footer>
-  <p>© ۱۴۰۴ حامد چگینی. تمام حقوق محفوظ است.</p>
-</footer>
 
 <script>
 // افکت ورود سکشن‌ها
