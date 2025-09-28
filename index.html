@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>رزومه حامد چگینی</title>
-<!-- فونت آیکن -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 @font-face {
@@ -24,7 +23,7 @@ body {
   min-height: 100vh;
 }
 
-/* هدر دسکتاپ */
+/* دسکتاپ هدر */
 header {
   position: fixed;
   right: 0;
@@ -73,27 +72,46 @@ footer { background:#2c3e50; color:#fff; text-align:center; padding:20px; margin
 /* Drawer موبایل */
 @media(max-width:800px){
   body { flex-direction:column; }
-  header { width:100%; height:auto; flex-direction:row; justify-content:space-between; padding:10px 20px; }
-  nav {
+  header { display:none; } /* هدر موبایل حذف شد */
+  .drawer {
     position: fixed; top:0; right:-250px; width:250px; height:100vh;
     background:#34495e; flex-direction:column; padding:60px 20px;
     gap:15px; transition: right 0.3s ease; z-index:1050;
+    display:flex;
   }
-  nav.show { right:0; }
+  .drawer.show { right:0; }
+  .drawer img { width:60px; height:60px; border-radius:50%; margin-bottom:10px; object-fit:cover; }
+  .drawer h1 { font-size:18px; margin-bottom:5px; color:#fff; text-align:center; }
+  .drawer p { font-size:14px; margin-bottom:15px; text-align:center; color:#ecf0f1; }
+  nav { flex-direction:column; display:flex; }
   main { margin:0; padding:20px; }
-  header img { width:60px; height:60px; margin-bottom:0; }
   .menu-toggle { display:block; }
 }
 </style>
 </head>
 <body>
 
+<i class="fas fa-bars menu-toggle" id="menuToggle"></i>
+
+<div class="drawer" id="drawerMenu">
+  <img src="profile.jpg" alt="عکس پروفایل">
+  <h1>حامد چگینی</h1>
+  <p>مدیریت پرتفو و ریسک</p>
+  <nav id="navMenu">
+    <a data-target="#about"><i class="fas fa-user"></i> درباره من</a>
+    <a data-target="#experience"><i class="fas fa-briefcase"></i> تجربه‌ها</a>
+    <a data-target="#education"><i class="fas fa-graduation-cap"></i> تحصیلات</a>
+    <a data-target="#skills"><i class="fas fa-cogs"></i> مهارت‌ها</a>
+    <a data-target="#projects"><i class="fas fa-folder-open"></i> پروژه‌ها</a>
+    <a data-target="#contact"><i class="fas fa-envelope"></i> تماس</a>
+  </nav>
+</div>
+
 <header id="header">
   <img src="profile.jpg" alt="عکس پروفایل">
   <h1>حامد چگینی</h1>
   <p>مدیریت پرتفو و ریسک</p>
-  <i class="fas fa-bars menu-toggle" id="menuToggle"></i>
-  <nav id="navMenu">
+  <nav>
     <a data-target="#about"><i class="fas fa-user"></i> درباره من</a>
     <a data-target="#experience"><i class="fas fa-briefcase"></i> تجربه‌ها</a>
     <a data-target="#education"><i class="fas fa-graduation-cap"></i> تحصیلات</a>
@@ -125,6 +143,7 @@ footer { background:#2c3e50; color:#fff; text-align:center; padding:20px; margin
     </div>
   </section>
 
+  <!-- سایر سکشن‌ها -->
   <section id="experience">
     <div class="card">
       <h2>تجربه‌ها</h2>
@@ -187,9 +206,9 @@ footer { background:#2c3e50; color:#fff; text-align:center; padding:20px; margin
 </main>
 
 <script>
-// افکت ورود
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver(entries=>{
+// افکت ورود سکشن‌ها
+const sections=document.querySelectorAll('section');
+const observer=new IntersectionObserver(entries=>{
   entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
 },{ threshold:0.2 });
 sections.forEach(sec=>observer.observe(sec));
@@ -199,14 +218,14 @@ document.querySelectorAll('nav a').forEach(link=>{
   link.addEventListener('click', e=>{
     e.preventDefault();
     document.querySelector(link.dataset.target).scrollIntoView({behavior:'smooth'});
-    if(window.innerWidth<800) navMenu.classList.remove('show'); // موبایل: بستن Drawer
+    if(window.innerWidth<800) drawerMenu.classList.remove('show');
   });
 });
 
 // Drawer موبایل
 const menuToggle=document.getElementById('menuToggle');
-const navMenu=document.getElementById('navMenu');
-menuToggle.addEventListener('click', ()=> navMenu.classList.toggle('show'));
+const drawerMenu=document.getElementById('drawerMenu');
+menuToggle.addEventListener('click', ()=> drawerMenu.classList.toggle('show'));
 </script>
 
 </body>
