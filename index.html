@@ -24,7 +24,7 @@ body {
   min-height: 100vh;
 }
 
-/* هدر */
+/* هدر دسکتاپ */
 header {
   position: fixed;
   right: 0;
@@ -40,26 +40,11 @@ header {
   z-index: 1000;
   transition: transform 0.3s ease;
 }
-header img {
-  width: 100px; height: 100px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  object-fit: cover;
-}
+header img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 20px; object-fit: cover; }
 header h1 { font-size: 20px; margin-bottom: 5px; text-align:center; }
 header p { font-size: 14px; margin-bottom: 20px; text-align:center; color:#ecf0f1; }
-
 nav { display:flex; flex-direction:column; gap:10px; }
-nav a {
-  display:flex; align-items:center; gap:8px;
-  font-weight:bold;
-  color:#fff;
-  padding:8px 12px;
-  border-radius:5px;
-  background: rgba(255,255,255,0.1);
-  cursor:pointer;
-  transition: all 0.3s ease;
-}
+nav a { display:flex; align-items:center; gap:8px; font-weight:bold; color:#fff; padding:8px 12px; border-radius:5px; background: rgba(255,255,255,0.1); cursor:pointer; transition: all 0.3s ease; }
 nav a:hover { color:#1abc9c; background: rgba(255,255,255,0.2); }
 nav a i { font-size:16px; }
 
@@ -67,22 +52,9 @@ nav a i { font-size:16px; }
 main { flex:1; margin-right:200px; padding:40px; }
 
 /* سکشن */
-section {
-  max-width:900px;
-  margin:40px auto;
-  padding:0 20px;
-  opacity:0;
-  transform:translateY(50px);
-  transition:all 0.8s ease;
-}
+section { max-width:900px; margin:40px auto; padding:0 20px; opacity:0; transform:translateY(50px); transition:all 0.8s ease; }
 section.visible { opacity:1; transform:translateY(0); }
-
-.card {
-  background:#fff;
-  padding:25px;
-  border-radius:10px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.1);
-}
+.card { background:#fff; padding:25px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.1); }
 section h2 { margin-bottom:15px; color:#2c3e50; text-align:center; }
 
 /* مهارت‌ها */
@@ -96,29 +68,18 @@ p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; let
 footer { background:#2c3e50; color:#fff; text-align:center; padding:20px; margin-top:40px; }
 
 /* موبایل */
-.menu-toggle {
-  display:none;
-  font-size:24px;
-  cursor:pointer;
-  color:#fff;
-  position:absolute;
-  left:20px;
-  top:20px;
-}
+.menu-toggle { display:none; font-size:24px; cursor:pointer; color:#fff; position:absolute; left:20px; top:20px; z-index:1100; }
+
+/* Drawer موبایل */
 @media(max-width:800px){
   body { flex-direction:column; }
-  header {
-    width:100%; height:auto; flex-direction:row; justify-content:space-between; padding:10px 20px;
-  }
+  header { width:100%; height:auto; flex-direction:row; justify-content:space-between; padding:10px 20px; }
   nav {
-    display:none;
-    flex-direction:column;
-    width:100%;
-    background:#34495e;
-    margin-top:10px;
-    padding:10px 0;
+    position: fixed; top:0; right:-250px; width:250px; height:100vh;
+    background:#34495e; flex-direction:column; padding:60px 20px;
+    gap:15px; transition: right 0.3s ease; z-index:1050;
   }
-  nav.show { display:flex; }
+  nav.show { right:0; }
   main { margin:0; padding:20px; }
   header img { width:60px; height:60px; margin-bottom:0; }
   .menu-toggle { display:block; }
@@ -238,11 +199,11 @@ document.querySelectorAll('nav a').forEach(link=>{
   link.addEventListener('click', e=>{
     e.preventDefault();
     document.querySelector(link.dataset.target).scrollIntoView({behavior:'smooth'});
-    if(window.innerWidth<800) navMenu.classList.remove('show'); // موبایل: بستن منو
+    if(window.innerWidth<800) navMenu.classList.remove('show'); // موبایل: بستن Drawer
   });
 });
 
-// منوی سه خطی موبایل
+// Drawer موبایل
 const menuToggle=document.getElementById('menuToggle');
 const navMenu=document.getElementById('navMenu');
 menuToggle.addEventListener('click', ()=> navMenu.classList.toggle('show'));
