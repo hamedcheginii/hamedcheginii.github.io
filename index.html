@@ -8,8 +8,6 @@
 @font-face {
   font-family: 'IRANSansXFaNum';
   src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -19,12 +17,12 @@ body {
   color: #333;
   direction: rtl;
   line-height: 1.6;
-  scroll-behavior: smooth;
   display: flex;
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
-/* هدر عمودی */
+/* هدر */
 header {
   position: fixed;
   right: 0;
@@ -40,102 +38,65 @@ header {
   z-index: 999;
   overflow-y: auto;
 }
-header img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  object-fit: cover;
-}
-header h1 {
-  font-size: 22px;
-  text-align: center;
-  margin-bottom: 5px;
-}
-header p {
-  font-size: 14px;
-  color: #ecf0f1;
-  text-align: center;
-  margin-bottom: 20px;
-}
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+header img { width: 100px; height: 100px; border-radius:50%; margin-bottom:20px; object-fit:cover; }
+header h1 { font-size:22px; margin-bottom:5px; text-align:center; }
+header p { font-size:14px; color:#ecf0f1; text-align:center; margin-bottom:20px; }
+nav { display:flex; flex-direction: column; gap:10px; }
 nav a {
-  font-weight: bold;
-  color: #fff;
+  font-weight:bold;
+  color:#fff;
   padding:8px 12px;
   border-radius:5px;
   background: rgba(255,255,255,0.1);
-  text-align: center;
+  text-align:center;
   cursor:pointer;
   transition: all 0.3s ease;
 }
-nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
+nav a:hover { color:#1abc9c; background: rgba(255,255,255,0.2); }
 
-/* محتویات صفحه */
+/* main */
 main {
-  flex: 1;
-  padding: 40px 40px 40px 20px;
-  margin-right: 180px; /* فضای هدر */
+  flex:1;
+  margin-right:180px;
+  padding:40px 40px 40px 20px;
 }
 
-/* کارت‌ها و سکشن‌ها */
+/* سکشن‌ها */
 section { 
-  max-width: 900px; 
-  margin: 40px auto; 
-  padding: 0 20px; 
-  scroll-margin-top: 20px;
-  opacity: 0;
-  transform: translateY(50px);
+  max-width:900px; 
+  margin:40px auto; 
+  padding:0 20px; 
+  scroll-margin-top:20px;
+  opacity:0;
+  transform:translateY(50px);
   transition: all 0.8s ease;
 }
-section.visible { opacity: 1; transform: translateY(0); }
-
+section.visible { opacity:1; transform:translateY(0); }
 .card {
-  background: #fff;
-  padding: 25px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  background:#fff;
+  padding:25px;
+  margin-bottom:25px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
 }
-section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; }
+section h2 { margin-bottom:15px; color:#2c3e50; text-align:center; }
 
 /* مهارت‌ها */
-.skills ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-}
-.skills li {
-  background: #3498db;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
+.skills ul { list-style:none; display:flex; flex-wrap:wrap; gap:10px; padding:0; }
+.skills li { background:#3498db; color:#fff; padding:5px 10px; border-radius:5px; }
 
-/* متن‌ها justify بدون فاصله بین حروف */
-p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
+/* متن‌ها justify */
+p, li { text-align:justify; text-justify: inter-word; word-spacing:normal; letter-spacing:normal; }
 
 /* فوتر */
-footer {
-  background: #2c3e50;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
+footer { background:#2c3e50; color:#fff; text-align:center; padding:20px; margin-top:40px; }
 
 /* ریسپانسیو موبایل */
 @media(max-width:800px){
   body { flex-direction: column; }
-  header { position: relative; width: 100%; height: auto; flex-direction: row; justify-content: center; padding: 10px; overflow-x:auto;}
-  header img { width: 60px; height: 60px; margin-bottom: 0; margin-right:10px; }
-  nav { flex-direction: row; flex-wrap: wrap; gap:5px; }
+  header { position:relative; width:100%; height:auto; flex-direction:row; justify-content:center; padding:10px; overflow-x:auto; }
+  header img { width:60px; height:60px; margin-bottom:0; margin-right:10px; }
+  nav { flex-direction:row; flex-wrap:wrap; gap:5px; }
   main { margin:0; padding:20px; }
 }
 </style>
@@ -157,23 +118,12 @@ footer {
 </header>
 
 <main>
-  <!-- سکشن‌ها -->
   <section id="about">
     <div class="card">
       <h2>درباره من</h2>
       <p>
-       مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
-        <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. 
-        تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.
-      </p>
-      <p>
-        انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. 
-        ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. 
-        <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong>
-      </p>
-      <p>
-        <strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> 
-        توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.
+        مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
+        <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>.
       </p>
     </div>
   </section>
@@ -195,7 +145,6 @@ footer {
       <ul>
         <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
         <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
-        <li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
       </ul>
     </div>
   </section>
@@ -208,8 +157,6 @@ footer {
         <li>Pandas & NumPy</li>
         <li>Plotly & Matplotlib</li>
         <li>مدل‌سازی مالی</li>
-        <li>بهینه‌سازی پرتفوی</li>
-        <li>Excel & VBA</li>
       </ul>
     </div>
   </section>
@@ -218,9 +165,8 @@ footer {
     <div class="card">
       <h2>پروژه‌ها</h2>
       <ul>
-        <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
-        <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
-        <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
+        <li><strong>بهینه‌سازی پرتفوی دینامیک</strong></li>
+        <li><strong>داشبورد تحلیل مالی</strong></li>
       </ul>
     </div>
   </section>
@@ -230,7 +176,6 @@ footer {
       <h2>تماس</h2>
       <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
-      <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
     </div>
   </section>
 
@@ -243,9 +188,7 @@ footer {
 // افکت ورود سکشن‌ها
 const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.2 });
 sections.forEach(sec => observer.observe(sec));
 
@@ -253,9 +196,7 @@ sections.forEach(sec => observer.observe(sec));
 document.querySelectorAll('nav a').forEach(link => {
   link.addEventListener('click', e => {
     const target = document.querySelector(link.dataset.target);
-    const headerWidth = window.innerWidth >= 800 ? document.getElementById('header').offsetWidth : 0;
-    const topPos = target.offsetTop;
-    window.scrollTo({ top: topPos, behavior: 'smooth' });
+    target.scrollIntoView({behavior:'smooth', block:'start'});
   });
 });
 </script>
