@@ -73,8 +73,8 @@ main {
   align-items: center; /* وسط چین کردن سکشن‌ها */
 }
 section { 
-  width: 900px; /* عرض یکسان */
-  max-width: 95%; /* ریسپانسیو */
+  width: 900px; 
+  max-width: 95%; 
   margin: 40px 0; 
   opacity: 0; 
   transform: translateY(50px); 
@@ -86,7 +86,8 @@ section.visible { opacity: 1; transform: translateY(0); }
   padding: 25px; 
   border-radius: 10px; 
   box-shadow: 0 6px 18px rgba(0,0,0,0.1); 
-  width: 100%; /* کارت هم عرض سکشن */
+  width: 100%; 
+  margin-bottom: 20px;
 }
 section h2 { 
   margin-bottom: 15px; 
@@ -145,13 +146,11 @@ header.mobile { display:none; }
 }
 #menuToggle span { 
   height: 4px; 
-  background:#333; /* رنگ اولیه تیره */ 
+  background:#333; 
   border-radius:2px; 
   transition: background 0.3s;
 }
-#menuToggle.active span {
-  background: #fff; /* وقتی منو باز شد سفید شود */
-}
+#menuToggle.active span { background: #fff; }
 
 /* --- ریسپانسیو موبایل --- */
 @media(max-width:800px){
@@ -218,11 +217,36 @@ header.mobile { display:none; }
   <section id="experience">
     <div class="card">
       <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
-      <ul>
-        <li><strong>کارآموزی در بانک XYZ</strong> - تابستان ۱۴۰۳</li>
-        <li><strong>دستیار پژوهشی</strong> - پروژه بهینه‌سازی پرتفوی</li>
-        <li><strong>کارشناس مالی</strong> - شرکت ABC</li>
-      </ul>
+
+      <div class="card">
+        <h3>کارآموزی در بانک XYZ</h3>
+        <p><strong>تابستان ۱۴۰۳</strong></p>
+        <ul>
+          <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
+          <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
+          <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</h3>
+        <p><strong>بهار ۱۴۰۳</strong></p>
+        <ul>
+          <li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
+          <li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
+          <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>کارشناس مالی - شرکت ABC</h3>
+        <p><strong>۱۴۰۲ تا ۱۴۰۳</strong></p>
+        <ul>
+          <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
+          <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
+          <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -286,7 +310,7 @@ document.querySelectorAll('nav a').forEach(link=>{
     e.preventDefault();
     document.querySelector(link.dataset.target).scrollIntoView({behavior:'smooth'});
     if(window.innerWidth<800) drawerMenu.classList.remove('show');
-    menuToggle.classList.remove('active'); // بستن حالت سفید
+    menuToggle.classList.remove('active'); 
   });
 });
 
