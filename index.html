@@ -20,6 +20,7 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth;
   display: flex;
+  flex-direction: column; /* اصلاح شد */
   min-height: 100vh;
 }
 
@@ -64,8 +65,22 @@ header.desktop nav a {
 header.desktop nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
 /* --- محتوا --- */
-main { flex: 1; padding: 40px 40px 40px 20px; margin-right: 180px; }
-section { max-width: 900px; margin: 40px auto; padding: 0 20px; scroll-margin-top: 20px; opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+main { 
+  flex: 1;
+  padding: 40px 40px 40px 20px; 
+  margin-right: 180px; 
+  display: flex;
+  flex-direction: column;
+}
+section { 
+  max-width: 900px; 
+  margin: 40px auto; 
+  padding: 0 20px; 
+  scroll-margin-top: 20px; 
+  opacity: 0; 
+  transform: translateY(50px); 
+  transition: all 0.8s ease; 
+}
 section.visible { opacity: 1; transform: translateY(0); }
 .card { background: #fff; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
 section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; display:flex; align-items:center; justify-content:center; gap:10px; }
@@ -78,7 +93,13 @@ section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; display:fle
 p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
 
 /* فوتر */
-footer { background: #2c3e50; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+footer { 
+  background: #2c3e50; 
+  color: #fff; 
+  text-align: center; 
+  padding: 20px; 
+  margin-top: auto; /* اصلاح شد */
+}
 
 /* Drawer موبایل */
 header.mobile { display:none; }
@@ -171,24 +192,13 @@ header.mobile { display:none; }
 </div>
 
 <main>
-  <!-- سکشن‌ها با متن اصلی تو -->
+  <!-- سکشن‌ها -->
   <section id="about">
     <div class="card">
       <h2><i class="fa-solid fa-user"></i> درباره من</h2>
-      <p>
-       مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
-        <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. 
-        تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.
-      </p>
-      <p>
-        انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. 
-        ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. 
-        <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong>
-      </p>
-      <p>
-        <strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> 
-        توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.
-      </p>
+      <p>مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.</p>
+      <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong></p>
+      <p><strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
     </div>
   </section>
 
