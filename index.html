@@ -19,7 +19,7 @@ body {
   color: #333;
   direction: rtl;
   line-height: 1.6;
-  scroll-behavior: smooth; /* اسکرول نرم */
+  scroll-behavior: smooth;
 }
 
 /* لینک‌ها */
@@ -48,7 +48,7 @@ header.small p { font-size: 14px; }
 
 /* منو */
 nav { margin-top: 20px; transition: all 0.3s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); transition: all 0.3s ease;}
+nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); transition: all 0.3s ease; }
 nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
 /* محتویات صفحه */
@@ -66,9 +66,7 @@ section {
 }
 section.visible { opacity: 1; transform: translateY(0); }
 
-/* فاصله اضافی برای سکشن اول */
-#about { margin-top: 120px; }
-
+/* کارت‌ها */
 .card {
   background: #fff;
   padding: 25px;
@@ -130,7 +128,7 @@ footer {
     <a href="#education">تحصیلات</a>
     <a href="#skills">مهارت‌ها</a>
     <a href="#projects">پروژه‌ها</a>
-    <a href="#contact">اطلاعات تماس</a>
+    <a href="#contact">تماس</a>
   </nav>
 </header>
 
@@ -210,5 +208,42 @@ footer {
   <!-- تماس -->
   <section id="contact">
     <div class="card">
-      <h2>تماس با من</h2>
-      <p>ایمیل: <a href="ma
+      <h2>تماس</h2>
+      <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
+      <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© ۱۴۰۴ حامد چگینی. تمام حقوق محفوظ است.</p>
+  </footer>
+</main>
+
+<script>
+const header = document.getElementById('header');
+const sections = document.querySelectorAll("section");
+
+// هدر کوچک‌شونده
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 50) header.classList.add('small');
+  else header.classList.remove('small');
+});
+
+// افکت ورود سکشن‌ها
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+
+// مشاهده سکشن‌ها پس از لود
+window.addEventListener('load', () => {
+  sections.forEach(sec => observer.observe(sec));
+  // اطمینان از نمایش سکشن اول
+  setTimeout(() => sections.forEach(sec => sec.classList.add('visible')), 100);
+});
+</script>
+
+</body>
+</html>
