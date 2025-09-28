@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>رزومه حامد چگینی</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 @font-face {
   font-family: 'IRANSansXFaNum';
@@ -11,7 +12,6 @@
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
-
 body {
   font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
   background: #f5f5f5;
@@ -43,25 +43,12 @@ header.desktop img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   object-fit: cover;
 }
-header.desktop h1 {
-  font-size: 22px;
-  text-align: center;
-  margin-bottom: 5px;
-}
-header.desktop p {
-  font-size: 14px;
-  color: #ecf0f1;
-  text-align: center;
-  margin-bottom: 20px;
-}
-header.desktop nav {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+header.desktop h1 { font-size: 22px; text-align: center; margin-bottom: 5px; }
+header.desktop p { font-size: 14px; color: #ecf0f1; text-align: center; margin-bottom: 20px; }
+header.desktop nav { display: flex; flex-direction: column; gap: 10px; }
 header.desktop nav a {
   font-weight: bold;
   color: #fff;
@@ -72,68 +59,26 @@ header.desktop nav a {
   transition: all 0.3s ease;
   display:flex;
   align-items:center;
-  gap:5px;
+  gap:8px;
 }
 header.desktop nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
-/* آیکن‌های منو */
-header.desktop nav a img {
-  width: 18px;
-  height: 18px;
-}
-
 /* --- محتوا --- */
-main {
-  flex: 1;
-  padding: 40px 40px 40px 20px;
-  margin-right: 180px;
-}
-section { 
-  max-width: 900px; 
-  margin: 40px auto; 
-  padding: 0 20px; 
-  scroll-margin-top: 20px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease;
-}
+main { flex: 1; padding: 40px 40px 40px 20px; margin-right: 180px; }
+section { max-width: 900px; margin: 40px auto; padding: 0 20px; scroll-margin-top: 20px; opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
 section.visible { opacity: 1; transform: translateY(0); }
-.card {
-  background: #fff;
-  padding: 25px;
-  margin-bottom: 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-}
+.card { background: #fff; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
 section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; display:flex; align-items:center; justify-content:center; gap:10px; }
-section h2 img { width: 24px; height:24px; }
 
 /* مهارت‌ها */
-.skills ul {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-}
-.skills li {
-  background: #3498db;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
+.skills ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
+.skills li { background: #3498db; color: #fff; padding: 5px 10px; border-radius: 5px; }
 
 /* متن‌ها */
 p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
 
 /* فوتر */
-footer {
-  background: #2c3e50;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
+footer { background: #2c3e50; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
 
 /* Drawer موبایل */
 header.mobile { display:none; }
@@ -153,12 +98,11 @@ header.mobile { display:none; }
   overflow-y: auto;
 }
 #drawerMenu.show { right: 0; }
-#drawerMenu img { width: 80px; height: 80px; border-radius: 50%; margin-bottom:10px; }
-#drawerMenu h1 { font-size: 18px; margin-bottom:5px; }
-#drawerMenu p { font-size: 12px; margin-bottom:15px; color: #ecf0f1; }
+#drawerMenu img { width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display:block; }
+#drawerMenu h1 { font-size: 18px; text-align:center; margin-bottom:5px; }
+#drawerMenu p { font-size: 12px; text-align:center; margin-bottom:15px; color: #ecf0f1; }
 #drawerMenu nav { display:flex; flex-direction: column; gap:10px; }
-#drawerMenu nav a { padding:8px; background: rgba(255,255,255,0.1); border-radius:5px; cursor:pointer; transition:0.3s; text-align:center; display:flex; align-items:center; gap:5px; }
-#drawerMenu nav a img { width:16px; height:16px; }
+#drawerMenu nav a { padding:8px; background: rgba(255,255,255,0.1); border-radius:5px; cursor:pointer; transition:0.3s; text-align:center; display:flex; align-items:center; gap:5px; font-size:14px;}
 #drawerMenu nav a:hover { background: rgba(255,255,255,0.2); color:#1abc9c; }
 
 /* Toggle Button */
@@ -174,7 +118,7 @@ header.mobile { display:none; }
   cursor: pointer;
   z-index: 1100;
 }
-#menuToggle span { height: 4px; background:#2c3e50; border-radius:2px; }
+#menuToggle span { height: 4px; background:#fff; border-radius:2px; }
 
 /* --- ریسپانسیو موبایل --- */
 @media(max-width:800px){
@@ -182,13 +126,12 @@ header.mobile { display:none; }
   header.desktop { display:none; }
   main { margin:0; padding:20px; }
   #menuToggle { display:flex; }
-  section h2 img { width:20px; height:20px; }
+  section h2 { font-size:18px; }
   .card { padding:15px; }
   #drawerMenu { width:200px; }
   #drawerMenu img { width:60px; height:60px; }
   #drawerMenu h1 { font-size:16px; }
   #drawerMenu p { font-size:11px; }
-  #drawerMenu nav a img { width:14px; height:14px; }
   #drawerMenu nav a { font-size:13px; }
 }
 </style>
@@ -200,12 +143,12 @@ header.mobile { display:none; }
   <h1>حامد چگینی</h1>
   <p>مدیریت پرتفو و ریسک</p>
   <nav>
-    <a data-target="#about"><img src="icons/about.png"> درباره من</a>
-    <a data-target="#experience"><img src="icons/experience.png"> تجربه‌ها</a>
-    <a data-target="#education"><img src="icons/education.png"> تحصیلات</a>
-    <a data-target="#skills"><img src="icons/skills.png"> مهارت‌ها</a>
-    <a data-target="#projects"><img src="icons/projects.png"> پروژه‌ها</a>
-    <a data-target="#contact"><img src="icons/contact.png"> تماس</a>
+    <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
+    <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
+    <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+    <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
+    <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+    <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
   </nav>
 </header>
 
@@ -218,28 +161,40 @@ header.mobile { display:none; }
   <h1>حامد چگینی</h1>
   <p>مدیریت پرتفو و ریسک</p>
   <nav>
-    <a data-target="#about"><img src="icons/about.png"> درباره من</a>
-    <a data-target="#experience"><img src="icons/experience.png"> تجربه‌ها</a>
-    <a data-target="#education"><img src="icons/education.png"> تحصیلات</a>
-    <a data-target="#skills"><img src="icons/skills.png"> مهارت‌ها</a>
-    <a data-target="#projects"><img src="icons/projects.png"> پروژه‌ها</a>
-    <a data-target="#contact"><img src="icons/contact.png"> تماس</a>
+    <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
+    <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
+    <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+    <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
+    <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+    <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
   </nav>
 </div>
 
 <main>
+  <!-- سکشن‌ها با متن اصلی تو -->
   <section id="about">
     <div class="card">
-      <h2><img src="icons/about.png"> درباره من</h2>
-      <p>مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی...</p>
-      <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها...</p>
-      <p><strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی...</strong></p>
+      <h2><i class="fa-solid fa-user"></i> درباره من</h2>
+      <p>
+       مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
+        <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. 
+        تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.
+      </p>
+      <p>
+        انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. 
+        ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. 
+        <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong>
+      </p>
+      <p>
+        <strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> 
+        توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.
+      </p>
     </div>
   </section>
 
   <section id="experience">
     <div class="card">
-      <h2><img src="icons/experience.png"> تجربه‌ها</h2>
+      <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
       <ul>
         <li><strong>کارآموزی در بانک XYZ</strong> - تابستان ۱۴۰۳</li>
         <li><strong>دستیار پژوهشی</strong> - پروژه بهینه‌سازی پرتفوی</li>
@@ -250,7 +205,7 @@ header.mobile { display:none; }
 
   <section id="education">
     <div class="card">
-      <h2><img src="icons/education.png"> تحصیلات</h2>
+      <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
       <ul>
         <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
         <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
@@ -261,7 +216,7 @@ header.mobile { display:none; }
 
   <section id="skills">
     <div class="card skills">
-      <h2><img src="icons/skills.png"> مهارت‌ها</h2>
+      <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
       <ul>
         <li>Python</li>
         <li>Pandas & NumPy</li>
@@ -275,7 +230,7 @@ header.mobile { display:none; }
 
   <section id="projects">
     <div class="card">
-      <h2><img src="icons/projects.png"> پروژه‌ها</h2>
+      <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
       <ul>
         <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
         <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
@@ -286,7 +241,7 @@ header.mobile { display:none; }
 
   <section id="contact">
     <div class="card">
-      <h2><img src="icons/contact.png"> تماس</h2>
+      <h2><i class="fa-solid fa-phone"></i> تماس</h2>
       <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
       <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
