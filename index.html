@@ -4,11 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>رزومه حامد چگینی</title>
+<!-- Font Awesome برای آیکن‌ها -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 @font-face {
   font-family: 'IRANSansXFaNum';
   src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
@@ -23,8 +26,8 @@ body {
   min-height: 100vh;
 }
 
-/* --- دسکتاپ --- */
-header.desktop {
+/* هدر عمودی دسکتاپ */
+header {
   position: fixed;
   right: 0;
   top: 0;
@@ -39,17 +42,31 @@ header.desktop {
   z-index: 999;
   overflow-y: auto;
 }
-header.desktop img {
+header img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   object-fit: cover;
 }
-header.desktop h1 { font-size: 22px; text-align: center; margin-bottom: 5px; }
-header.desktop p { font-size: 14px; color: #ecf0f1; text-align: center; margin-bottom: 20px; }
-header.desktop nav { display: flex; flex-direction: column; gap: 10px; }
-header.desktop nav a {
+header h1 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+header p {
+  font-size: 14px;
+  color: #ecf0f1;
+  text-align: center;
+  margin-bottom: 20px;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+nav a {
   font-weight: bold;
   color: #fff;
   padding:8px 12px;
@@ -57,133 +74,116 @@ header.desktop nav a {
   text-align: center;
   cursor:pointer;
   transition: all 0.3s ease;
-  display:flex;
-  align-items:center;
-  gap:8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
-header.desktop nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
+nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
-/* --- محتوا --- */
-main { flex: 1; padding: 40px 40px 40px 20px; margin-right: 180px; }
-section { max-width: 900px; margin: 40px auto; padding: 0 20px; scroll-margin-top: 20px; opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+/* محتویات صفحه */
+main {
+  flex: 1;
+  padding: 40px 40px 40px 20px;
+  margin-right: 180px; /* فضای هدر */
+}
+
+/* کارت‌ها و سکشن‌ها */
+section { 
+  max-width: 900px; 
+  margin: 40px auto; 
+  padding: 0 20px; 
+  scroll-margin-top: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}
 section.visible { opacity: 1; transform: translateY(0); }
-.card { background: #fff; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.1); }
-section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; display:flex; align-items:center; justify-content:center; gap:10px; }
+
+.card {
+  background: #fff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; }
 
 /* مهارت‌ها */
-.skills ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
-.skills li { background: #3498db; color: #fff; padding: 5px 10px; border-radius: 5px; }
+.skills ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+}
+.skills li {
+  background: #3498db;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 
-/* متن‌ها */
+/* متن‌ها justify بدون فاصله بین حروف */
 p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
 
 /* فوتر */
 footer {
   background: #2c3e50;
   color: #fff;
-  text-align: center; /* وسط چین کردن متن */
+  text-align: center;
   padding: 20px;
+  width: 100%;
   clear: both;
-  width: 100%; /* مطمئن می‌شه که تمام عرض باشه */
-  margin-top: 40px;
-  position: relative; /* مطمئن می‌شه که کنار هدر نشه */
+  position: relative;
 }
 
-/* Drawer موبایل */
-header.mobile { display:none; }
-#drawerMenu {
-  position: fixed;
-  top: 0;
-  right: -260px;
-  width: 260px;
-  height: 100%;
-  background: #2c3e50;
-  color: #fff;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  transition: right 0.3s ease;
-  overflow-y: auto;
-}
-#drawerMenu.show { right: 0; }
-#drawerMenu img { width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display:block; }
-#drawerMenu h1 { font-size: 18px; text-align:center; margin-bottom:5px; }
-#drawerMenu p { font-size: 12px; text-align:center; margin-bottom:15px; color: #ecf0f1; }
-#drawerMenu nav { display:flex; flex-direction: column; gap:10px; }
-#drawerMenu nav a { padding:8px; background: rgba(255,255,255,0.1); border-radius:5px; cursor:pointer; transition:0.3s; text-align:center; display:flex; align-items:center; gap:5px; font-size:14px;}
-#drawerMenu nav a:hover { background: rgba(255,255,255,0.2); color:#1abc9c; }
-
-/* Toggle Button */
-#menuToggle {
+/* منوی همبرگر موبایل */
+.hamburger {
   display: none;
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  width: 30px;
-  height: 25px;
-  flex-direction: column;
-  justify-content: space-between;
+  font-size: 24px;
   cursor: pointer;
-  z-index: 1100;
+  color: #2c3e50;
+  background: none;
+  border: none;
+  margin: 10px;
 }
-#menuToggle span { height: 4px; background:#fff; border-radius:2px; }
 
-/* --- ریسپانسیو موبایل --- */
+/* ریسپانسیو موبایل */
 @media(max-width:800px){
   body { flex-direction: column; }
-  header.desktop { display:none; }
+  header { position: relative; width: 100%; height: auto; flex-direction: column; align-items: flex-end; padding: 10px; overflow: visible;}
+  header img { width: 60px; height: 60px; margin-bottom: 5px; margin-right: 0; }
+  header h1 { font-size: 18px; }
+  header p { font-size: 12px; }
+  nav { display: none; flex-direction: column; gap:5px; width: 100%; margin-top: 5px;}
   main { margin:0; padding:20px; }
-  #menuToggle { display:flex; }
-  section h2 { font-size:18px; }
-  .card { padding:15px; }
-  #drawerMenu { width:200px; }
-  #drawerMenu img { width:60px; height:60px; }
-  #drawerMenu h1 { font-size:16px; }
-  #drawerMenu p { font-size:11px; }
-  #drawerMenu nav a { font-size:13px; }
+  .hamburger { display: block; }
+  nav a { font-size: 14px; }
 }
 </style>
 </head>
 <body>
 
-<header class="desktop">
+<header id="header">
+  <button class="hamburger"><i class="fas fa-bars"></i></button>
   <img src="profile.jpg" alt="عکس پروفایل">
   <h1>حامد چگینی</h1>
   <p>مدیریت پرتفو و ریسک</p>
   <nav>
-    <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
-    <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
-    <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
-    <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
-    <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
-    <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
+    <a data-target="#about"><i class="fas fa-user"></i> درباره من</a>
+    <a data-target="#experience"><i class="fas fa-briefcase"></i> تجربه‌ها</a>
+    <a data-target="#education"><i class="fas fa-graduation-cap"></i> تحصیلات</a>
+    <a data-target="#skills"><i class="fas fa-cogs"></i> مهارت‌ها</a>
+    <a data-target="#projects"><i class="fas fa-folder-open"></i> پروژه‌ها</a>
+    <a data-target="#contact"><i class="fas fa-phone"></i> تماس</a>
   </nav>
 </header>
 
-<div id="menuToggle">
-  <span></span><span></span><span></span>
-</div>
-
-<div id="drawerMenu">
-  <img src="profile.jpg" alt="عکس پروفایل">
-  <h1>حامد چگینی</h1>
-  <p>مدیریت پرتفو و ریسک</p>
-  <nav>
-    <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
-    <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
-    <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
-    <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
-    <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
-    <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
-  </nav>
-</div>
-
 <main>
-  <!-- سکشن‌ها با متن اصلی تو -->
   <section id="about">
     <div class="card">
-      <h2><i class="fa-solid fa-user"></i> درباره من</h2>
+      <h2>درباره من</h2>
       <p>
        مدیر سرمایه‏ گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. 
         <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. 
@@ -203,7 +203,7 @@ header.mobile { display:none; }
 
   <section id="experience">
     <div class="card">
-      <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
+      <h2>تجربه‌ها</h2>
       <ul>
         <li><strong>کارآموزی در بانک XYZ</strong> - تابستان ۱۴۰۳</li>
         <li><strong>دستیار پژوهشی</strong> - پروژه بهینه‌سازی پرتفوی</li>
@@ -214,7 +214,7 @@ header.mobile { display:none; }
 
   <section id="education">
     <div class="card">
-      <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
+      <h2>تحصیلات</h2>
       <ul>
         <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
         <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
@@ -225,7 +225,7 @@ header.mobile { display:none; }
 
   <section id="skills">
     <div class="card skills">
-      <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
+      <h2>مهارت‌ها</h2>
       <ul>
         <li>Python</li>
         <li>Pandas & NumPy</li>
@@ -239,7 +239,7 @@ header.mobile { display:none; }
 
   <section id="projects">
     <div class="card">
-      <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
+      <h2>پروژه‌ها</h2>
       <ul>
         <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
         <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
@@ -250,7 +250,7 @@ header.mobile { display:none; }
 
   <section id="contact">
     <div class="card">
-      <h2><i class="fa-solid fa-phone"></i> تماس</h2>
+      <h2>تماس</h2>
       <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
       <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
@@ -264,25 +264,41 @@ header.mobile { display:none; }
 
 <script>
 // افکت ورود سکشن‌ها
-const sections=document.querySelectorAll('section');
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
-},{ threshold:0.2 });
-sections.forEach(sec=>observer.observe(sec));
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+sections.forEach(sec => observer.observe(sec));
 
-// اسکرول روی لینک‌ها
-document.querySelectorAll('nav a').forEach(link=>{
-  link.addEventListener('click', e=>{
-    e.preventDefault();
-    document.querySelector(link.dataset.target).scrollIntoView({behavior:'smooth'});
-    if(window.innerWidth<800) drawerMenu.classList.remove('show');
+// اسکرول دقیق روی لینک‌ها
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.dataset.target);
+    const topPos = target.offsetTop;
+    window.scrollTo({ top: topPos, behavior: 'smooth' });
+    if(window.innerWidth <= 800) { toggleMenu(false); }
   });
 });
 
-// Drawer موبایل
-const menuToggle=document.getElementById('menuToggle');
-const drawerMenu=document.getElementById('drawerMenu');
-menuToggle.addEventListener('click', ()=> drawerMenu.classList.toggle('show'));
+// همبرگر موبایل
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+hamburger.addEventListener('click', () => { 
+  const open = nav.style.display === 'flex';
+  toggleMenu(!open);
+});
+
+function toggleMenu(show){
+  if(show){
+    nav.style.display = 'flex';
+    hamburger.style.color = '#fff';
+  } else {
+    nav.style.display = 'none';
+    hamburger.style.color = '#2c3e50';
+  }
+}
 </script>
 
 </body>
