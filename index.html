@@ -143,7 +143,15 @@ header.mobile { display:none; }
   cursor: pointer;
   z-index: 1100;
 }
-#menuToggle span { height: 4px; background:#fff; border-radius:2px; }
+#menuToggle span { 
+  height: 4px; 
+  background:#333; /* رنگ اولیه تیره */ 
+  border-radius:2px; 
+  transition: background 0.3s;
+}
+#menuToggle.active span {
+  background: #fff; /* وقتی منو باز شد سفید شود */
+}
 
 /* --- ریسپانسیو موبایل --- */
 @media(max-width:800px){
@@ -278,13 +286,17 @@ document.querySelectorAll('nav a').forEach(link=>{
     e.preventDefault();
     document.querySelector(link.dataset.target).scrollIntoView({behavior:'smooth'});
     if(window.innerWidth<800) drawerMenu.classList.remove('show');
+    menuToggle.classList.remove('active'); // بستن حالت سفید
   });
 });
 
-// Drawer موبایل
+// Drawer موبایل و تغییر رنگ منوی همبرگری
 const menuToggle=document.getElementById('menuToggle');
 const drawerMenu=document.getElementById('drawerMenu');
-menuToggle.addEventListener('click', ()=> drawerMenu.classList.toggle('show'));
+menuToggle.addEventListener('click', ()=>{
+  drawerMenu.classList.toggle('show');
+  menuToggle.classList.toggle('active');
+});
 </script>
 
 </body>
