@@ -13,13 +13,13 @@
 }
 
 * { box-sizing: border-box; margin:0; padding:0; }
-
 body {
   font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
   background: #f5f5f5;
   color: #333;
   direction: rtl;
   line-height: 1.6;
+  scroll-behavior: smooth; /* اسکرول نرم */
 }
 
 /* لینک‌ها */
@@ -48,7 +48,7 @@ header.small p { font-size: 14px; }
 
 /* منو */
 nav { margin-top: 20px; transition: all 0.3s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); }
+nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); transition: all 0.3s ease;}
 nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
 /* محتویات صفحه */
@@ -59,12 +59,15 @@ section {
   max-width: 900px; 
   margin: 40px auto; 
   padding: 0 20px; 
+  scroll-margin-top: 140px;
+  opacity: 0; /* افکت ورود */
+  transform: translateY(50px);
+  transition: all 0.8s ease;
 }
+section.visible { opacity: 1; transform: translateY(0); }
 
-/* سکشن اول فاصله اضافی */
-#about {
-  margin-top: 120px; /* فاصله اضافه برای اینکه زیر هدر نره */
-}
+/* فاصله اضافی برای سکشن اول */
+#about { margin-top: 120px; }
 
 .card {
   background: #fff;
@@ -75,10 +78,7 @@ section {
 }
 
 /* عنوان بخش‌ها */
-section h2 {
-  margin-bottom: 15px; 
-  color: #2c3e50; 
-}
+section h2 { margin-bottom: 15px; color: #2c3e50; text-align:center; }
 
 /* مهارت‌ها */
 .skills ul {
@@ -96,12 +96,7 @@ section h2 {
 }
 
 /* متن‌ها justify بدون فاصله بین حروف */
-p, li {
-  text-align: justify;
-  text-justify: inter-word;
-  word-spacing: normal;
-  letter-spacing: normal;
-}
+p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
 
 /* فوتر */
 footer {
@@ -216,43 +211,4 @@ footer {
   <section id="contact">
     <div class="card">
       <h2>تماس با من</h2>
-      <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
-      <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© ۱۴۰۴ حامد چگینی. تمام حقوق محفوظ است.</p>
-  </footer>
-</main>
-
-<script>
-const header = document.getElementById('header');
-const main = document.querySelector('main');
-const sections = document.querySelectorAll("section");
-
-function updateScrollMargin() {
-  const headerHeight = header.offsetHeight;
-  sections.forEach(sec => {
-    sec.style.scrollMarginTop = headerHeight + 20 + "px"; // فاصله برای همه سکشن‌ها
-  });
-}
-
-window.addEventListener('scroll', () => {
-  if(window.scrollY > 50) {
-    header.classList.add('small');
-    main.style.paddingTop = '120px';
-  } else {
-    header.classList.remove('small');
-    main.style.paddingTop = '260px';
-  }
-  updateScrollMargin();
-});
-
-window.addEventListener("resize", updateScrollMargin);
-updateScrollMargin();
-</script>
-
-</body>
-</html>
+      <p>ایمیل: <a href="ma
