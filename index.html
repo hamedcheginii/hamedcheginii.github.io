@@ -48,7 +48,7 @@ header.small p { font-size: 14px; }
 
 /* منو */
 nav { margin-top: 20px; transition: all 0.3s ease; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); transition: all 0.3s ease; }
+nav a { font-weight: bold; color: #fff; padding:5px 10px; border-radius:5px; background: rgba(255,255,255,0.1); transition: all 0.3s ease; cursor:pointer;}
 nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
 
 /* محتویات صفحه */
@@ -59,7 +59,6 @@ section {
   max-width: 900px; 
   margin: 40px auto; 
   padding: 0 20px; 
-  scroll-margin-top: 180px; /* فاصله مناسب از هدر */
   opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease;
@@ -123,12 +122,12 @@ footer {
   <h1>حامد چگینی</h1>
   <p>مدیریت پرتفو و ریسک</p>
   <nav>
-    <a href="#about">درباره من</a>
-    <a href="#experience">تجربه‌ها</a>
-    <a href="#education">تحصیلات</a>
-    <a href="#skills">مهارت‌ها</a>
-    <a href="#projects">پروژه‌ها</a>
-    <a href="#contact">تماس</a>
+    <a data-target="#about">درباره من</a>
+    <a data-target="#experience">تجربه‌ها</a>
+    <a data-target="#education">تحصیلات</a>
+    <a data-target="#skills">مهارت‌ها</a>
+    <a data-target="#projects">پروژه‌ها</a>
+    <a data-target="#contact">تماس</a>
   </nav>
 </header>
 
@@ -236,6 +235,17 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.2 });
 sections.forEach(sec => observer.observe(sec));
+
+// اسکرول نرم با offset برای لینک‌ها
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.dataset.target);
+    const headerHeight = header.offsetHeight;
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+  });
+});
 </script>
 
 </body>
