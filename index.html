@@ -59,8 +59,8 @@ section {
   max-width: 900px; 
   margin: 40px auto; 
   padding: 0 20px; 
-  scroll-margin-top: 140px;
-  opacity: 0; /* افکت ورود */
+  scroll-margin-top: 180px; /* فاصله مناسب از هدر */
+  opacity: 0;
   transform: translateY(50px);
   transition: all 0.8s ease;
 }
@@ -221,28 +221,21 @@ footer {
 </main>
 
 <script>
-const header = document.getElementById('header');
-const sections = document.querySelectorAll("section");
-
 // هدر کوچک‌شونده
+const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
   if(window.scrollY > 50) header.classList.add('small');
   else header.classList.remove('small');
 });
 
 // افکت ورود سکشن‌ها
+const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting) entry.target.classList.add('visible');
   });
 }, { threshold: 0.2 });
-
-// مشاهده سکشن‌ها پس از لود
-window.addEventListener('load', () => {
-  sections.forEach(sec => observer.observe(sec));
-  // اطمینان از نمایش سکشن اول
-  setTimeout(() => sections.forEach(sec => sec.classList.add('visible')), 100);
-});
+sections.forEach(sec => observer.observe(sec));
 </script>
 
 </body>
