@@ -321,6 +321,16 @@ menuToggle.addEventListener('click', ()=>{
   drawerMenu.classList.toggle('show');
   menuToggle.classList.toggle('active');
 });
+
+// بستن منوی موبایل با کلیک روی هر جایی به جز منو و همبرگری
+document.addEventListener('click', function(e){
+  if(window.innerWidth < 800){
+    if(!drawerMenu.contains(e.target) && !menuToggle.contains(e.target)){
+      drawerMenu.classList.remove('show');
+      menuToggle.classList.remove('active');
+    }
+  }
+});
 </script>
 
 </body>
