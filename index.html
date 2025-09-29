@@ -14,12 +14,12 @@
 
         /* --- متغیرهای رنگی --- */
         :root {
-            --color-primary: #1e3a8a; /* آبی تیره عمیق (Deep Blue) */
-            --color-secondary: #3b82f6; /* آبی روشن‌تر برای تاکید (Accent Blue) */
-            --color-text: #1f2937; /* خاکستری تیره برای متن اصلی */
-            --color-background: #f8fafc; /* سفید متمایل به خاکستری روشن برای پس‌زمینه */
-            --color-card-bg: #ffffff; /* سفید خالص برای کارت‌ها */
-            --color-shadow: rgba(30, 58, 138, 0.1); /* سایه نرم و هماهنگ */
+            --color-primary: #1e3a8a; 
+            --color-secondary: #3b82f6; 
+            --color-text: #1f2937; 
+            --color-background: #f8fafc; 
+            --color-card-bg: #ffffff; 
+            --color-shadow: rgba(30, 58, 138, 0.1); 
         }
 
         * {
@@ -40,7 +40,9 @@
             font-size: 15px;
         }
 
-        /* --- استایل هدر (سایدبار دسکتاپ) --- */
+        /* ---------------------------------
+           --- استایل دسکتاپ (Sidebar) ---
+           --------------------------------- */
         header.desktop {
             position: fixed;
             right: 0;
@@ -81,8 +83,7 @@
             text-align: center;
             margin-bottom: 30px;
         }
-
-        /* تماس در سایدبار */
+        
         header.desktop .contact-info {
             width: 100%;
             padding: 15px 0;
@@ -106,11 +107,6 @@
             font-size: 16px;
         }
 
-        header.desktop .contact-info a:hover {
-            color: var(--color-secondary);
-        }
-        
-        /* ناوبری */
         header.desktop nav {
             width: 100%;
             display: flex;
@@ -136,19 +132,12 @@
             font-size: 18px;
             color: var(--color-secondary);
         }
-
-        header.desktop nav a:hover,
-        header.desktop nav a.active {
-            color: var(--color-secondary);
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-5px);
-        }
-
+        
         /* --- محتوا --- */
         main {
             flex: 1;
             padding: 40px 20px;
-            margin-right: 220px;
+            margin-right: 220px; /* فضای سایدبار */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -168,102 +157,8 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* استایل کلی کارت */
-        .card {
-            background: var(--color-card-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px var(--color-shadow);
-            border-right: 4px solid var(--color-secondary);
-            width: 100%;
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
-        }
         
-        .card:hover {
-            transform: translateY(-3px);
-        }
-
-        section h2 {
-            margin-bottom: 25px;
-            color: var(--color-primary);
-            text-align: right;
-            font-size: 24px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--color-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 10px;
-        }
-        
-        section h2 i {
-            color: var(--color-secondary);
-            font-size: 26px;
-        }
-        
-        /* استایل پاراگراف‌ها - بولد کردن و جاستیفای متن "درباره من" */
-        p, li { 
-            text-align: justify; 
-            text-justify: inter-word; 
-            word-spacing: normal; 
-            letter-spacing: normal; 
-            font-weight: 500; 
-        }
-
-        /* بولد کردن متن درباره من */
-        #about p {
-            font-weight: 600;
-            text-align: justify;
-        }
-        
-        /* استایل لیست‌ها (برای توضیحات شغل، تحصیلات، دوره‌ها و پروژه‌ها) */
-        .card ul {
-            list-style: none;
-            padding-right: 20px;
-            margin-top: 10px;
-        }
-        
-        .card ul li {
-            position: relative;
-            margin-bottom: 8px;
-            padding-right: 15px;
-            font-size: 15px;
-        }
-
-        .card ul li::before {
-            content: "\f058"; /* آیکون چک مارک */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            right: 0;
-            color: var(--color-secondary);
-            font-size: 12px;
-            top: 5px;
-        }
-        
-        /* --- استایل‌های ارتقاء شغلی (Job Block) --- */
-        .job-block {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e5e7eb; /* خط جداکننده شرکت‌ها */
-        }
-        
-        .job-block:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .job-block > h3 {
-            font-size: 20px;
-            color: var(--color-primary);
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        /* --- استایل بخش جدید ارتباط با من --- */
+        /* --- بخش جدید ارتباط با من --- */
         .contact-links {
             display: flex;
             justify-content: space-around;
@@ -280,7 +175,7 @@
             color: var(--color-text);
             font-weight: bold;
             transition: transform 0.3s ease, color 0.3s ease;
-            flex: 1 1 200px; /* تنظیم برای ریسپانسیو بودن دکمه‌ها */
+            flex: 1 1 200px; 
             max-width: 200px;
             padding: 15px;
             border-radius: 8px;
@@ -301,17 +196,141 @@
             transition: color 0.3s;
         }
         
-        .contact-links a:nth-child(1) i { color: #0A66C2; } /* LinkedIn */
-        .contact-links a:nth-child(2) i { color: #0088CC; } /* Telegram */
-        .contact-links a:nth-child(3) i { color: #D93025; } /* Email */
-        .contact-links a:nth-child(4) i { color: #1E3A8A; } /* Phone */
+        .contact-links a:nth-child(1) i { color: #0A66C2; } 
+        .contact-links a:nth-child(2) i { color: #0088CC; } 
+        .contact-links a:nth-child(3) i { color: #D93025; } 
+        .contact-links a:nth-child(4) i { color: #1E3A8A; } 
 
+        /* --------------------------------------
+           --- استایل موبایل و منوی همبرگری ---
+           -------------------------------------- */
+        
+        header.mobile {
+            display: none; /* در دسکتاپ مخفی است */
+            background: var(--color-primary);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header.mobile img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid var(--color-secondary);
+        }
+        
+        header.mobile h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+        
+        header.mobile p.title {
+            font-size: 13px;
+            color: #c4d0f0;
+            margin-bottom: 0;
+        }
 
-        /* --- ریسپانسیو موبایل --- */
+        /* منوی همبرگری (Hamburger Toggle) */
+        #menuToggle {
+            display: none; /* در دسکتاپ مخفی است */
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        
+        #menuToggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--color-secondary);
+            border-radius: 3px;
+            transition: transform 0.4s, opacity 0.4s;
+        }
+
+        /* استایل منوی کشویی (Drawer Menu) */
+        #drawerMenu {
+            position: fixed;
+            top: 0;
+            right: -250px; /* مخفی در حالت اولیه */
+            width: 250px;
+            height: 100vh;
+            background: var(--color-primary);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 998;
+            transition: right 0.3s ease-in-out;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        #drawerMenu.show {
+            right: 0;
+        }
+
+        #drawerMenu img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid var(--color-secondary);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #drawerMenu h1, #drawerMenu p.title {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        #drawerMenu nav a {
+            color: #fff;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+        }
+        
+        #drawerMenu .contact-info {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        #drawerMenu .contact-info a {
+            display: flex;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 5px 0;
+            text-align: right;
+            border-bottom: none;
+        }
+
+        /* --- اعمال ریسپانسیو اصلی --- */
         @media(max-width:800px) {
             
+            header.desktop {
+                display: none;
+            }
+            
+            header.mobile {
+                display: block; /* نمایش هدر در موبایل */
+            }
+
             main {
-                margin: 0;
+                margin-right: 0; /* حذف حاشیه سایدبار */
                 padding: 20px 10px;
             }
 
@@ -321,18 +340,10 @@
                 padding-top: 10px;
             }
             
-            header.desktop {
-                display: none;
-            }
-            
             #menuToggle {
-                display: flex;
+                display: flex; /* نمایش منوی همبرگری */
             }
-            
-            .card {
-                padding: 20px;
-            }
-            
+
             .contact-links a {
                 flex: 1 1 100%;
                 max-width: 100%;
@@ -342,7 +353,7 @@
 </head>
 
 <body>
-
+    
     <header class="desktop">
         <img src="profile.jpg" alt="عکس پروفایل">
         <h1>حامد چگینی</h1>
@@ -361,7 +372,12 @@
             <a href="tel:09123456789"><i class="fa-solid fa-mobile-alt"></i> ۰۹۱۲ ۳۴۵ ۶۷۸۹</a>
             <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a>
         </div>
+    </header>
 
+    <header class="mobile">
+        <img src="profile.jpg" alt="عکس پروفایل">
+        <h1>حامد چگینی</h1>
+        <p class="title">مدیر سرمایه‌گذاری</p>
     </header>
 
     <div id="menuToggle">
@@ -657,7 +673,8 @@
             link.addEventListener('click', e => {
                 e.preventDefault();
                 const target = document.querySelector(link.dataset.target);
-                const headerOffset = window.innerWidth < 800 ? 0 : 40; 
+                // محاسبه آفست بسته به اینکه هدر موبایل (که در بالا قرار دارد) نمایش داده شود یا نه
+                const headerOffset = window.innerWidth < 800 ? document.querySelector('header.mobile').offsetHeight : 40; 
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -666,15 +683,19 @@
                     behavior: "smooth"
                 });
 
-                if (window.innerWidth < 800) drawerMenu.classList.remove('show');
-                menuToggle.classList.remove('active');
+                // بستن منوی کشویی بعد از کلیک
+                if (window.innerWidth < 800) {
+                    drawerMenu.classList.remove('show');
+                    menuToggle.classList.remove('active');
+                }
             });
         });
 
         const updateNavLinks = () => {
             let current = '';
+            // آفست بالا برای محاسبه اسکرول فعال
+            const offset = window.innerWidth > 800 ? 100 : 150; 
             sections.forEach(section => {
-                const offset = window.innerWidth > 800 ? 100 : 50;
                 const sectionTop = section.offsetTop;
                 
                 if (window.scrollY >= sectionTop - offset) { 
@@ -700,17 +721,28 @@
             drawerMenu.classList.toggle('show');
             menuToggle.classList.toggle('active');
             e.stopPropagation();
-        });
-
-        drawerMenu.addEventListener('click', (e) => {
-            e.stopPropagation();
+            
+            // انیمیشن همبرگری
+            if (menuToggle.classList.contains('active')) {
+                menuToggle.children[0].style.transform = 'rotate(-45deg) translate(-5px, 6px)';
+                menuToggle.children[1].style.opacity = '0';
+                menuToggle.children[2].style.transform = 'rotate(45deg) translate(-5px, -6px)';
+            } else {
+                menuToggle.children[0].style.transform = 'none';
+                menuToggle.children[1].style.opacity = '1';
+                menuToggle.children[2].style.transform = 'none';
+            }
         });
 
         document.addEventListener('click', (e) => {
             if (window.innerWidth < 800 && drawerMenu.classList.contains('show')) {
-                if (!drawerMenu.contains(e.target) && e.target !== menuToggle) {
+                // اگر کلیک خارج از منو و خارج از دکمه همبرگری بود، منو را ببند
+                if (!drawerMenu.contains(e.target) && e.target !== menuToggle && !menuToggle.contains(e.target)) {
                     drawerMenu.classList.remove('show');
                     menuToggle.classList.remove('active');
+                    menuToggle.children[0].style.transform = 'none';
+                    menuToggle.children[1].style.opacity = '1';
+                    menuToggle.children[2].style.transform = 'none';
                 }
             }
         });
