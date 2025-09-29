@@ -211,25 +211,26 @@
         /* --- استایل‌های جدید تایم‌لاین تجربه --- */
         .timeline-container {
             position: relative;
-            margin-right: 20px; /* فضای لازم برای خط عمودی */
+            margin-right: 20px;
             padding-right: 15px;
         }
 
+        /* خط عمودی - رنگ تغییر کرده */
         .timeline-container::before {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
-            width: 2px; /* ضخامت خط عمودی */
+            width: 3px; /* ضخامت بیشتر */
             height: 100%;
-            background-color: #e0e7ff; /* رنگ روشن خط */
+            background-color: var(--color-secondary); /* رنگ آبی روشن */
         }
         
         .timeline-item {
             margin-bottom: 30px;
             padding-right: 25px;
             position: relative;
-            background: #f9f9f9; /* پس زمینه روشن‌تر برای هر آیتم */
+            background: #f9f9f9;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -242,17 +243,17 @@
             transform: translateY(-2px);
         }
 
-        /* دایره نشانگر در کنار خط عمودی */
+        /* دایره نشانگر - ظاهر تغییر کرده */
         .timeline-item::before {
             content: '';
             position: absolute;
             top: 25px;
-            right: -17px; /* برای قرارگیری روی خط */
-            width: 12px;
-            height: 12px;
+            right: -20px; /* تنظیم موقعیت با توجه به ضخامت خط */
+            width: 14px; /* بزرگتر شدن */
+            height: 14px;
             border-radius: 50%;
-            background-color: var(--color-secondary);
-            border: 3px solid var(--color-card-bg); /* حاشیه سفید برای برجستگی */
+            background-color: var(--color-card-bg); /* سفید */
+            border: 4px solid var(--color-primary); /* حاشیه آبی تیره */
             z-index: 10;
         }
 
@@ -276,7 +277,7 @@
             font-size: 14px;
             color: #6b7280;
             font-weight: normal;
-            direction: ltr; /* تاریخ را چپ چین می‌کند */
+            direction: ltr;
         }
         
         .timeline-item ul {
@@ -505,7 +506,7 @@
             }
             
             .timeline-item h3 .job-duration {
-                direction: rtl; /* تاریخ را در موبایل دوباره راست چین کن */
+                direction: rtl; 
             }
         }
     </style>
