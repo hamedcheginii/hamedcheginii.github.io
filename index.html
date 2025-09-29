@@ -180,13 +180,13 @@
             text-justify: inter-word; 
             word-spacing: normal; 
             letter-spacing: normal; 
-            font-weight: 500; /* کمی بولدتر برای خوانایی بهتر */
+            font-weight: 500; 
         }
 
         /* بولد کردن متن درباره من */
         #about p {
-            font-weight: 600; /* بولدتر شدن متن در بخش درباره من */
-            text-align: justify; /* اطمینان از اعمال جاستیفای */
+            font-weight: 600;
+            text-align: justify;
         }
         
         /* استایل لیست‌ها */
@@ -230,7 +230,7 @@
             padding-right: 15px;
         }
 
-        /* خط عمودی - رنگ تغییر کرده */
+        /* خط عمودی */
         .timeline-container::before {
             content: '';
             position: absolute;
@@ -258,7 +258,7 @@
             transform: translateY(-2px);
         }
 
-        /* دایره نشانگر - ظاهر تغییر کرده */
+        /* دایره نشانگر */
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -272,16 +272,19 @@
             z-index: 10;
         }
 
+        /* **تغییر اصلی برای چینش دسکتاپ:** */
         .timeline-item h3 {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            /* جهت فلکس را ستونی می‌کند تا عنوان و تاریخ زیر هم بیفتند */
+            flex-direction: column; 
+            justify-content: flex-start; /* چینش از راست */
+            align-items: flex-start; /* چینش از بالا */
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 18px;
             color: var(--color-primary);
             padding-right: 0;
-            border-right: none;
+            gap: 2px; /* فاصله کم بین عنوان و تاریخ */
         }
         
         .timeline-item h3 .job-title {
@@ -292,7 +295,7 @@
             font-size: 14px;
             color: #6b7280;
             font-weight: normal;
-            direction: ltr;
+            direction: rtl; /* مطمئن می‌شویم که راست به چپ است */
         }
         
         .timeline-item ul {
@@ -514,6 +517,7 @@
                 right: -13px;
             }
             
+            /* **تغییر اصلی برای چینش موبایل:** */
             .timeline-item h3 {
                 flex-direction: column;
                 align-items: flex-start;
