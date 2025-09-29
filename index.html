@@ -214,18 +214,16 @@
             top: 5px;
         }
         
-        /* توضیحات تحصیلات و تماس */
-        /* این استایل حذف شد تا آیتم‌های تحصیلات از استایل چک‌مارک بخش تجربه‌ها استفاده کنند */
-        /* section#education ul li::before, */
+        /* توضیحات تماس */
         section#contact p::before {
             content: "\f111"; /* دایره کوچک */
-            font-family: "Font Awesome 6 Free"; /* اطمینان از اعمال فونت آیکون */
+            font-family: "Font Awesome 6 Free";
             font-weight: 900;
             font-size: 8px;
             top: 8px;
         }
         
-        /* --- استایل‌های تایم‌لاین تجربه --- */
+        /* --- استایل‌های تایم‌لاین تجربه و تحصیلات --- */
         .timeline-container {
             position: relative;
             margin-right: 20px;
@@ -274,37 +272,39 @@
             z-index: 10;
         }
 
-        /* **تغییر اصلی برای چینش دسکتاپ:** */
+        /* **چینش عنوان و جزئیات (برای دسکتاپ):** */
         .timeline-item h3 {
             display: flex;
-            /* جهت فلکس را ستونی می‌کند تا عنوان و تاریخ زیر هم بیفتند */
             flex-direction: column; 
-            justify-content: flex-start; /* چینش از راست */
-            align-items: flex-start; /* چینش از بالا */
+            justify-content: flex-start;
+            align-items: flex-start;
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 18px;
             color: var(--color-primary);
             padding-right: 0;
-            gap: 2px; /* فاصله کم بین عنوان و تاریخ */
+            gap: 2px;
         }
         
         .timeline-item h3 .job-title {
             font-weight: bold;
         }
-        /* کلاس برای نام شرکت در تایم‌لاین که زیر عنوان می‌آید */
-        .timeline-item h3 .company-name {
+
+        /* استایل نام شرکت (برای محل کار) یا نام دانشگاه (برای تحصیلات) */
+        .timeline-item h3 .details-line {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
             font-size: 15px;
             color: #4b5563; /* خاکستری کمی تیره‌تر */
             font-weight: 500;
         }
 
-
         .timeline-item h3 .job-duration {
             font-size: 14px;
             color: #6b7280;
             font-weight: normal;
-            direction: rtl; /* مطمئن می‌شویم که راست به چپ است */
+            direction: rtl; 
         }
         
         .timeline-item ul {
@@ -526,11 +526,15 @@
                 right: -13px;
             }
             
-            /* **تغییر اصلی برای چینش موبایل:** */
+            /* **چینش موبایل:** */
             .timeline-item h3 {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 5px;
+            }
+            
+            .timeline-item h3 .details-line {
+                font-size: 14px;
             }
             
             .timeline-item h3 .job-duration {
@@ -594,8 +598,8 @@
                     <div class="timeline-item">
                         <h3>
                             <span class="job-title">مدیر عامل</span>
-                            <span class="company-name">شرکت هلدینگ سرمایه‌گذاری طلوع - ۱۴۰۴ تا کنون</span>
-                            <span class="job-duration">ارتقاء یافته</span>
+                            <span class="details-line">شرکت هلدینگ سرمایه‌گذاری طلوع</span>
+                            <span class="job-duration">۱۴۰۴ تا کنون (ارتقاء یافته)</span>
                         </h3>
                         <ul>
                             <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و توسعه کسب‌وکار</li>
@@ -607,8 +611,8 @@
                     <div class="timeline-item">
                         <h3>
                             <span class="job-title">مدیر سرمایه‌گذاری</span>
-                            <span class="company-name">شرکت هلدینگ سرمایه‌گذاری طلوع - ۱۴۰۳ تا ۱۴۰۴</span>
-                            <span class="job-duration">ارتقاء یافته</span>
+                            <span class="details-line">شرکت هلدینگ سرمایه‌گذاری طلوع</span>
+                            <span class="job-duration">۱۴۰۳ تا ۱۴۰۴</span>
                         </h3>
                         <ul>
                             <li>مدیریت مستقیم سبد دارایی‌های شرکت به ارزش X میلیارد تومان</li>
@@ -618,7 +622,11 @@
                     </div>
                     
                     <div class="timeline-item">
-                        <h3><span class="job-title">کارآموزی در بانک XYZ</span><span class="job-duration">تابستان ۱۴۰۳</span></h3>
+                        <h3>
+                            <span class="job-title">کارآموزی در واحد تحلیل ریسک</span>
+                            <span class="details-line">بانک XYZ</span>
+                            <span class="job-duration">تابستان ۱۴۰۳</span>
+                        </h3>
                         <ul>
                             <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
                             <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
@@ -627,16 +635,11 @@
                     </div>
 
                     <div class="timeline-item">
-                        <h3><span class="job-title">دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</span><span class="job-duration">بهار ۱۴۰۳</span></h3>
-                        <ul>
-                            <li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
-                            <li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
-                            <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
-                        </ul>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3><span class="job-title">کارشناس مالی - شرکت ABC</span><span class="job-duration">۱۴۰۲ تا ۱۴۰۳</span></h3>
+                        <h3>
+                            <span class="job-title">کارشناس مالی</span>
+                            <span class="details-line">شرکت ABC</span>
+                            <span class="job-duration">۱۴۰۲ تا ۱۴۰۳</span>
+                        </h3>
                         <ul>
                             <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
                             <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
@@ -656,7 +659,8 @@
                     <div class="timeline-item">
                         <h3>
                             <span class="job-title">دکتری مهندسی مالی</span>
-                            <span class="job-duration">دانشگاه نمونه - ۱۴۰۲ تا کنون</span>
+                            <span class="details-line">دانشگاه نمونه</span>
+                            <span class="job-duration">۱۴۰۲ تا کنون</span>
                         </h3>
                         <ul>
                             <li>پایان‌نامه در حوزه مدل‌های یادگیری ماشینی در بازار سرمایه</li>
@@ -668,7 +672,8 @@
                     <div class="timeline-item">
                         <h3>
                             <span class="job-title">کارشناسی ارشد مهندسی مالی</span>
-                            <span class="job-duration">دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</span>
+                            <span class="details-line">دانشگاه نمونه</span>
+                            <span class="job-duration">۱۴۰۰ تا ۱۴۰۲</span>
                         </h3>
                         <ul>
                             <li>معدل کل ۱۹/۰۵</li>
@@ -680,7 +685,8 @@
                     <div class="timeline-item">
                         <h3>
                             <span class="job-title">کارشناسی مدیریت مالی</span>
-                            <span class="job-duration">دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</span>
+                            <span class="details-line">دانشگاه نمونه</span>
+                            <span class="job-duration">۱۳۹۶ تا ۱۴۰۰</span>
                         </h3>
                         <ul>
                             <li>پروژه نهایی با عنوان تحلیل بازدهی سهام شرکت‌های پتروشیمی</li>
