@@ -573,6 +573,100 @@
         }
 
 
+        /* --- استایل بخش گزارشات (اسکرول افقی) --- */
+        
+        /* کانتینر اصلی اسکرول افقی */
+        .reports-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto; /* مهم‌ترین بخش: فعال کردن اسکرول افقی */
+            padding-bottom: 15px; /* فضا برای نوار اسکرول */
+            /* بهبود ظاهر نوار اسکرول در مرورگرهای WebKit (کروم/سافاری) */
+            scrollbar-width: thin;
+            scrollbar-color: var(--color-secondary) var(--color-background);
+            white-space: nowrap; /* جلوگیری از شکستن کارت‌ها به خط بعدی */
+        }
+        
+        /* پنهان کردن نوار اسکرول پیش‌فرض در WebKit */
+        .reports-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .reports-container::-webkit-scrollbar-thumb {
+            background-color: var(--color-secondary);
+            border-radius: 10px;
+        }
+
+        .reports-container::-webkit-scrollbar-track {
+            background-color: var(--color-background);
+        }
+
+        /* استایل هر کارت گزارش */
+        .report-item {
+            flex: 0 0 300px; /* ثابت نگه داشتن عرض کارت‌ها */
+            background: #fcfcfc;
+            border: 1px solid #e5e7eb;
+            border-top: 4px solid var(--color-secondary);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            white-space: normal; /* بازگشت متن به حالت عادی داخل کارت */
+        }
+
+        .report-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .report-item h4 {
+            font-size: 18px;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .report-item p.report-date {
+            font-size: 14px;
+            color: var(--color-secondary);
+            margin-bottom: 10px;
+        }
+        
+        .report-item p.report-desc {
+            font-size: 14px;
+            color: #4b5563;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            height: 65px; /* ارتفاع ثابت برای توضیحات */
+            overflow: hidden;
+        }
+
+        /* استایل دکمه دانلود/مشاهده */
+        .download-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background: var(--color-primary);
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .download-link i {
+            margin-left: 8px;
+        }
+
+        .download-link:hover {
+            background: var(--color-secondary);
+            color: var(--color-primary);
+            border: 1px solid var(--color-primary);
+        }
+
+        /* --- پایان استایل بخش گزارشات --- */
+
+
+
         /* ------------------------------------------- */
         /* --- موبایل (Drawer و Toggle) و Overlay --- */
         /* ------------------------------------------- */
@@ -741,6 +835,11 @@
                 padding: 20px;
 
             }
+            
+            /* برای موبایل عرض کارت‌ها را کمی کمتر می‌کنیم */
+            .report-item {
+                flex: 0 0 280px; 
+            }
         }
 
     </style>
@@ -770,8 +869,8 @@
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
 
             <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
-
-            <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+            
+            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
 
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
 
@@ -796,7 +895,7 @@
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
             <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
-            <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
         </nav>
     </div>
@@ -1015,6 +1114,45 @@
                     <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </div>
 
+            </div>
+        </section>
+
+
+        <section id="reports">
+            <div class="card">
+                <h2><i class="fa-solid fa-chart-line"></i> گزارشات و تحلیل‌ها</h2>
+
+                <div class="reports-container">
+                    
+                    <div class="report-item">
+                        <h4>تحلیل سه‌ماهه صنایع بورسی (۱۴۰۳)</h4>
+                        <p class="report-date">منتشرشده: خرداد ۱۴۰۳</p>
+                        <p class="report-desc">بررسی عمیق عملکرد و چشم‌انداز صنایع فلزی، پتروشیمی و بانکی.</p>
+                        <a href="https://github.com/yourusername/yourrepo/report-1.pdf" target="_blank" class="download-link">مشاهده PDF <i class="fa-solid fa-file-pdf"></i></a>
+                    </div>
+                    
+                    <div class="report-item">
+                        <h4>سناریوهای اقتصاد کلان ۱۴۰۴</h4>
+                        <p class="report-date">منتشرشده: اسفند ۱۴۰۲</p>
+                        <p class="report-desc">ارائه سناریوهای تورم، نرخ ارز و تأثیر آن‌ها بر تصمیمات سرمایه‌گذاری.</p>
+                        <a href="https://github.com/yourusername/yourrepo/report-2.pdf" target="_blank" class="download-link">مشاهده PDF <i class="fa-solid fa-file-pdf"></i></a>
+                    </div>
+
+                    <div class="report-item">
+                        <h4>گزارش امکان‌سنجی تولید شمش منیزیم</h4>
+                        <p class="report-date">منتشرشده: فروردین ۱۴۰۱</p>
+                        <p class="report-desc">تحلیل کامل بازده، ریسک و نقطه سر به سر پروژه تولید شمش منیزیم.</p>
+                        <a href="https://github.com/yourusername/yourrepo/report-3.pdf" target="_blank" class="download-link">مشاهده PDF <i class="fa-solid fa-file-pdf"></i></a>
+                    </div>
+                    
+                    <div class="report-item">
+                        <h4>تحلیل فنی بازار رمزارز (۲۰۲۴)</h4>
+                        <p class="report-date">منتشرشده: دی ۱۴۰۲</p>
+                        <p class="report-desc">رویکردهای فنی و الگوهای قیمتی در بازار بیت کوین و آلت‌کوین‌ها.</p>
+                        <a href="https://github.com/yourusername/yourrepo/report-4.pdf" target="_blank" class="download-link">مشاهده PDF <i class="fa-solid fa-file-pdf"></i></a>
+                    </div>
+                    
+                    </div>
             </div>
         </section>
 
