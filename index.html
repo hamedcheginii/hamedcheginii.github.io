@@ -208,16 +208,13 @@ header.mobile { display:none; }
   <section id="about">
     <div class="card">
       <h2><i class="fa-solid fa-user"></i> درباره من</h2>
-      <p>مدیر سرمایه‌گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.</p>
-      <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong></p>
-      <p><strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
+      <p>مدیر سرمایه‌گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی...</p>
     </div>
   </section>
 
   <section id="experience">
     <div class="card">
       <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
-
       <div class="card">
         <h3>کارآموزی در بانک XYZ</h3>
         <p><strong>تابستان ۱۴۰۳</strong></p>
@@ -227,7 +224,6 @@ header.mobile { display:none; }
           <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
         </ul>
       </div>
-
       <div class="card">
         <h3>دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</h3>
         <p><strong>بهار ۱۴۰۳</strong></p>
@@ -237,7 +233,6 @@ header.mobile { display:none; }
           <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
         </ul>
       </div>
-
       <div class="card">
         <h3>کارشناس مالی - شرکت ABC</h3>
         <p><strong>۱۴۰۲ تا ۱۴۰۳</strong></p>
@@ -320,6 +315,16 @@ const drawerMenu=document.getElementById('drawerMenu');
 menuToggle.addEventListener('click', ()=>{
   drawerMenu.classList.toggle('show');
   menuToggle.classList.toggle('active');
+});
+
+// بستن منو وقتی روی هرجای صفحه کلیک شد (غیر از منو و دکمه)
+document.addEventListener('click', function(e) {
+  if (window.innerWidth < 800) {
+    if (!drawerMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      drawerMenu.classList.remove('show');
+      menuToggle.classList.remove('active');
+    }
+  }
 });
 </script>
 
