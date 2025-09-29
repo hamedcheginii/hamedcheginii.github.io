@@ -9,20 +9,20 @@
 /* --- فونت و تنظیمات عمومی --- */
 @font-face {
   font-family: 'IRANSansXFaNum';
-  src: url('IRANSansXFaNum-Medium.ttf') format('truetype'); /* فرض بر وجود فایل فونت */
+  src: url('IRANSansXFaNum-Medium.ttf') format('truetype'); 
 }
 
 * { box-sizing: border-box; margin:0; padding:0; text-decoration: none; }
 body {
   font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
-  background: #f8f8f8; /* رنگ پس‌زمینه روشن‌تر */
+  background: #f8f8f8; 
   color: #333;
   direction: rtl;
-  line-height: 1.8; /* خطوط بازتر برای خوانایی بهتر */
+  line-height: 1.8; 
   scroll-behavior: smooth;
 }
 
-/* --- دسکتاپ: طرح شبکه‌ای دو ستونی (CV Grid) --- */
+/* --- دسکتاپ: طرح شبکه‌ای دو ستونی (Grid Layout) --- */
 main { 
   padding: 60px 40px; 
   max-width: 1200px; 
@@ -32,24 +32,27 @@ main {
   gap: 35px; 
 }
 
-.sidebar-content {
-  grid-column: 1 / 2;
-}
-.main-content {
-  grid-column: 2 / 3;
-}
+/* اختصاص محل نمایش سکشن‌ها در طرح Grid دسکتاپ */
+#profile-info { grid-column: 1 / 2; grid-row: 1 / 2; } /* ستون کناری، ردیف ۱ */
+#contact { grid-column: 1 / 2; grid-row: 3 / 4; } /* ستون کناری، ردیف ۳ */
+#skills { grid-column: 1 / 2; grid-row: 4 / 5; } /* ستون کناری، ردیف ۴ */
+#about { grid-column: 2 / 3; grid-row: 1 / 2; } /* ستون اصلی، ردیف ۱ */
+#experience { grid-column: 2 / 3; grid-row: 2 / 3; } /* ستون اصلی، ردیف ۲ */
+#education { grid-column: 2 / 3; grid-row: 3 / 4; } /* ستون اصلی، ردیف ۳ */
+#projects { grid-column: 2 / 3; grid-row: 4 / 5; } /* ستون اصلی، ردیف ۴ */
+
 
 /* --- تنظیمات محتوا (Section & Card) --- */
 section { 
-  margin-bottom: 40px; 
-  opacity: 1; /* حذف افکت opacity برای سادگی بیشتر */
+  margin-bottom: 0; /* چون از Grid استفاده می‌کنیم، margin-bottom را صفر می‌کنیم */
+  opacity: 1; 
   transform: none;
 }
 .card { 
   background: #fff; 
   padding: 30px; 
   border-radius: 8px; 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* سایه ظریف */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
   border-right: 4px solid #1abc9c; /* نوار رنگی جذاب در سمت راست */
 }
 section h2 { 
@@ -57,16 +60,13 @@ section h2 {
   color: #2c3e50; 
   display:flex; 
   align-items:center; 
-  justify-content: flex-start; /* شروع از سمت راست */
+  justify-content: flex-start; 
   gap: 10px; 
   font-size: 22px;
   border-bottom: 2px solid #eee;
   padding-bottom: 10px;
 }
 section h2 i { color: #1abc9c; }
-
-
-/* --- استایل دهی جزئیات --- */
 
 /* اطلاعات پروفایل در ستون کناری */
 #profile-info .card {
@@ -75,7 +75,6 @@ section h2 i { color: #1abc9c; }
     background: #2c3e50;
     color: #fff;
     padding: 40px 20px;
-    margin-bottom: 20px;
     border-radius: 8px;
 }
 #profile-info img {
@@ -89,12 +88,11 @@ section h2 i { color: #1abc9c; }
 #profile-info h1 { font-size: 28px; margin-bottom: 5px; }
 #profile-info p { font-size: 16px; color: #ecf0f1; }
 
-
 /* تجربه‌ها و پروژه‌ها */
 #experience .card, #projects .card {
     margin-bottom: 20px;
     padding: 20px;
-    border-right: 4px solid #3498db; /* رنگ دیگر برای تمایز */
+    border-right: 4px solid #3498db; 
 }
 #experience h3 {
     color: #3498db;
@@ -108,14 +106,14 @@ section h2 i { color: #1abc9c; }
     margin-bottom: 5px;
 }
 #experience ul li, #education ul li, #projects ul li {
-    list-style: none; /* حذف نقطه‌های پیش‌فرض */
+    list-style: none; 
     position: relative;
     padding-right: 20px;
     margin-bottom: 10px;
     text-align: justify;
 }
 #experience ul li::before, #projects ul li::before, #education ul li::before {
-    content: "\f058"; /* آیکون چک‌مارک */
+    content: "\f058"; 
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     position: absolute;
@@ -124,7 +122,6 @@ section h2 i { color: #1abc9c; }
     font-size: 12px;
     top: 5px;
 }
-
 
 /* مهارت‌ها */
 .skills ul { 
@@ -138,7 +135,7 @@ section h2 i { color: #1abc9c; }
   background: #ecf0f1; 
   color: #333; 
   padding: 7px 14px; 
-  border-radius: 20px; /* کپسولی شکل */
+  border-radius: 20px; 
   font-size: 14px;
   font-weight: 500;
 }
@@ -148,8 +145,8 @@ section h2 i { color: #1abc9c; }
 #contact p { margin-bottom: 10px; }
 
 
-/* --- موبایل و Drawer (بدون تغییر زیاد نسبت به کد شما) --- */
-header.desktop { display:none !important; }
+/* --- موبایل و Drawer --- */
+header.desktop { display:none !important; } /* مطمئن می‌شویم نوار کناری اصلی حذف شده است */
 
 /* Toggle Button */
 #menuToggle {
@@ -162,7 +159,7 @@ header.desktop { display:none !important; }
   justify-content: space-between;
   cursor: pointer;
   z-index: 1100;
-  display: none; /* به طور پیش‌فرض پنهان باشد و فقط در @media نمایش داده شود */
+  display: none; 
 }
 #menuToggle span { 
   height: 4px; 
@@ -208,21 +205,25 @@ header.desktop { display:none !important; }
 #drawerMenu nav a:hover { background: rgba(255,255,255,0.2); color:#1abc9c; }
 
 
-/* --- ریسپانسیو موبایل --- */
+/* --- ریسپانسیو موبایل (ترتیب عمودی مورد نظر شما) --- */
 @media(max-width:992px){
-  /* فعال‌سازی نمایش تک ستونی در عرض‌های کوچکتر از تبلت */
+  /* تنظیمات Grid را به تک ستونی برمی‌گردانیم تا ترتیب HTML حفظ شود */
   main {
     grid-template-columns: 1fr; 
     padding: 20px;
     gap: 20px;
   }
-  .sidebar-content, .main-content {
-    grid-column: 1 / -1;
+  
+  /* حذف تعریف جایگاه Grid در موبایل تا ترتیب اصلی (HTML) اجرا شود */
+  #profile-info, #contact, #skills, #about, #experience, #education, #projects {
+      grid-column: 1 / -1; 
+      grid-row: auto; 
+      margin-bottom: 20px; /* اضافه کردن مجدد مارجین بین سکشن‌ها */
   }
-}
-@media(max-width:800px){
-    /* نمایش دکمه منوی موبایل */
-    #menuToggle { display:flex; }
+
+  /* تنظیمات موبایل */
+  #menuToggle { display:flex; }
+  .card { padding: 20px; }
 }
 
 </style>
@@ -249,114 +250,109 @@ header.desktop { display:none !important; }
 
 
 <main>
-    <div class="sidebar-content">
-        
-        <section id="profile-info">
-            <div class="card">
-                <img src="profile.jpg" alt="عکس پروفایل">
-                <h1>حامد چگینی</h1>
-                <p>مدیر سرمایه‌گذاری</p>
-            </div>
-        </section>
-        
-        <section id="contact">
-            <div class="card">
-                <h2><i class="fa-solid fa-phone"></i> تماس</h2>
-                <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
-                <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
-            </div>
-        </section>
-        
-        <section id="skills">
-            <div class="card skills">
-                <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
-                <ul>
-                    <li>Python</li>
-                    <li>Pandas & NumPy</li>
-                    <li>Plotly & Matplotlib</li>
-                    <li>مدل‌سازی مالی</li>
-                    <li>بهینه‌سازی پرتفوی</li>
-                    <li>Excel & VBA</li>
-                    <li>تحلیل داده‌ها</li>
-                    <li>اقتصاد کلان</li>
-                    <li>Eviews & Comfar</li>
-                </ul>
-            </div>
-        </section>
-        
-    </div>
     
-    <div class="main-content">
-        
-        <section id="about">
+    <section id="profile-info">
+        <div class="card">
+            <img src="profile.jpg" alt="عکس پروفایل">
+            <h1>حامد چگینی</h1>
+            <p>مدیر سرمایه‌گذاری</p>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="card">
+            <h2><i class="fa-solid fa-user"></i> درباره من</h2>
+            <p>مدیر سرمایه‌گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.</p>
+            <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong></p>
+            <p><strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="card">
+            <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
+
             <div class="card">
-                <h2><i class="fa-solid fa-user"></i> درباره من</h2>
-                <p>مدیر سرمایه‌گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.</p>
-                <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong></p>
-                <p><strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
-            </div>
-        </section>
-
-        <section id="experience">
-            <div class="card">
-                <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
-
-                <div class="card">
-                    <h3>کارآموزی در بانک XYZ</h3>
-                    <p><strong>تابستان ۱۴۰۳</strong></p>
-                    <ul>
-                        <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
-                        <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
-                        <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</h3>
-                    <p><strong>بهار ۱۴۰۳</strong></p>
-                    <ul>
-                        <li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
-                        <li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
-                        <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3>کارشناس مالی - شرکت ABC</h3>
-                    <p><strong>۱۴۰۲ تا ۱۴۰۳</strong></p>
-                    <ul>
-                        <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
-                        <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
-                        <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="education">
-            <div class="card">
-                <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
+                <h3>کارآموزی در بانک XYZ</h3>
+                <p><strong>تابستان ۱۴۰۳</strong></p>
                 <ul>
-                    <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
-                    <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
-                    <li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
+                    <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
+                    <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
+                    <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
                 </ul>
             </div>
-        </section>
 
-        <section id="projects">
             <div class="card">
-                <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
+                <h3>دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</h3>
+                <p><strong>بهار ۱۴۰۳</strong></p>
                 <ul>
-                    <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
-                    <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
-                    <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
+                    <li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
+                    <li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
+                    <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
                 </ul>
             </div>
-        </section>
-        
-    </div>
+
+            <div class="card">
+                <h3>کارشناس مالی - شرکت ABC</h3>
+                <p><strong>۱۴۰۲ تا ۱۴۰۳</strong></p>
+                <ul>
+                    <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
+                    <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
+                    <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="card">
+            <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
+            <ul>
+                <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
+                <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
+                <li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="card">
+            <h2><i class="fa-solid fa-phone"></i> تماس</h2>
+            <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
+            <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="card skills">
+            <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
+            <ul>
+                <li>Python</li>
+                <li>Pandas & NumPy</li>
+                <li>Plotly & Matplotlib</li>
+                <li>مدل‌سازی مالی</li>
+                <li>بهینه‌سازی پرتفوی</li>
+                <li>Excel & VBA</li>
+                <li>تحلیل داده‌ها</li>
+                <li>اقتصاد کلان</li>
+                <li>Eviews & Comfar</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <div class="card">
+            <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
+            <ul>
+                <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
+                <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
+                <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
+            </ul>
+        </div>
+    </section>
+    
 </main>
 
 
@@ -366,8 +362,6 @@ document.querySelectorAll('nav a').forEach(link=>{
   link.addEventListener('click', e=>{
     e.preventDefault();
     const target = document.querySelector(link.dataset.target);
-    // در طرح جدید نیازی به offset نیست، اما برای اطمینان 
-    // بهتر است یک فاصله کوچک در نظر بگیریم.
     const headerOffset = window.innerWidth < 800 ? 20 : 0; 
     const elementPosition = target.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
