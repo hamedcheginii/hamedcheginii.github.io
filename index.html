@@ -215,9 +215,11 @@
         }
         
         /* توضیحات تحصیلات و تماس */
-        section#education ul li::before,
+        /* این استایل حذف شد تا آیتم‌های تحصیلات از استایل چک‌مارک بخش تجربه‌ها استفاده کنند */
+        /* section#education ul li::before, */
         section#contact p::before {
             content: "\f111"; /* دایره کوچک */
+            font-family: "Font Awesome 6 Free"; /* اطمینان از اعمال فونت آیکون */
             font-weight: 900;
             font-size: 8px;
             top: 8px;
@@ -290,6 +292,13 @@
         .timeline-item h3 .job-title {
             font-weight: bold;
         }
+        /* کلاس برای نام شرکت در تایم‌لاین که زیر عنوان می‌آید */
+        .timeline-item h3 .company-name {
+            font-size: 15px;
+            color: #4b5563; /* خاکستری کمی تیره‌تر */
+            font-weight: 500;
+        }
+
 
         .timeline-item h3 .job-duration {
             font-size: 14px;
@@ -583,6 +592,32 @@
                 <div class="timeline-container">
 
                     <div class="timeline-item">
+                        <h3>
+                            <span class="job-title">مدیر عامل</span>
+                            <span class="company-name">شرکت هلدینگ سرمایه‌گذاری طلوع - ۱۴۰۴ تا کنون</span>
+                            <span class="job-duration">ارتقاء یافته</span>
+                        </h3>
+                        <ul>
+                            <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و توسعه کسب‌وکار</li>
+                            <li>مدیریت عملیات و منابع شرکت برای دستیابی به اهداف سودآوری</li>
+                            <li>نظارت بر تیم‌های مختلف مالی و سرمایه‌گذاری</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3>
+                            <span class="job-title">مدیر سرمایه‌گذاری</span>
+                            <span class="company-name">شرکت هلدینگ سرمایه‌گذاری طلوع - ۱۴۰۳ تا ۱۴۰۴</span>
+                            <span class="job-duration">ارتقاء یافته</span>
+                        </h3>
+                        <ul>
+                            <li>مدیریت مستقیم سبد دارایی‌های شرکت به ارزش X میلیارد تومان</li>
+                            <li>رهبری تیم تحلیل و نظارت بر تهیه گزارش‌های تحلیلی صنایع</li>
+                            <li>طراحی مدل‌های ریسک و بازدهی برای تخصیص بهینه دارایی</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
                         <h3><span class="job-title">کارآموزی در بانک XYZ</span><span class="job-duration">تابستان ۱۴۰۳</span></h3>
                         <ul>
                             <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
@@ -616,11 +651,44 @@
         <section id="education">
             <div class="card">
                 <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
-                <ul>
-                    <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
-                    <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
-                    <li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
-                </ul>
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item">
+                        <h3>
+                            <span class="job-title">دکتری مهندسی مالی</span>
+                            <span class="job-duration">دانشگاه نمونه - ۱۴۰۲ تا کنون</span>
+                        </h3>
+                        <ul>
+                            <li>پایان‌نامه در حوزه مدل‌های یادگیری ماشینی در بازار سرمایه</li>
+                            <li>گذراندن دروس پیشرفته اقتصادسنجی مالی و مشتقات</li>
+                            <li>فعالیت به عنوان دستیار آموزشی در دروس آمار مالی</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3>
+                            <span class="job-title">کارشناسی ارشد مهندسی مالی</span>
+                            <span class="job-duration">دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</span>
+                        </h3>
+                        <ul>
+                            <li>معدل کل ۱۹/۰۵</li>
+                            <li>تمرکز بر بهینه‌سازی پرتفوی و مدیریت ریسک</li>
+                            <li>عضویت در تیم ربات‌های معامله‌گر دانشگاه</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h3>
+                            <span class="job-title">کارشناسی مدیریت مالی</span>
+                            <span class="job-duration">دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</span>
+                        </h3>
+                        <ul>
+                            <li>پروژه نهایی با عنوان تحلیل بازدهی سهام شرکت‌های پتروشیمی</li>
+                            <li>گذراندن موفقیت‌آمیز دوره‌های حسابداری پیشرفته و اقتصاد کلان</li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -684,6 +752,7 @@
             link.addEventListener('click', e => {
                 e.preventDefault();
                 const target = document.querySelector(link.dataset.target);
+                // برای موبایل (عرض کمتر از 800px) آفست 0، برای دسکتاپ 40px
                 const headerOffset = window.innerWidth < 800 ? 0 : 40; 
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -702,9 +771,12 @@
         const updateNavLinks = () => {
             let current = '';
             sections.forEach(section => {
+                // برای محاسبات دقیق‌تر، ارتفاع نوار ناوبری (در دسکتاپ) را در نظر می‌گیریم.
+                // اگر در حالت دسکتاپ (عرض > 800px) بودیم، حدود 100px پایین‌تر از بالای صفحه، سکشن فعال شود.
+                const offset = window.innerWidth > 800 ? 100 : 50;
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop - 100) { 
+                
+                if (window.scrollY >= sectionTop - offset) { 
                     current = section.getAttribute('id');
                 }
             });
