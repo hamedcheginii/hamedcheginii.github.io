@@ -428,7 +428,6 @@
         }
 
         
-
         /* --- استایل جدید آیکون‌های تماس --- */
         
         section#contact p::before {
@@ -469,43 +468,92 @@
 
         /* --- استایل‌های بلاک اصلی (Job/Edu/Cert Block) --- */
 
+        /* --- استایل دهی تایم لاین سِمت‌های شغلی داخل یک شرکت --- */
         .data-block {
-
+            position: relative; /* برای قرار دادن خط تایم‌لاین */
+            padding-right: 20px; /* برای ایجاد فضا برای خط عمودی */
             margin-bottom: 40px;
-
             padding-bottom: 20px;
-
-            border-bottom: 1px solid #e5e7eb; /* خط جداکننده شرکت‌ها/دانشگاه‌ها */
-
+            border-bottom: 1px solid #e5e7eb;
         }
 
+        /* خط عمودی تایم‌لاین */
+        .data-block::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 40px; /* شروع خط از زیر عنوان شرکت */
+            bottom: 20px;
+            width: 2px;
+            background-color: #e5e7eb; /* رنگ خاکستری روشن */
+        }
         
-
         .data-block:last-child {
-
             border-bottom: none;
-
-            margin-bottom: 0;
-
             padding-bottom: 0;
-
         }
+
+        /* استایل هر سِمت (Position Item) */
+        .position-item {
+            position: relative;
+            padding-right: 20px; 
+            margin-bottom: 25px;
+            margin-top: 15px;
+            border-bottom: 1px dashed #f3f4f6; /* جداکننده نازک بین سمت‌ها */
+            padding-bottom: 15px;
+        }
+        
+        .position-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        /* نقطه در کنار هر سِمت (نشانگر تایم‌لاین) */
+        .position-item::before {
+            content: "\f111"; /* آیکون دایره پر */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: -10px; /* قرار گرفتن در کنار خط عمودی */
+            top: 5px;
+            color: var(--color-secondary);
+            font-size: 10px;
+            background: var(--color-card-bg); /* پس‌زمینه سفید برای برجستگی */
+            border-radius: 50%;
+            padding: 2px;
+            line-height: 1;
+        }
+
+        /* عنوان سمت (مدیر عامل، مدیر سرمایه‌گذاری) */
+        .position-item h4 {
+            font-size: 17px;
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* اصلاح استایل duration-info در position-item */
+        .position-item > p.duration-info {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+        
+        /* برای بخش تحصیلات و دوره‌ها - حذف پدینگ اضافی تایم‌لاین */
+        #education .data-block, 
+        #certifications .data-block {
+            padding-right: 0;
+        }
+        #education .data-block::before,
+        #certifications .data-block::before {
+            content: none;
+        }
+        
+        /* --- پایان استایل تجربه شغلی --- */
 
         
-        /* برای بخش تحصیلات و دوره‌ها */
-        .data-block h3 {
-
-            font-size: 20px;
-
-            color: var(--color-primary);
-
-            margin-bottom: 5px;
-
-            font-weight: bold;
-
-        }
-
-        /* برای توضیحات زمان و مکان */
+        /* برای توضیحات زمان و مکان (برای تحصیلات و...) */
         .data-block > p.duration-info {
 
             font-size: 15px;
@@ -513,7 +561,8 @@
             color: #4b5563;
 
             margin-bottom: 15px;
-
+            
+            padding-right: 0; /* حذف پدینگ اضافی */
         }
         
         /* برای عناوین پروژه */
@@ -575,19 +624,16 @@
 
         /* --- استایل بخش گزارشات (اسکرول افقی) --- */
         
-        /* کانتینر اصلی اسکرول افقی */
         .reports-container {
             display: flex;
             gap: 20px;
-            overflow-x: auto; /* مهم‌ترین بخش: فعال کردن اسکرول افقی */
-            padding-bottom: 15px; /* فضا برای نوار اسکرول */
-            /* بهبود ظاهر نوار اسکرول در مرورگرهای WebKit (کروم/سافاری) */
+            overflow-x: auto; 
+            padding-bottom: 15px; 
             scrollbar-width: thin;
             scrollbar-color: var(--color-secondary) var(--color-background);
-            white-space: nowrap; /* جلوگیری از شکستن کارت‌ها به خط بعدی */
+            white-space: nowrap; 
         }
         
-        /* پنهان کردن نوار اسکرول پیش‌فرض در WebKit */
         .reports-container::-webkit-scrollbar {
             height: 8px;
         }
@@ -601,9 +647,8 @@
             background-color: var(--color-background);
         }
 
-        /* استایل هر کارت گزارش */
         .report-item {
-            flex: 0 0 300px; /* ثابت نگه داشتن عرض کارت‌ها */
+            flex: 0 0 300px; 
             background: #fcfcfc;
             border: 1px solid #e5e7eb;
             border-top: 4px solid var(--color-secondary);
@@ -611,7 +656,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
-            white-space: normal; /* بازگشت متن به حالت عادی داخل کارت */
+            white-space: normal; 
         }
 
         .report-item:hover {
@@ -636,11 +681,10 @@
             color: #4b5563;
             margin-bottom: 15px;
             line-height: 1.6;
-            height: 65px; /* ارتفاع ثابت برای توضیحات */
+            height: 65px; 
             overflow: hidden;
         }
 
-        /* استایل دکمه دانلود/مشاهده */
         .download-link {
             display: inline-block;
             padding: 8px 15px;
@@ -712,7 +756,6 @@
             right: 0;
         }
         
-        /* استایل آیکون‌های منوی کشویی */
         #drawerMenu nav a i {
             color: var(--color-secondary);
         }
@@ -721,7 +764,6 @@
             text-align: center;
         }
         
-        /* 💡 استایل‌های اصلاح‌شده برای هماهنگی با دسکتاپ 💡 */
         #drawerMenu img {
             width: 120px; 
             height: 120px; 
@@ -739,7 +781,7 @@
         
         #drawerMenu p {
             font-size: 15px; 
-            color: #d1d5db; /* رنگ روشن‌تر برای سایدبار تیره */
+            color: #d1d5db; 
             margin-bottom: 30px; 
         }
         
@@ -840,6 +882,24 @@
             .report-item {
                 flex: 0 0 280px; 
             }
+            
+            /* حذف خط عمودی در موبایل */
+            .data-block::before {
+                content: none;
+            }
+            
+            /* حذف نقطه در موبایل */
+            .position-item::before {
+                content: none;
+            }
+            
+            /* حذف پدینگ راست در موبایل */
+            .data-block {
+                padding-right: 0; 
+            }
+            .position-item {
+                padding-right: 0; 
+            }
         }
 
     </style>
@@ -870,7 +930,9 @@
 
             <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
             
-            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a>
+
+            <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
 
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
 
@@ -895,7 +957,8 @@
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
             <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
-            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> 
+            <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
         </nav>
     </div>
@@ -932,80 +995,60 @@
 
 
                 <div class="data-block">
-
                     <h3>شرکت هلدینگ سرمایه‌گذاری طلوع</h3>
-
                     <p class="duration-info">مدت کل فعالیت: ۱۴۰۳ تا کنون</p>
 
-                    
-                    <div class="position-timeline">
+                    <div class="position-item">
+                        <h4>مدیر عامل</h4>
+                        <p class="duration-info">۱۴۰۴ تا کنون</p>
+                        <ul>
+                            <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و توسعه کسب‌وکار</li>
+                            <li>مدیریت عملیات و منابع شرکت برای دستیابی به اهداف سودآوری</li>
+                            <li>نظارت بر تیم‌های مختلف مالی و سرمایه‌گذاری</li>
+                        </ul>
+                    </div>
 
-                        
-                        <div class="position-item">
-                            <h4>مدیر عامل</h4>
-                            <p class="duration-info">۱۴۰۴ تا کنون</p>
-                            <ul>
-                                <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و توسعه کسب‌وکار</li>
-                                <li>مدیریت عملیات و منابع شرکت برای دستیابی به اهداف سودآوری</li>
-                                <li>نظارت بر تیم‌های مختلف مالی و سرمایه‌گذاری</li>
-                            </ul>
-                        </div>
-
-
-                        <div class="position-item">
-                            <h4>مدیر سرمایه‌گذاری</h4>
-                            <p class="duration-info">۱۴۰۳ تا ۱۴۰۴</p>
-                            <ul>
-                                <li>مدیریت مستقیم سبد دارایی‌های شرکت به ارزش X میلیارد تومان</li>
-                                <li>رهبری تیم تحلیل و نظارت بر تهیه گزارش‌های تحلیلی صنایع</li>
-                                <li>طراحی مدل‌های ریسک و بازدهی برای تخصیص بهینه دارایی</li>
-                            </ul>
-                        </div>
-
-
+                    <div class="position-item">
+                        <h4>مدیر سرمایه‌گذاری</h4>
+                        <p class="duration-info">۱۴۰۳ تا ۱۴۰۴</p>
+                        <ul>
+                            <li>مدیریت مستقیم سبد دارایی‌های شرکت به ارزش X میلیارد تومان</li>
+                            <li>رهبری تیم تحلیل و نظارت بر تهیه گزارش‌های تحلیلی صنایع</li>
+                            <li>طراحی مدل‌های ریسک و بازدهی برای تخصیص بهینه دارایی</li>
+                        </ul>
                     </div>
                 </div>
 
 
 
                 <div class="data-block">
-
                     <h3>بانک XYZ</h3>
-
                     <p class="duration-info">مدت کل فعالیت: تابستان ۱۴۰۳</p>
 
-                    
-                    <div class="position-timeline">
-                        <div class="position-item">
-                            <h4>کارآموزی در واحد تحلیل ریسک</h4>
-                            <p class="duration-info">تابستان ۱۴۰۳</p>
-                            <ul>
-                                <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
-                                <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
-                                <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
-                            </ul>
-                        </div>
+                    <div class="position-item">
+                        <h4>کارآموزی در واحد تحلیل ریسک</h4>
+                        <p class="duration-info">تابستان ۱۴۰۳</p>
+                        <ul>
+                            <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
+                            <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
+                            <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
+                        </ul>
                     </div>
                 </div>
 
                 
                 <div class="data-block">
-
                     <h3>شرکت ABC</h3>
-
                     <p class="duration-info">مدت کل فعالیت: ۱۴۰۲ تا ۱۴۰۳</p>
 
-                    
-                    <div class="position-timeline">
-                        <div class="position-item">
-                            <h4>کارشناس مالی</h4>
-                            <p class="duration-info">۱۴۰۲ تا ۱۴۰۳</p>
-                            <ul>
-                                <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
-                                <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
-                                <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
-                            </ul>
-                        </div>
+                    <div class="position-item">
+                        <h4>کارشناس مالی</h4>
+                        <p class="duration-info">۱۴۰۲ تا ۱۴۰۳</p>
+                        <ul>
+                            <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
+                            <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
+                            <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
+                        </ul>
                     </div>
                 </div>
                 
@@ -1151,8 +1194,8 @@
                         <p class="report-desc">رویکردهای فنی و الگوهای قیمتی در بازار بیت کوین و آلت‌کوین‌ها.</p>
                         <a href="https://github.com/yourusername/yourrepo/report-4.pdf" target="_blank" class="download-link">مشاهده PDF <i class="fa-solid fa-file-pdf"></i></a>
                     </div>
-                    
-                    </div>
+
+                </div>
             </div>
         </section>
 
