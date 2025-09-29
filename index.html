@@ -1,705 +1,635 @@
 <!DOCTYPE html>
-
 <html lang="fa">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>رزومه حامد چگینی</title>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<style>
-
-@font-face {
-
-font-family: 'IRANSansXFaNum';
-
-src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
-
-}
-
-
-
-* { box-sizing: border-box; margin:0; padding:0; }
-
-body {
-
-font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
-
-background: #f5f5f5;
-
-color: #333;
-
-direction: rtl;
-
-line-height: 1.6;
-
-scroll-behavior: smooth;
-
-display: flex;
-
-flex-direction: column;
-
-}
-
-
-
-/* --- دسکتاپ --- */
-
-header.desktop {
-
-position: fixed;
-
-right: 0;
-
-top: 0;
-
-width: 180px;
-
-height: 100vh;
-
-background: #2c3e50;
-
-color: #fff;
-
-display: flex;
-
-flex-direction: column;
-
-align-items: center;
-
-padding: 20px 0;
-
-z-index: 999;
-
-overflow-y: auto;
-
-}
-
-header.desktop img {
-
-width: 100px;
-
-height: 100px;
-
-border-radius: 50%;
-
-margin-bottom: 15px;
-
-object-fit: cover;
-
-}
-
-header.desktop h1 { font-size: 22px; text-align: center; margin-bottom: 5px; }
-
-header.desktop p { font-size: 14px; color: #ecf0f1; text-align: center; margin-bottom: 20px; }
-
-header.desktop nav { display: flex; flex-direction: column; gap: 10px; }
-
-header.desktop nav a {
-
-font-weight: bold;
-
-color: #fff;
-
-padding:8px 12px;
-
-border-radius:5px;
-
-text-align: center;
-
-cursor:pointer;
-
-transition: all 0.3s ease;
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-}
-
-header.desktop nav a:hover { color: #1abc9c; background: rgba(255,255,255,0.2); }
-
-
-
-/* --- محتوا --- */
-
-main {
-
-flex: 1;
-
-padding: 40px 20px;
-
-margin-right: 180px;
-
-display: flex;
-
-flex-direction: column;
-
-align-items: center;
-
-}
-
-section {
-
-width: 900px;
-
-max-width: 95%;
-
-margin: 40px 0;
-
-opacity: 0;
-
-transform: translateY(50px);
-
-transition: all 0.8s ease;
-
-}
-
-section.visible { opacity: 1; transform: translateY(0); }
-
-.card {
-
-background: #fff;
-
-padding: 25px;
-
-border-radius: 10px;
-
-box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-
-width: 100%;
-
-margin-bottom: 20px;
-
-}
-
-section h2 {
-
-margin-bottom: 15px;
-
-color: #2c3e50;
-
-text-align:center;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:10px;
-
-}
-
-
-
-/* مهارت‌ها */
-
-.skills ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; padding: 0; }
-
-.skills li { background: #3498db; color: #fff; padding: 5px 10px; border-radius: 5px; }
-
-
-
-/* متن‌ها */
-
-p, li { text-align: justify; text-justify: inter-word; word-spacing: normal; letter-spacing: normal; }
-
-
-
-/* Drawer موبایل */
-
-header.mobile { display:none; }
-
-#drawerMenu {
-
-position: fixed;
-
-top: 0;
-
-right: -260px;
-
-width: 260px;
-
-height: 100%;
-
-background: #2c3e50;
-
-color: #fff;
-
-z-index: 1000;
-
-display: flex;
-
-flex-direction: column;
-
-padding: 20px;
-
-transition: right 0.3s ease;
-
-overflow-y: auto;
-
-}
-
-#drawerMenu.show { right: 0; }
-
-#drawerMenu img { width: 80px; height: 80px; border-radius: 50%; margin: 10px auto; display:block; }
-
-#drawerMenu h1 { font-size: 18px; text-align:center; margin-bottom:5px; }
-
-#drawerMenu p { font-size: 12px; text-align:center; margin-bottom:15px; color: #ecf0f1; }
-
-#drawerMenu nav { display:flex; flex-direction: column; gap:10px; }
-
-#drawerMenu nav a { padding:8px; background: rgba(255,255,255,0.1); border-radius:5px; cursor:pointer; transition:0.3s; text-align:center; display:flex; align-items:center; gap:5px; font-size:14px;}
-
-#drawerMenu nav a:hover { background: rgba(255,255,255,0.2); color:#1abc9c; }
-
-
-
-/* Toggle Button */
-
-#menuToggle {
-
-display: none;
-
-position: fixed;
-
-top: 15px;
-
-right: 15px;
-
-width: 30px;
-
-height: 25px;
-
-flex-direction: column;
-
-justify-content: space-between;
-
-cursor: pointer;
-
-z-index: 1100;
-
-}
-
-#menuToggle span {
-
-height: 4px;
-
-background:#333;
-
-border-radius:2px;
-
-transition: background 0.3s;
-
-}
-
-#menuToggle.active span { background: #fff; }
-
-
-
-/* --- ریسپانسیو موبایل --- */
-
-@media(max-width:800px){
-
-body { flex-direction: column; }
-
-header.desktop { display:none; }
-
-main { margin:0; padding:20px; }
-
-section { width: 100%; margin: 30px 0; }
-
-#menuToggle { display:flex; }
-
-section h2 { font-size:18px; }
-
-.card { padding:15px; }
-
-#drawerMenu { width:200px; }
-
-#drawerMenu img { width:60px; height:60px; }
-
-#drawerMenu h1 { font-size:16px; }
-
-#drawerMenu p { font-size:11px; }
-
-#drawerMenu nav a { font-size:13px; }
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه حامد چگینی - مدیر سرمایه‌گذاری</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* تعریف فونت (فرض بر این است که فایل IRANSansXFaNum-Medium.ttf در دسترس است) */
+        @font-face {
+            font-family: 'IRANSansXFaNum';
+            src: url('IRANSansXFaNum-Medium.ttf') format('truetype');
+        }
+
+        /* --- متغیرهای رنگی --- */
+        :root {
+            --color-primary: #1e3a8a; /* آبی تیره عمیق (Deep Blue) */
+            --color-secondary: #3b82f6; /* آبی روشن‌تر برای تاکید (Accent Blue) */
+            --color-text: #1f2937; /* خاکستری تیره برای متن اصلی */
+            --color-background: #f8fafc; /* سفید متمایل به خاکستری روشن برای پس‌زمینه */
+            --color-card-bg: #ffffff; /* سفید خالص برای کارت‌ها */
+            --color-shadow: rgba(30, 58, 138, 0.1); /* سایه نرم و هماهنگ */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            direction: rtl;
+            line-height: 1.8; /* افزایش خطوط برای خوانایی بهتر */
+            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            font-size: 15px;
+        }
+
+        /* --- استایل هدر (سایدبار دسکتاپ) --- */
+        header.desktop {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 220px; /* پهن‌تر شدن سایدبار */
+            height: 100vh;
+            background: var(--color-primary);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px;
+            z-index: 999;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header.desktop img {
+            width: 120px; /* بزرگتر شدن عکس */
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+            border: 4px solid var(--color-secondary); /* حاشیه رنگی دور عکس */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header.desktop h1 {
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        header.desktop p {
+            font-size: 15px;
+            color: #c4d0f0; /* رنگ روشن‌تر برای عنوان شغلی */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header.desktop nav {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        header.desktop nav a {
+            font-weight: normal;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 8px; /* گوشه‌های گردتر */
+            text-align: right;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px; /* فاصله بیشتر بین آیکون و متن */
+            font-size: 16px;
+        }
+
+        header.desktop nav a i {
+            font-size: 18px;
+            color: var(--color-secondary); /* رنگی کردن آیکون‌ها */
+        }
+
+        header.desktop nav a:hover,
+        header.desktop nav a.active {
+            color: var(--color-secondary);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(-5px); /* افکت کوچک هنگام هاور */
+        }
+
+        /* --- محتوا --- */
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            margin-right: 220px; /* منطبق با عرض جدید سایدبار */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section {
+            width: 900px;
+            max-width: 95%;
+            margin: 40px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+            padding-top: 20px; /* برای جلوگیری از مخفی شدن زیر هدر ثابت */
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card {
+            background: var(--color-card-bg);
+            padding: 30px; /* پدینگ بیشتر */
+            border-radius: 12px;
+            box-shadow: 0 10px 30px var(--color-shadow); /* سایه نرم و جذاب */
+            border-right: 4px solid var(--color-secondary); /* خط رنگی کناری برای زیبایی */
+            width: 100%;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px); /* افکت کوچک هنگام هاور */
+        }
+
+        section h2 {
+            margin-bottom: 25px;
+            color: var(--color-primary);
+            text-align: right;
+            font-size: 24px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-secondary); /* خط زیر عنوان */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+        
+        section h2 i {
+            color: var(--color-secondary);
+            font-size: 26px;
+        }
+
+        /* بخش‌های تجربه و پروژه */
+        .card h3 {
+            color: var(--color-text);
+            font-size: 18px;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            border-right: 3px solid var(--color-secondary);
+            padding-right: 8px;
+        }
+        
+        .card > p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* لیست‌ها در تجربه و تحصیلات */
+        .card ul {
+            list-style: none;
+            padding-right: 20px;
+            margin-top: 10px;
+        }
+        
+        .card ul li {
+            position: relative;
+            margin-bottom: 8px;
+            padding-right: 15px;
+            font-size: 15px;
+        }
+
+        .card ul li::before {
+            content: "\f058"; /* آیکون چک مارک */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--color-secondary);
+            font-size: 12px;
+            top: 5px;
+        }
+        
+        /* توضیحات تحصیلات و تماس */
+        section#education ul li::before,
+        section#contact p::before {
+            content: "\f111"; /* دایره کوچک */
+            font-weight: 900;
+            font-size: 8px;
+            top: 8px;
+        }
+
+        /* مهارت‌ها */
+        .skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px; /* فاصله بیشتر */
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .skills li {
+            background: #eef2ff; /* پس‌زمینه بسیار روشن */
+            color: var(--color-primary);
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            border: 1px solid var(--color-secondary);
+            transition: background-color 0.3s;
+        }
+        
+        .skills li:hover {
+            background-color: var(--color-secondary);
+            color: #fff;
+        }
+
+        /* بخش تماس */
+        section#contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-right: 10px;
+        }
+        
+        section#contact a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        section#contact a:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+
+
+        /* --- موبایل (Drawer و Toggle) --- */
+
+        /* همانند قبل، فقط رنگ‌های جدید اعمال شدند */
+        header.mobile {
+            display: none;
+        }
+
+        #drawerMenu {
+            position: fixed;
+            top: 0;
+            right: -280px; /* کمی پهن‌تر */
+            width: 280px;
+            height: 100%;
+            background: var(--color-primary);
+            color: #fff;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+        }
+
+        #drawerMenu.show {
+            right: 0;
+        }
+
+        #drawerMenu img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 10px auto;
+            display: block;
+            border: 2px solid var(--color-secondary);
+        }
+
+        #drawerMenu h1 {
+            font-size: 20px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        #drawerMenu p {
+            font-size: 13px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #c4d0f0;
+        }
+
+        #drawerMenu nav {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        #drawerMenu nav a {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+        }
+
+        #drawerMenu nav a i {
+            color: var(--color-secondary);
+        }
+
+        #drawerMenu nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--color-secondary);
+        }
+
+        /* Toggle Button */
+        #menuToggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 25px;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1100;
+            background: #fff; /* پس‌زمینه سفید برای دیده شدن بهتر */
+            padding: 5px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #menuToggle span {
+            height: 3px;
+            background: var(--color-primary);
+            border-radius: 1px;
+            transition: background 0.3s;
+        }
+
+        #menuToggle.active {
+            background: var(--color-primary);
+        }
+
+        #menuToggle.active span {
+            background: #fff;
+        }
+
+        /* --- ریسپانسیو موبایل --- */
+        @media(max-width:800px) {
+            body {
+                font-size: 14px;
+            }
+
+            header.desktop {
+                display: none;
+            }
+
+            main {
+                margin: 0;
+                padding: 20px 10px;
+            }
+
+            section {
+                width: 100%;
+                margin: 30px 0;
+                padding-top: 10px;
+            }
+
+            section h2 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .card {
+                padding: 20px;
+                border-right: 3px solid var(--color-secondary);
+            }
+
+            #menuToggle {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-
-
-<header class="desktop">
-
-<img src="profile.jpg" alt="عکس پروفایل">
-
-<h1>حامد چگینی</h1>
-
-<p>مدیر سرمایه‌گذاری</p>
-
-<nav>
-
-<a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
-
-<a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
-
-<a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
-
-<a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
-
-<a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
-
-<a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
-
-</nav>
-
-</header>
-
-
-
-<div id="menuToggle">
-
-<span></span><span></span><span></span>
-
-</div>
-
-
-
-<div id="drawerMenu">
-
-<img src="profile.jpg" alt="عکس پروفایل">
-
-<h1>حامد چگینی</h1>
-
-<p>مدیر سرمایه‌گذاری</p>
-
-<nav>
-
-<a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
-
-<a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
-
-<a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
-
-<a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
-
-<a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
-
-<a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
-
-</nav>
-
-</div>
-
-
-
-<main>
-
-<!-- سکشن‌ها -->
-
-<section id="about">
-
-<div class="card">
-
-<h2><i class="fa-solid fa-user"></i> درباره من</h2>
-
-<p>مدیر سرمایه‌گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. <strong>مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی</strong>، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.</p>
-
-<p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. <strong>مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</strong></p>
-
-<p><strong>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.</strong> توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
-
-</div>
-
-</section>
-
-
-
-<section id="experience">
-
-<div class="card">
-
-<h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
-
-
-
-<div class="card">
-
-<h3>کارآموزی در بانک XYZ</h3>
-
-<p><strong>تابستان ۱۴۰۳</strong></p>
-
-<ul>
-
-<li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
-
-<li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
-
-<li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
-
-</ul>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</h3>
-
-<p><strong>بهار ۱۴۰۳</strong></p>
-
-<ul>
-
-<li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
-
-<li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
-
-<li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
-
-</ul>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>کارشناس مالی - شرکت ABC</h3>
-
-<p><strong>۱۴۰۲ تا ۱۴۰۳</strong></p>
-
-<ul>
-
-<li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
-
-<li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
-
-<li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
-
-</ul>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section id="education">
-
-<div class="card">
-
-<h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
-
-<ul>
-
-<li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
-
-<li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
-
-<li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
-
-</ul>
-
-</div>
-
-</section>
-
-
-
-<section id="skills">
-
-<div class="card skills">
-
-<h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
-
-<ul>
-
-<li>Python</li>
-
-<li>Pandas & NumPy</li>
-
-<li>Plotly & Matplotlib</li>
-
-<li>مدل‌سازی مالی</li>
-
-<li>بهینه‌سازی پرتفوی</li>
-
-<li>Excel & VBA</li>
-
-</ul>
-
-</div>
-
-</section>
-
-
-
-<section id="projects">
-
-<div class="card">
-
-<h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
-
-<ul>
-
-<li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
-
-<li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
-
-<li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
-
-</ul>
-
-</div>
-
-</section>
-
-
-
-<section id="contact">
-
-<div class="card">
-
-<h2><i class="fa-solid fa-phone"></i> تماس</h2>
-
-<p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
-
-<p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
-
-<p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
-
-</div>
-
-</section>
-
-</main>
-
-
-
-
-
-<script>
-
-// افکت ورود سکشن‌ها
-
-const sections=document.querySelectorAll('section');
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
-
-},{ threshold:0.2 });
-
-sections.forEach(sec=>observer.observe(sec));
-
-
-
-// اسکرول روی لینک‌ها با offset برای هدر
-
-document.querySelectorAll('nav a').forEach(link=>{
-
-link.addEventListener('click', e=>{
-
-e.preventDefault();
-
-const target = document.querySelector(link.dataset.target);
-
-const headerOffset = window.innerWidth < 800 ? 0 : 20;
-
-const elementPosition = target.getBoundingClientRect().top;
-
-const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-
-
-window.scrollTo({
-
-top: offsetPosition,
-
-behavior: "smooth"
-
-});
-
-
-
-if(window.innerWidth<800) drawerMenu.classList.remove('show');
-
-menuToggle.classList.remove('active');
-
-});
-
-});
-
-
-
-// Drawer موبایل و تغییر رنگ منوی همبرگری
-
-const menuToggle=document.getElementById('menuToggle');
-
-const drawerMenu=document.getElementById('drawerMenu');
-
-
-
-menuToggle.addEventListener('click', (e)=>{
-
-drawerMenu.classList.toggle('show');
-
-menuToggle.classList.toggle('active');
-
-e.stopPropagation();
-
-});
-
-
-
-drawerMenu.addEventListener('click', (e)=>{
-
-e.stopPropagation();
-
-});
-
-
-
-// بستن منوی موبایل با کلیک روی هر جای صفحه به غیر از منو و دکمه
-
-document.addEventListener('click', (e)=>{
-
-if(window.innerWidth<800 && drawerMenu.classList.contains('show')){
-
-if(!drawerMenu.contains(e.target) && e.target!==menuToggle){
-
-drawerMenu.classList.remove('show');
-
-menuToggle.classList.remove('active');
-
-}
-
-}
-
-});
-
-</script>
-
-
+    <header class="desktop">
+        <img src="profile.jpg" alt="عکس پروفایل">
+        <h1>حامد چگینی</h1>
+        <p>مدیر سرمایه‌گذاری</p>
+        <nav>
+            <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
+            <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
+            <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+            <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
+            <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+            <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
+        </nav>
+    </header>
+
+    <div id="menuToggle">
+        <span></span><span></span><span></span>
+    </div>
+
+    <div id="drawerMenu">
+        <img src="profile.jpg" alt="عکس پروفایل">
+        <h1>حامد چگینی</h1>
+        <p>مدیر سرمایه‌گذاری</p>
+        <nav>
+            <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
+            <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
+            <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+            <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
+            <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
+            <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
+        </nav>
+    </div>
+
+    <main>
+
+        <section id="about">
+            <div class="card">
+                <h2><i class="fa-solid fa-user"></i> درباره من</h2>
+                <p>مدیر سرمایه‌گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. **مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی**، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.</p>
+                <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. **مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.**</p>
+                <p>**مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.** توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="card">
+                <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
+
+                <div class="card">
+                    <h3>کارآموزی در بانک XYZ</h3>
+                    <p><strong>تابستان ۱۴۰۳</strong></p>
+                    <ul>
+                        <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
+                        <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
+                        <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</h3>
+                    <p><strong>بهار ۱۴۰۳</strong></p>
+                    <ul>
+                        <li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
+                        <li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
+                        <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>کارشناس مالی - شرکت ABC</h3>
+                    <p><strong>۱۴۰۲ تا ۱۴۰۳</strong></p>
+                    <ul>
+                        <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
+                        <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
+                        <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <div class="card">
+                <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
+                <ul>
+                    <li><strong>دکتری مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۲ تا کنون</li>
+                    <li><strong>کارشناسی ارشد مهندسی مالی</strong> - دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</li>
+                    <li><strong>کارشناسی مدیریت مالی</strong> - دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="card skills">
+                <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>Pandas & NumPy</li>
+                    <li>Plotly & Matplotlib</li>
+                    <li>مدل‌سازی مالی</li>
+                    <li>بهینه‌سازی پرتفوی</li>
+                    <li>Excel & VBA</li>
+                    <li>Eviews</li>
+                    <li>Comfar</li>
+                    <li>تحلیل اقتصاد کلان</li>
+                    <li>مدیریت ریسک</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="card">
+                <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
+                <ul>
+                    <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
+                    <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
+                    <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="card">
+                <h2><i class="fa-solid fa-phone"></i> تماس</h2>
+                <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
+                <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // افکت ورود سکشن‌ها (همان کد قبلی)
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, {
+            threshold: 0.2
+        });
+        sections.forEach(sec => observer.observe(sec));
+
+        // اسکرول روی لینک‌ها با offset برای هدر
+        const headerWidth = 220; // عرض جدید هدر
+        const menuLinks = document.querySelectorAll('nav a');
+        
+        menuLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.dataset.target);
+                // محاسبه offset بر اساس موبایل/دسکتاپ
+                const headerOffset = window.innerWidth < 800 ? 0 : 40; // کمی افزایش داده شد برای دید بهتر
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+
+                if (window.innerWidth < 800) drawerMenu.classList.remove('show');
+                menuToggle.classList.remove('active');
+            });
+        });
+
+        // اضافه کردن کلاس active به لینک‌ها در نوار ناوبری هنگام اسکرول
+        const updateNavLinks = () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100) { // 100px به عنوان بافر
+                    current = section.getAttribute('id');
+                }
+            });
+
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.target.substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', updateNavLinks);
+        updateNavLinks(); // برای تنظیم اولیه
+
+        // Drawer موبایل و تغییر رنگ منوی همبرگری (کد قبلی)
+        const menuToggle = document.getElementById('menuToggle');
+        const drawerMenu = document.getElementById('drawerMenu');
+
+        menuToggle.addEventListener('click', (e) => {
+            drawerMenu.classList.toggle('show');
+            menuToggle.classList.toggle('active');
+            e.stopPropagation();
+        });
+
+        drawerMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 800 && drawerMenu.classList.contains('show')) {
+                if (!drawerMenu.contains(e.target) && e.target !== menuToggle) {
+                    drawerMenu.classList.remove('show');
+                    menuToggle.classList.remove('active');
+                }
+            }
+        });
+    </script>
 
 </body>
-
 </html>
