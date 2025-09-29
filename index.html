@@ -32,19 +32,28 @@ main {
   gap: 35px; 
 }
 
-/* اختصاص محل نمایش سکشن‌ها در طرح Grid دسکتاپ */
-#profile-info { grid-column: 1 / 2; grid-row: 1 / 2; } /* ستون کناری، ردیف ۱ */
-#contact { grid-column: 1 / 2; grid-row: 3 / 4; } /* ستون کناری، ردیف ۳ */
-#skills { grid-column: 1 / 2; grid-row: 4 / 5; } /* ستون کناری، ردیف ۴ */
-#about { grid-column: 2 / 3; grid-row: 1 / 2; } /* ستون اصلی، ردیف ۱ */
-#experience { grid-column: 2 / 3; grid-row: 2 / 3; } /* ستون اصلی، ردیف ۲ */
-#education { grid-column: 2 / 3; grid-row: 3 / 4; } /* ستون اصلی، ردیف ۳ */
-#projects { grid-column: 2 / 3; grid-row: 4 / 5; } /* ستون اصلی، ردیف ۴ */
+/* بخش‌های اصلی محتوا (ستون دوم) */
+#about, #experience, #education, #projects {
+    grid-column: 2 / 3;
+    margin-bottom: 30px; /* اضافه کردن مارجین بین سکشن‌های ستون اصلی */
+}
+/* بخش‌های ستون کناری (ستون اول) */
+#profile-info, #sidebar-group {
+    grid-column: 1 / 2;
+}
+#profile-info {
+    margin-bottom: 30px;
+}
+#sidebar-group {
+    /* اطمینان از این که گروه بندی کنار هم بماند */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* فاصله بین سکشن‌های تماس و مهارت‌ها */
+}
 
 
 /* --- تنظیمات محتوا (Section & Card) --- */
 section { 
-  margin-bottom: 0; /* چون از Grid استفاده می‌کنیم، margin-bottom را صفر می‌کنیم */
   opacity: 1; 
   transform: none;
 }
@@ -89,8 +98,10 @@ section h2 i { color: #1abc9c; }
 #profile-info p { font-size: 16px; color: #ecf0f1; }
 
 /* تجربه‌ها و پروژه‌ها */
+#experience .card:not(:first-child) {
+    margin-top: 15px;
+}
 #experience .card, #projects .card {
-    margin-bottom: 20px;
     padding: 20px;
     border-right: 4px solid #3498db; 
 }
@@ -146,7 +157,7 @@ section h2 i { color: #1abc9c; }
 
 
 /* --- موبایل و Drawer --- */
-header.desktop { display:none !important; } /* مطمئن می‌شویم نوار کناری اصلی حذف شده است */
+header.desktop { display:none !important; }
 
 /* Toggle Button */
 #menuToggle {
@@ -207,21 +218,25 @@ header.desktop { display:none !important; } /* مطمئن می‌شویم نوا
 
 /* --- ریسپانسیو موبایل (ترتیب عمودی مورد نظر شما) --- */
 @media(max-width:992px){
-  /* تنظیمات Grid را به تک ستونی برمی‌گردانیم تا ترتیب HTML حفظ شود */
   main {
     grid-template-columns: 1fr; 
     padding: 20px;
-    gap: 20px;
+    gap: 0; /* فاصله اصلی را صفر می‌کنیم */
   }
   
-  /* حذف تعریف جایگاه Grid در موبایل تا ترتیب اصلی (HTML) اجرا شود */
+  /* تمامی سکشن‌ها تمام عرض را بگیرند */
   #profile-info, #contact, #skills, #about, #experience, #education, #projects {
       grid-column: 1 / -1; 
-      grid-row: auto; 
-      margin-bottom: 20px; /* اضافه کردن مجدد مارجین بین سکشن‌ها */
+      margin-bottom: 20px; 
   }
 
-  /* تنظیمات موبایل */
+  /* حذف گروه بندی اضافه برای موبایل */
+  #sidebar-group {
+      display: block;
+      gap: 0;
+  }
+  
+  /* نمایش دکمه منوی موبایل */
   #menuToggle { display:flex; }
   .card { padding: 20px; }
 }
@@ -268,7 +283,33 @@ header.desktop { display:none !important; } /* مطمئن می‌شویم نوا
         </div>
     </section>
 
-    <section id="experience">
+    <div id="sidebar-group">
+        <section id="contact">
+            <div class="card">
+                <h2><i class="fa-solid fa-phone"></i> تماس</h2>
+                <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
+                <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="card skills">
+                <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
+                <ul>
+                    <li>Python</li>
+                    <li>Pandas & NumPy</li>
+                    <li>Plotly & Matplotlib</li>
+                    <li>مدل‌سازی مالی</li>
+                    <li>بهینه‌سازی پرتفوی</li>
+                    <li>Excel & VBA</li>
+                    <li>تحلیل داده‌ها</li>
+                    <li>اقتصاد کلان</li>
+                    <li>Eviews & Comfar</li>
+                </ul>
+            </div>
+        </section>
+    </div> <section id="experience">
         <div class="card">
             <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
 
@@ -314,33 +355,6 @@ header.desktop { display:none !important; } /* مطمئن می‌شویم نوا
             </ul>
         </div>
     </section>
-    
-    <section id="contact">
-        <div class="card">
-            <h2><i class="fa-solid fa-phone"></i> تماس</h2>
-            <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
-            <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="card skills">
-            <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
-            <ul>
-                <li>Python</li>
-                <li>Pandas & NumPy</li>
-                <li>Plotly & Matplotlib</li>
-                <li>مدل‌سازی مالی</li>
-                <li>بهینه‌سازی پرتفوی</li>
-                <li>Excel & VBA</li>
-                <li>تحلیل داده‌ها</li>
-                <li>اقتصاد کلان</li>
-                <li>Eviews & Comfar</li>
-            </ul>
-        </div>
-    </section>
-
 
     <section id="projects">
         <div class="card">
