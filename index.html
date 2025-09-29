@@ -33,7 +33,7 @@
             background: var(--color-background);
             color: var(--color-text);
             direction: rtl;
-            line-height: 1.8; /* افزایش خطوط برای خوانایی بهتر */
+            line-height: 1.8;
             scroll-behavior: smooth;
             display: flex;
             flex-direction: column;
@@ -45,7 +45,7 @@
             position: fixed;
             right: 0;
             top: 0;
-            width: 220px; /* پهن‌تر شدن سایدبار */
+            width: 220px;
             height: 100vh;
             background: var(--color-primary);
             color: #fff;
@@ -59,12 +59,12 @@
         }
 
         header.desktop img {
-            width: 120px; /* بزرگتر شدن عکس */
+            width: 120px;
             height: 120px;
             border-radius: 50%;
             margin-bottom: 20px;
             object-fit: cover;
-            border: 4px solid var(--color-secondary); /* حاشیه رنگی دور عکس */
+            border: 4px solid var(--color-secondary);
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -77,7 +77,7 @@
 
         header.desktop p {
             font-size: 15px;
-            color: #c4d0f0; /* رنگ روشن‌تر برای عنوان شغلی */
+            color: #c4d0f0;
             text-align: center;
             margin-bottom: 30px;
         }
@@ -93,33 +93,33 @@
             font-weight: normal;
             color: #fff;
             padding: 10px 15px;
-            border-radius: 8px; /* گوشه‌های گردتر */
+            border-radius: 8px;
             text-align: right;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 12px; /* فاصله بیشتر بین آیکون و متن */
+            gap: 12px;
             font-size: 16px;
         }
 
         header.desktop nav a i {
             font-size: 18px;
-            color: var(--color-secondary); /* رنگی کردن آیکون‌ها */
+            color: var(--color-secondary);
         }
 
         header.desktop nav a:hover,
         header.desktop nav a.active {
             color: var(--color-secondary);
             background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-5px); /* افکت کوچک هنگام هاور */
+            transform: translateX(-5px);
         }
 
         /* --- محتوا --- */
         main {
             flex: 1;
             padding: 40px 20px;
-            margin-right: 220px; /* منطبق با عرض جدید سایدبار */
+            margin-right: 220px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -132,7 +132,7 @@
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.8s ease;
-            padding-top: 20px; /* برای جلوگیری از مخفی شدن زیر هدر ثابت */
+            padding-top: 20px;
         }
 
         section.visible {
@@ -140,19 +140,20 @@
             transform: translateY(0);
         }
 
+        /* استایل کلی کارت */
         .card {
             background: var(--color-card-bg);
-            padding: 30px; /* پدینگ بیشتر */
+            padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px var(--color-shadow); /* سایه نرم و جذاب */
-            border-right: 4px solid var(--color-secondary); /* خط رنگی کناری برای زیبایی */
+            box-shadow: 0 10px 30px var(--color-shadow);
+            border-right: 4px solid var(--color-secondary);
             width: 100%;
             margin-bottom: 25px;
             transition: transform 0.3s ease;
         }
         
         .card:hover {
-            transform: translateY(-3px); /* افکت کوچک هنگام هاور */
+            transform: translateY(-3px);
         }
 
         section h2 {
@@ -161,7 +162,7 @@
             text-align: right;
             font-size: 24px;
             padding-bottom: 10px;
-            border-bottom: 2px solid var(--color-secondary); /* خط زیر عنوان */
+            border-bottom: 2px solid var(--color-secondary);
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -172,25 +173,8 @@
             color: var(--color-secondary);
             font-size: 26px;
         }
-
-        /* بخش‌های تجربه و پروژه */
-        .card h3 {
-            color: var(--color-text);
-            font-size: 18px;
-            margin-top: 15px;
-            margin-bottom: 5px;
-            border-right: 3px solid var(--color-secondary);
-            padding-right: 8px;
-        }
         
-        .card > p {
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        /* لیست‌ها در تجربه و تحصیلات */
+        /* استایل لیست‌ها */
         .card ul {
             list-style: none;
             padding-right: 20px;
@@ -223,19 +207,101 @@
             font-size: 8px;
             top: 8px;
         }
+        
+        /* --- استایل‌های جدید تایم‌لاین تجربه --- */
+        .timeline-container {
+            position: relative;
+            margin-right: 20px; /* فضای لازم برای خط عمودی */
+            padding-right: 15px;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 2px; /* ضخامت خط عمودی */
+            height: 100%;
+            background-color: #e0e7ff; /* رنگ روشن خط */
+        }
+        
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-right: 25px;
+            position: relative;
+            background: #f9f9f9; /* پس زمینه روشن‌تر برای هر آیتم */
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-right: 3px solid var(--color-secondary);
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* دایره نشانگر در کنار خط عمودی */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            right: -17px; /* برای قرارگیری روی خط */
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--color-secondary);
+            border: 3px solid var(--color-card-bg); /* حاشیه سفید برای برجستگی */
+            z-index: 10;
+        }
+
+        .timeline-item h3 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: var(--color-primary);
+            padding-right: 0;
+            border-right: none;
+        }
+        
+        .timeline-item h3 .job-title {
+            font-weight: bold;
+        }
+
+        .timeline-item h3 .job-duration {
+            font-size: 14px;
+            color: #6b7280;
+            font-weight: normal;
+            direction: ltr; /* تاریخ را چپ چین می‌کند */
+        }
+        
+        .timeline-item ul {
+            padding-right: 0;
+            margin-top: 0;
+        }
+        
+        .timeline-item ul li::before {
+            top: 10px;
+        }
+        /* --- پایان استایل‌های تایم‌لاین --- */
+
 
         /* مهارت‌ها */
         .skills ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            gap: 12px; /* فاصله بیشتر */
+            gap: 12px;
             padding: 0;
             margin-top: 15px;
         }
 
         .skills li {
-            background: #eef2ff; /* پس‌زمینه بسیار روشن */
+            background: #eef2ff;
             color: var(--color-primary);
             padding: 8px 15px;
             border-radius: 6px;
@@ -272,7 +338,6 @@
 
         /* --- موبایل (Drawer و Toggle) --- */
 
-        /* همانند قبل، فقط رنگ‌های جدید اعمال شدند */
         header.mobile {
             display: none;
         }
@@ -280,7 +345,7 @@
         #drawerMenu {
             position: fixed;
             top: 0;
-            right: -280px; /* کمی پهن‌تر */
+            right: -280px;
             width: 280px;
             height: 100%;
             background: var(--color-primary);
@@ -359,7 +424,7 @@
             justify-content: space-between;
             cursor: pointer;
             z-index: 1100;
-            background: #fff; /* پس‌زمینه سفید برای دیده شدن بهتر */
+            background: #fff;
             padding: 5px;
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -414,6 +479,34 @@
             #menuToggle {
                 display: flex;
             }
+            
+            /* تنظیم تایم لاین در موبایل */
+            .timeline-container {
+                margin-right: 0;
+                padding-right: 10px;
+            }
+            
+            .timeline-container::before {
+                right: 0;
+            }
+            
+            .timeline-item {
+                padding-right: 10px;
+            }
+            
+            .timeline-item::before {
+                right: -13px;
+            }
+            
+            .timeline-item h3 {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .timeline-item h3 .job-duration {
+                direction: rtl; /* تاریخ را در موبایل دوباره راست چین کن */
+            }
         }
     </style>
 </head>
@@ -459,7 +552,7 @@
                 <h2><i class="fa-solid fa-user"></i> درباره من</h2>
                 <p>مدیر سرمایه‌گذاری و دانشجوی دکتری مهندسی مالی دانشگاه تهران با مهارت‌های تحلیلی و مدیریتی قوی در حوزه سرمایه‌گذاری و مدیریت سبد دارایی‌ها. **مسلط بر مباحث اقتصاد کلان و تحلیل صنایع بورسی**، توانمند در تشکیل سبد بهینه دارایی‌ها با لحاظ ریسک و ارائه چشم‌انداز صنایع و سهام برای تصمیم‌گیری سرمایه‌گذاری. تجربه طراحی استراتژی‌های بهینه‌سازی پرتفوی و تحلیل داده‌های مالی برای اتخاذ تصمیمات مبتنی بر شواهد.</p>
                 <p>انگیزه‌مند، سازمان‌یافته و توانمند در کار تیمی، با خلاقیت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. **مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.**</p>
-                <p>**مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.** توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
+                <p>**مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar.** توانایی جمع‌آآوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
             </div>
         </section>
 
@@ -467,36 +560,37 @@
             <div class="card">
                 <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
 
-                <div class="card">
-                    <h3>کارآموزی در بانک XYZ</h3>
-                    <p><strong>تابستان ۱۴۰۳</strong></p>
-                    <ul>
-                        <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
-                        <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
-                        <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
-                    </ul>
-                </div>
+                <div class="timeline-container">
 
-                <div class="card">
-                    <h3>دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</h3>
-                    <p><strong>بهار ۱۴۰۳</strong></p>
-                    <ul>
-                        <li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
-                        <li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
-                        <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
-                    </ul>
-                </div>
+                    <div class="timeline-item">
+                        <h3><span class="job-title">کارآموزی در بانک XYZ</span><span class="job-duration">تابستان ۱۴۰۳</span></h3>
+                        <ul>
+                            <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
+                            <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
+                            <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
+                        </ul>
+                    </div>
 
-                <div class="card">
-                    <h3>کارشناس مالی - شرکت ABC</h3>
-                    <p><strong>۱۴۰۲ تا ۱۴۰۳</strong></p>
-                    <ul>
-                        <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
-                        <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
-                        <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
-                    </ul>
+                    <div class="timeline-item">
+                        <h3><span class="job-title">دستیار پژوهشی - پروژه بهینه‌سازی پرتفوی</span><span class="job-duration">بهار ۱۴۰۳</span></h3>
+                        <ul>
+                            <li>تحلیل داده‌های تاریخی بازار بورس و صنایع مختلف</li>
+                            <li>پیاده‌سازی مدل‌های بهینه‌سازی پرتفوی با Python و Excel</li>
+                            <li>تهیه گزارش‌های تحلیلی برای ارائه به استاد راهنما</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3><span class="job-title">کارشناس مالی - شرکت ABC</span><span class="job-duration">۱۴۰۲ تا ۱۴۰۳</span></h3>
+                        <ul>
+                            <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
+                            <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
+                            <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
+                        </ul>
+                    </div>
+
                 </div>
-            </div>
+                </div>
         </section>
 
         <section id="education">
@@ -563,15 +657,14 @@
         sections.forEach(sec => observer.observe(sec));
 
         // اسکرول روی لینک‌ها با offset برای هدر
-        const headerWidth = 220; // عرض جدید هدر
+        const headerWidth = 220; 
         const menuLinks = document.querySelectorAll('nav a');
         
         menuLinks.forEach(link => {
             link.addEventListener('click', e => {
                 e.preventDefault();
                 const target = document.querySelector(link.dataset.target);
-                // محاسبه offset بر اساس موبایل/دسکتاپ
-                const headerOffset = window.innerWidth < 800 ? 0 : 40; // کمی افزایش داده شد برای دید بهتر
+                const headerOffset = window.innerWidth < 800 ? 0 : 40; 
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -591,7 +684,7 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (window.scrollY >= sectionTop - 100) { // 100px به عنوان بافر
+                if (window.scrollY >= sectionTop - 100) { 
                     current = section.getAttribute('id');
                 }
             });
@@ -605,7 +698,7 @@
         };
         
         window.addEventListener('scroll', updateNavLinks);
-        updateNavLinks(); // برای تنظیم اولیه
+        updateNavLinks(); 
 
         // Drawer موبایل و تغییر رنگ منوی همبرگری (کد قبلی)
         const menuToggle = document.getElementById('menuToggle');
