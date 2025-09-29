@@ -26,21 +26,21 @@
 
 
 
-        /* --- متغیرهای رنگی --- */
+        /* --- متغیرهای رنگی (تم جدید: Dynamic & Trustworthy) --- */
 
         :root {
 
-            --color-primary: #1e3a8a; /* آبی تیره عمیق (Deep Blue) */
+            --color-primary: #1f2937; /* خاکستری تیره/تقریباً مشکی برای سایدبار و عنوان */
 
-            --color-secondary: #3b82f6; /* آبی روشن‌تر برای تاکید (Accent Blue) */
+            --color-secondary: #f97316; /* نارنجی پررنگ برای خطوط برجسته و آیکون‌ها */
 
             --color-text: #1f2937; /* خاکستری تیره برای متن اصلی */
 
-            --color-background: #f8fafc; /* سفید متمایل به خاکستری روشن برای پس‌زمینه */
+            --color-background: #f0f4f8; /* پس‌زمینه خاکستری روشن مایل به آبی */
 
             --color-card-bg: #ffffff; /* سفید خالص برای کارت‌ها */
 
-            --color-shadow: rgba(30, 58, 138, 0.1); /* سایه نرم و هماهنگ */
+            --color-shadow: rgba(0, 0, 0, 0.1); /* سایه نرم‌تر */
 
         }
 
@@ -112,7 +112,7 @@
 
             overflow-y: auto;
 
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* سایه تیره تر */
 
         }
 
@@ -156,7 +156,7 @@
 
             font-size: 15px;
 
-            color: #c4d0f0;
+            color: #d1d5db; /* رنگ روشن‌تر برای سایدبار تیره */
 
             text-align: center;
 
@@ -222,10 +222,9 @@
 
         header.desktop nav a.active {
 
-            color: var(--color-secondary);
-
-            background: rgba(255, 255, 255, 0.1);
-
+            color: #fff; /* نگه داشتن رنگ متن سفید */
+            background: rgba(249, 115, 22, 0.2); /* پس‌زمینه نارنجی روشن */
+            border-right: 4px solid #fff; /* خط سفید برای فعال بودن */
             transform: translateX(-5px);
 
         }
@@ -292,9 +291,9 @@
 
             border-radius: 12px;
 
-            box-shadow: 0 10px 30px var(--color-shadow);
+            box-shadow: 0 10px 25px var(--color-shadow); /* سایه واضح‌تر */
 
-            border-right: 4px solid var(--color-secondary);
+            border-right: 6px solid var(--color-secondary); /* ضخیم تر شدن خط کنار کارت */
 
             width: 100%;
 
@@ -463,7 +462,7 @@
         
         .contact-links a:hover i {
             color: var(--color-secondary); /* تغییر رنگ هنگام هاور */
-            transform: scale(1.1); /* افکت کوچک هاور */
+            transform: scale(1.15); /* افکت کوچک هاور */
         }
         /* --- پایان استایل آیکون‌های تماس --- */
         
@@ -553,7 +552,7 @@
             display: inline-block;
             margin-top: 10px;
             padding: 6px 15px;
-            background: #eef2ff;
+            background: #ffe3d3; /* رنگ روشن نارنجی */
             color: var(--color-primary);
             border: 1px solid var(--color-secondary);
             border-radius: 6px;
@@ -585,9 +584,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.6); /* لایه نیمه شفاف */
-            z-index: 999; /* زیر منو */
-            display: none; /* به صورت پیش‌فرض مخفی */
+            background: rgba(0, 0, 0, 0.6); 
+            z-index: 999; 
+            display: none; 
             transition: opacity 0.3s ease;
             opacity: 0;
         }
@@ -600,19 +599,19 @@
         #drawerMenu {
             position: fixed;
             top: 0;
-            right: -280px; /* از صفحه خارج شده */
+            right: -280px; 
             width: 280px;
             height: 100%;
             background: var(--color-primary);
             color: #fff;
-            z-index: 1000; /* بالاتر از Overlay */
+            z-index: 1000; 
             display: flex;
             flex-direction: column;
-            align-items: center; /* مرکزیت آیتم‌ها */
+            align-items: center; 
             padding: 30px 20px;
             transition: right 0.3s ease;
             overflow-y: auto;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); /* سایه واضح‌تر */
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3); 
         }
 
         #drawerMenu.show {
@@ -646,7 +645,7 @@
         
         #drawerMenu p {
             font-size: 15px; 
-            color: #c4d0f0; 
+            color: #d1d5db; /* رنگ روشن‌تر برای سایدبار تیره */
             margin-bottom: 30px; 
         }
         
@@ -673,8 +672,9 @@
 
         #drawerMenu nav a:hover,
         #drawerMenu nav a.active {
-            color: var(--color-secondary);
-            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            background: rgba(249, 115, 22, 0.2);
+            border-right: 4px solid #fff;
             transform: translateX(-5px);
         }
 
@@ -687,10 +687,10 @@
             padding: 10px 12px;
             cursor: pointer;
             z-index: 1100;
-            background: var(--color-primary); /* پس‌زمینه آبی */
+            background: var(--color-primary); 
             border-radius: 6px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            color: #fff; /* رنگ آیکون سفید */
+            color: #fff; 
             font-size: 20px;
             line-height: 1;
         }
@@ -700,7 +700,7 @@
         @media(max-width:800px) {
 
             body {
-                padding-top: 60px; /* فاصله برای دکمه تاگل */
+                padding-top: 60px; 
             }
 
             main {
@@ -724,7 +724,6 @@
             }
 
             
-
             header.desktop {
 
                 display: none;
@@ -733,7 +732,7 @@
 
             
             #menuToggle {
-                display: block; /* نمایش به عنوان بلاک */
+                display: block; 
             }
             
 
