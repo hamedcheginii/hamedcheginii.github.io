@@ -218,7 +218,7 @@
             text-align: justify;
         }
         
-        /* استایل لیست‌ها (برای توضیحات شغل و دانشگاه) */
+        /* استایل لیست‌ها (برای توضیحات شغل، تحصیلات، دوره‌ها و پروژه‌ها) */
         .card ul {
             list-style: none;
             padding-right: 20px;
@@ -320,47 +320,6 @@
             margin-bottom: 8px;
         }
         
-        /* --- پایان استایل‌های ارتقاء شغلی --- */
-
-
-        /* مهارت‌ها */
-        .skill-category {
-            margin-bottom: 20px;
-        }
-        
-        .skill-category h4 {
-            font-size: 18px;
-            color: var(--color-text);
-            margin-bottom: 10px;
-            padding-right: 10px;
-            border-right: 3px solid var(--color-primary);
-            font-weight: bold;
-        }
-
-        .skills ul {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 0;
-            margin-top: 5px;
-        }
-
-        .skills li {
-            background: #eef2ff;
-            color: var(--color-primary);
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-weight: bold;
-            border: 1px solid var(--color-secondary);
-            transition: background-color 0.3s;
-        }
-        
-        .skills li:hover {
-            background-color: var(--color-secondary);
-            color: #fff;
-        }
-        
         /* --- تماس (در بخش اصلی) --- */
         section#contact p {
             margin-bottom: 10px;
@@ -387,33 +346,7 @@
             color: var(--color-primary);
             text-decoration: underline;
         }
-
-
-        /* --- موبایل (Drawer و Toggle) --- */
-
-        header.mobile {
-            display: none;
-        }
         
-        /* Toggle Button */
-        #menuToggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            width: 30px;
-            height: 25px;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            z-index: 1100;
-            background: #fff;
-            padding: 5px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        /* ... سایر استایل‌های موبایل ... */
-
         /* --- ریسپانسیو موبایل --- */
         @media(max-width:800px) {
             
@@ -478,7 +411,6 @@
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
             <a data-target="#courses"><i class="fa-solid fa-certificate"></i> دوره‌ها</a>
-            <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
         </nav>
         
@@ -503,7 +435,6 @@
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
             <a data-target="#courses"><i class="fa-solid fa-certificate"></i> دوره‌ها</a>
-            <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
         </nav>
         <div class="contact-info">
@@ -582,20 +513,38 @@
                 <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
                 
                 <div class="job-block">
-                    <h3>دکتری مهندسی مالی</h3>
-                    <p class="company-duration">دانشگاه نمونه - ۱۴۰۲ تا کنون</p>
+                    <h3>کارشناسی ارشد، مهندسی مالی</h3>
+                    <p class="company-duration">دانشگاه خوارزمی | شهریور ۱۴۰۰ - شهریور ۱۴۰۲</p>
                     <ul>
-                        <li>پایان‌نامه در حوزه مدل‌های یادگیری ماشینی در بازار سرمایه</li>
-                        <li>گذراندن دروس پیشرفته اقتصادسنجی مالی و مشتقات</li>
+                        <li>**معدل کل:** ۴ از ۴ (معادل فارسی بالاترین امتیاز)</li>
+                        <li>**پایان‌نامه:** بهینه‌سازی پرتفوی دینامیک با خوشه‌بندی کوواریانس معکوس در بورس اوراق بهادار تهران</li>
+                        <li>**استاد راهنما:** احسان تایب‌ثانی</li>
+                    </ul>
+                </div>
+                
+                <div class="job-block">
+                    <h3>کارشناسی، مهندسی صنایع</h3>
+                    <p class="company-duration">دانشگاه خوارزمی | شهریور ۱۳۹۶ - شهریور ۱۴۰۰</p>
+                    <ul>
+                        <li>**معدل کل:** ۳.۶۴ از ۴</li>
+                        <li>**پایان‌نامه:** نقش رمزارزها در بورس اوراق بهادار تهران</li>
+                        <li>**تخصص فرعی (Concentration):** تحلیل مالی</li>
+                    </ul>
+                </div>
+                
+                <div class="job-block">
+                    <h3>کارشناسی، مهندسی برق و الکترونیک</h3>
+                    <p class="company-duration">دانشگاه علم و صنعت ایران | شهریور ۱۳۹۱ - شهریور ۱۳۹۵</p>
+                    <ul>
+                        <li>تکمیل دروس و پروژه‌های اصلی رشته مهندسی برق</li>
                     </ul>
                 </div>
 
                 <div class="job-block">
-                    <h3>کارشناسی ارشد مهندسی مالی</h3>
-                    <p class="company-duration">دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</p>
+                    <h3>دیپلم علوم ریاضی</h3>
+                    <p class="company-duration">سازمان ملی پرورش استعدادهای درخشان (سمپاد) | شهریور ۱۳۸۷ - شهریور ۱۳۹۱</p>
                     <ul>
-                        <li>معدل کل ۱۹/۰۵ - تمرکز بر بهینه‌سازی پرتفوی و مدیریت ریسک</li>
-                        <li>عضویت در تیم ربات‌های معامله‌گر دانشگاه</li>
+                        <li>**معدل کتبی نهایی:** ۱۹.۸۲ از ۲۰</li>
                     </ul>
                 </div>
                 
@@ -607,74 +556,111 @@
                 <h2><i class="fa-solid fa-certificate"></i> دوره‌ها و گواهینامه‌ها</h2>
                 
                 <div class="job-block">
-                    <h3>گواهینامه اصول بازار سرمایه</h3>
-                    <p class="company-duration">سازمان بورس و اوراق بهادار - ۱۴۰۱</p>
+                    <h3>نظریه بازی (Game Theory)</h3>
+                    <p class="company-duration">دانشگاه استنفورد (Coursera) | اسفند ۱۴۰۰</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>مبانی حسابداری (Accounting Fundamentals)</h3>
+                    <p class="company-duration">مؤسسه مالی شرکتی (CFI) | دی ۱۴۰۰</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>مبانی مالی شرکتی (Corporate Finance Fundamentals)</h3>
+                    <p class="company-duration">مؤسسه مالی شرکتی (CFI) | دی ۱۴۰۰</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>استفاده از پایتون برای دسترسی به داده‌های وب</h3>
+                    <p class="company-duration">دانشگاه میشیگان (Coursera) | اسفند ۱۳۹۹</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>ساختارهای داده در پایتون</h3>
+                    <p class="company-duration">دانشگاه میشیگان (Coursera) | بهمن ۱۳۹۹</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>دوره امواج الیوت (متوسط و پیشرفته) - فارکس و CFD</h3>
+                    <p class="company-duration">یودمی (Udemy) | بهمن ۱۳۹۹</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>مبانی برنامه‌نویسی برای همه (شروع کار با پایتون)</h3>
+                    <p class="company-duration">دانشگاه میشیگان (Coursera) | دی ۱۳۹۹</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>برنامه‌نویسی علمی جولیا (Julia Scientific Programming)</h3>
+                    <p class="company-duration">دانشگاه کیپ تاون (Coursera) | آبان ۱۳۹۹</p>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <section id="projects">
+            <div class="card">
+                <h2><i class="fa-solid fa-folder-open"></i> پروژه‌های منتخب</h2>
+                
+                <div class="job-block">
+                    <h3>معاملات جفتی هم‌انباشتگی (Cointegration Pairs Trading)</h3>
+                    <p class="company-duration">پروژه درسی معاملات الگوریتمی - دانشگاه خوارزمی | شهریور ۱۴۰۰ - دی ۱۴۰۰</p>
                     <ul>
-                        <li>آشنایی کامل با قوانین و مقررات بازار سرمایه ایران</li>
+                        <li>هدف پروژه: ثبت بازده مطلق مستقل از نوسانات بازار.</li>
+                        <li>استفاده از تحلیل مؤلفه‌های اصلی (PCA) و خوشه‌بندی K-means برای یافتن سهام مشابه (کدنویسی شده در Python).</li>
+                        <li>تولید سیگنال‌های معاملاتی با استفاده از امتیاز z-score.</li>
+                        <li>داده‌های مورد استفاده: سهام موجود در بورس نزدک (NASDAQ).</li>
                     </ul>
                 </div>
                 
                 <div class="job-block">
-                    <h3>دوره تخصصی تحلیل داده‌های مالی با Python</h3>
-                    <p class="company-duration">آکادمی مالی (آنلاین) - ۱۴۰۲</p>
+                    <h3>انتخاب پرتفوی بهینه (Portfolio Selection)</h3>
+                    <p class="company-duration">پروژه درسی انتخاب پرتفوی - دانشگاه خوارزمی | دی ۱۴۰۰ - خرداد ۱۴۰۱</p>
                     <ul>
-                        <li>مسلط شدن به کتابخانه‌های Pandas، NumPy و Scikit-learn</li>
-                        <li>تمرکز بر مدل‌سازی سری‌های زمانی اقتصادی</li>
+                        <li>تئوری پایه: MPT مارکوویتز و بهینه‌سازی مدل کانّو.</li>
+                        <li>تخمین ریسک (Factor-based and shrinkage) و ریسک غیرایستا (Arch و Garch).</li>
+                        <li>محاسبه مرز کارا (Efficient Frontier) با و بدون دارایی بدون ریسک و MVP.</li>
+                        <li>مقایسه استراتژی‌های وزنی مختلف (CW، EW و SW) و استفاده از تحلیل سبک شارپ (Sharpe Style Analysis).</li>
                     </ul>
                 </div>
-            </div>
-        </section>
 
-
-        <section id="skills">
-            <div class="card skills">
-                <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
-                
-                <div class="skill-category">
-                    <h4>مهارت‌های فنی و نرم‌افزاری</h4>
+                <div class="job-block">
+                    <h3>بازگشت به میانگین (Mean Reversion)</h3>
+                    <p class="company-duration">پروژه درسی مباحث مالی منتخب - دانشگاه خوارزمی | دی ۱۴۰۰ - خرداد ۱۴۰۱</p>
                     <ul>
-                        <li>Python</li>
-                        <li>Pandas & NumPy</li>
-                        <li>Excel & VBA</li>
-                        <li>Eviews & Stata</li>
-                        <li>Comfar</li>
-                        <li>Plotly & Matplotlib</li>
-                        <li>SQL (مقدماتی)</li>
+                        <li>اثبات تئوری حرکت براونی (Brownian Motion) برای شاخص بورس ایران، نشان‌دهنده ناکارآمدی و بازگشت به میانگین در بازار.</li>
+                        <li>استفاده از آزمون ریشه واحد (Augmented Dickey Fuller Unit Root Test).</li>
                     </ul>
                 </div>
                 
-                <div class="skill-category">
-                    <h4>مهارت‌های مالی و تحلیلی</h4>
+                <div class="job-block">
+                    <h3>قیمت‌گذاری اختیار معامله (Option Pricing)</h3>
+                    <p class="company-duration">پروژه درسی - دانشگاه خوارزمی | مهر ۱۴۰۰ - دی ۱۴۰۰</p>
                     <ul>
-                        <li>مدل‌سازی مالی پیشرفته</li>
-                        <li>بهینه‌سازی پرتفوی (Markowitz)</li>
-                        <li>تحلیل اقتصاد کلان</li>
-                        <li>مدیریت ریسک (VaR, ES)</li>
-                        <li>ارزشگذاری سهام (DCF, Multiples)</li>
+                        <li>جزئیات پروژه را در صورت نیاز تکمیل کنید.</li>
                     </ul>
                 </div>
                 
-                <div class="skill-category">
-                    <h4>مهارت‌های نرم و زبان‌ها</h4>
+                <div class="job-block">
+                    <h3>رویکرد سیستم دینامیکی برای کنترل آلودگی هوای تهران</h3>
+                    <p class="company-duration">پروژه درسی تحلیل سیستم‌ها - دانشگاه خوارزمی | بهمن ۱۳۹۹ - خرداد ۱۴۰۰</p>
                     <ul>
-                        <li>توانایی کار تیمی و رهبری</li>
-                        <li>حل مسئله و تفکر انتقادی</li>
-                        <li>زبان انگلیسی (آیلتس ۶.۵)</li>
-                        <li>ارائه و مذاکره حرفه‌ای</li>
+                        <li>بررسی روابط بین عوامل مؤثر بر آلودگی هوای تهران با استفاده از حلقه‌های علّی (Causal Loops).</li>
+                        <li>شبیه‌سازی و مدل‌سازی جریان (Flow Diagrams) با نرم‌افزار ونسیم (Vensim) برای تحلیل تأثیر تغییر پارامترها.</li>
                     </ul>
                 </div>
-
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="card">
-                <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
-                <ul>
-                    <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - پیاده‌سازی الگوریتم‌های Machine Learning برای تخصیص دارایی در بورس تهران</li>
-                    <li><strong>طراحی داشبورد تحلیل مالی</strong> - ایجاد داشبورد مدیریتی جهت پایش عملکرد سبد دارایی‌ها با استفاده از Plotly و Python</li>
-                    <li><strong>مدل‌سازی ریسک نکول</strong> - توسعه مدل‌های اعتبارسنجی برای شرکت‌های کوچک و متوسط</li>
-                </ul>
+                
+                <div class="job-block">
+                    <h3>مطالعات امکان‌سنجی تولید شمش منیزیم</h3>
+                    <p class="company-duration">مرتبط با شرکت پاترنیک (Patternic) | اسفند ۱۴۰۰ - فروردین ۱۴۰۱</p>
+                </div>
+                
+                <div class="job-block">
+                    <h3>پیشنهاد طرح سفارشی‌سازی سیستم مدیریت سفارشات (OMS)</h3>
+                    <p class="company-duration">مرتبط با شرکت پاترنیک (Patternic) | دی ۱۴۰۰ - اردیبهشت ۱۴۰۱</p>
+                </div>
+                
             </div>
         </section>
 
@@ -691,7 +677,7 @@
     </main>
 
     <script>
-        // اسکریپت‌های مربوط به افکت‌ها، اسکرول و منوی موبایل (بدون تغییر عمده)
+        // اسکریپت‌های مربوط به افکت‌ها، اسکرول و منوی موبایل
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
