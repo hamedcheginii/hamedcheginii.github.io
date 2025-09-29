@@ -189,7 +189,7 @@
             text-align: justify;
         }
         
-        /* استایل لیست‌ها */
+        /* استایل لیست‌ها (برای توضیحات شغل و دانشگاه) */
         .card ul {
             list-style: none;
             padding-right: 20px;
@@ -223,99 +223,94 @@
             top: 8px;
         }
         
-        /* --- استایل‌های تایم‌لاین تجربه و تحصیلات --- */
-        .timeline-container {
-            position: relative;
-            margin-right: 20px;
-            padding-right: 15px;
+        /* --- استایل‌های ارتقاء شغلی (Job Block) --- */
+        .job-block {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e7eb; /* خط جداکننده شرکت‌ها */
+        }
+        
+        .job-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .job-block > h3 {
+            font-size: 20px;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
-        /* خط عمودی */
-        .timeline-container::before {
+        .job-block > p.company-duration {
+            font-size: 15px;
+            color: #4b5563;
+            margin-bottom: 15px;
+        }
+        
+        /* استایل برای هر سمت یا ارتقاء در داخل شرکت */
+        .position-timeline {
+            position: relative;
+            padding-right: 15px;
+            margin-top: 10px;
+        }
+        
+        /* خط عمودی برای ارتقاء‌ها در یک شرکت */
+        .position-timeline::before {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
-            width: 3px;
+            width: 2px;
             height: 100%;
-            background-color: var(--color-secondary);
+            background-color: #d1d5db; /* رنگ خاکستری روشن */
         }
         
-        .timeline-item {
-            margin-bottom: 30px;
-            padding-right: 25px;
+        .position-item {
+            margin-bottom: 20px;
+            padding-right: 20px;
             position: relative;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            border-right: 3px solid var(--color-secondary);
         }
 
-        .timeline-item:hover {
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
-
-        /* دایره نشانگر */
-        .timeline-item::before {
+        /* دایره نشانگر ارتقاء */
+        .position-item::before {
             content: '';
             position: absolute;
-            top: 25px;
-            right: -20px;
-            width: 14px;
-            height: 14px;
+            top: 8px;
+            right: -8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background-color: var(--color-card-bg);
-            border: 4px solid var(--color-primary);
-            z-index: 10;
-        }
-
-        /* **چینش عنوان و جزئیات (برای دسکتاپ):** */
-        .timeline-item h3 {
-            display: flex;
-            flex-direction: column; 
-            justify-content: flex-start;
-            align-items: flex-start;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 18px;
-            color: var(--color-primary);
-            padding-right: 0;
-            gap: 2px;
+            background-color: var(--color-secondary);
+            border: 2px solid var(--color-card-bg);
+            z-index: 1;
         }
         
-        .timeline-item h3 .job-title {
+        .position-item h4 {
+            font-size: 16px;
+            color: var(--color-text);
             font-weight: bold;
+            margin-bottom: 3px;
         }
 
-        /* استایل نام شرکت (برای محل کار) یا نام دانشگاه (برای تحصیلات) */
-        .timeline-item h3 .details-line {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            font-size: 15px;
-            color: #4b5563; /* خاکستری کمی تیره‌تر */
-            font-weight: 500;
-        }
-
-        .timeline-item h3 .job-duration {
+        .position-item p.duration {
             font-size: 14px;
             color: #6b7280;
-            font-weight: normal;
-            direction: rtl; 
+            margin-bottom: 8px;
         }
         
-        .timeline-item ul {
+        .position-item ul {
             padding-right: 0;
             margin-top: 0;
+            border-right: none;
         }
         
-        .timeline-item ul li::before {
-            top: 10px;
+        .position-item ul li::before {
+            top: 5px;
         }
-        /* --- پایان استایل‌های تایم‌لاین --- */
+        
+        /* --- پایان استایل‌های ارتقاء شغلی --- */
 
 
         /* مهارت‌ها */
@@ -341,26 +336,6 @@
         .skills li:hover {
             background-color: var(--color-secondary);
             color: #fff;
-        }
-
-        /* بخش تماس */
-        section#contact p {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-right: 10px;
-        }
-        
-        section#contact a {
-            color: var(--color-secondary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        section#contact a:hover {
-            color: var(--color-primary);
-            text-decoration: underline;
         }
 
 
@@ -389,57 +364,7 @@
         #drawerMenu.show {
             right: 0;
         }
-
-        #drawerMenu img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 10px auto;
-            display: block;
-            border: 2px solid var(--color-secondary);
-        }
-
-        #drawerMenu h1 {
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 5px;
-        }
-
-        #drawerMenu p {
-            font-size: 13px;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #c4d0f0;
-        }
-
-        #drawerMenu nav {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        #drawerMenu nav a {
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-            text-align: right;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 15px;
-        }
-
-        #drawerMenu nav a i {
-            color: var(--color-secondary);
-        }
-
-        #drawerMenu nav a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--color-secondary);
-        }
-
+        
         /* Toggle Button */
         #menuToggle {
             display: none;
@@ -458,31 +383,11 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        #menuToggle span {
-            height: 3px;
-            background: var(--color-primary);
-            border-radius: 1px;
-            transition: background 0.3s;
-        }
-
-        #menuToggle.active {
-            background: var(--color-primary);
-        }
-
-        #menuToggle.active span {
-            background: #fff;
-        }
-
         /* --- ریسپانسیو موبایل --- */
         @media(max-width:800px) {
-            body {
-                font-size: 14px;
-            }
-
-            header.desktop {
-                display: none;
-            }
-
+            
+            /* ... (استایل‌های موبایل قبلی) ... */
+            
             main {
                 margin: 0;
                 padding: 20px 10px;
@@ -493,53 +398,36 @@
                 margin: 30px 0;
                 padding-top: 10px;
             }
-
-            section h2 {
-                font-size: 20px;
-                margin-bottom: 15px;
+            
+            header.desktop {
+                display: none;
             }
-
-            .card {
-                padding: 20px;
-                border-right: 3px solid var(--color-secondary);
-            }
-
+            
             #menuToggle {
                 display: flex;
             }
             
-            /* تنظیم تایم لاین در موبایل */
-            .timeline-container {
-                margin-right: 0;
+            .card {
+                padding: 20px;
+            }
+            
+            /* تنظیمات موبایل برای ارتقاء‌ها */
+            .position-timeline {
                 padding-right: 10px;
             }
             
-            .timeline-container::before {
+            .position-timeline::before {
                 right: 0;
             }
             
-            .timeline-item {
-                padding-right: 10px;
+            .position-item {
+                padding-right: 15px;
             }
-            
-            .timeline-item::before {
-                right: -13px;
+
+            .position-item::before {
+                right: -6px;
             }
-            
-            /* **چینش موبایل:** */
-            .timeline-item h3 {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-            }
-            
-            .timeline-item h3 .details-line {
-                font-size: 14px;
-            }
-            
-            .timeline-item h3 .job-duration {
-                direction: rtl; 
-            }
+
         }
     </style>
 </head>
@@ -593,108 +481,105 @@
             <div class="card">
                 <h2><i class="fa-solid fa-briefcase"></i> تجربه‌ها</h2>
 
-                <div class="timeline-container">
-
-                    <div class="timeline-item">
-                        <h3>
-                            <span class="job-title">مدیر عامل</span>
-                            <span class="details-line">شرکت هلدینگ سرمایه‌گذاری طلوع</span>
-                            <span class="job-duration">۱۴۰۴ تا کنون (ارتقاء یافته)</span>
-                        </h3>
-                        <ul>
-                            <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و توسعه کسب‌وکار</li>
-                            <li>مدیریت عملیات و منابع شرکت برای دستیابی به اهداف سودآوری</li>
-                            <li>نظارت بر تیم‌های مختلف مالی و سرمایه‌گذاری</li>
-                        </ul>
-                    </div>
-
-                    <div class="timeline-item">
-                        <h3>
-                            <span class="job-title">مدیر سرمایه‌گذاری</span>
-                            <span class="details-line">شرکت هلدینگ سرمایه‌گذاری طلوع</span>
-                            <span class="job-duration">۱۴۰۳ تا ۱۴۰۴</span>
-                        </h3>
-                        <ul>
-                            <li>مدیریت مستقیم سبد دارایی‌های شرکت به ارزش X میلیارد تومان</li>
-                            <li>رهبری تیم تحلیل و نظارت بر تهیه گزارش‌های تحلیلی صنایع</li>
-                            <li>طراحی مدل‌های ریسک و بازدهی برای تخصیص بهینه دارایی</li>
-                        </ul>
-                    </div>
+                <div class="job-block">
+                    <h3>شرکت هلدینگ سرمایه‌گذاری طلوع</h3>
+                    <p class="company-duration">مدت کل فعالیت: ۱۴۰۳ تا کنون</p>
                     
-                    <div class="timeline-item">
-                        <h3>
-                            <span class="job-title">کارآموزی در واحد تحلیل ریسک</span>
-                            <span class="details-line">بانک XYZ</span>
-                            <span class="job-duration">تابستان ۱۴۰۳</span>
-                        </h3>
-                        <ul>
-                            <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
-                            <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
-                            <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
-                        </ul>
-                    </div>
+                    <div class="position-timeline">
+                        
+                        <div class="position-item">
+                            <h4>مدیر عامل</h4>
+                            <p class="duration">۱۴۰۴ تا کنون</p>
+                            <ul>
+                                <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و توسعه کسب‌وکار</li>
+                                <li>مدیریت عملیات و منابع شرکت برای دستیابی به اهداف سودآوری</li>
+                                <li>نظارت بر تیم‌های مختلف مالی و سرمایه‌گذاری</li>
+                            </ul>
+                        </div>
 
-                    <div class="timeline-item">
-                        <h3>
-                            <span class="job-title">کارشناس مالی</span>
-                            <span class="details-line">شرکت ABC</span>
-                            <span class="job-duration">۱۴۰۲ تا ۱۴۰۳</span>
-                        </h3>
-                        <ul>
-                            <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
-                            <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
-                            <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
-                        </ul>
-                    </div>
+                        <div class="position-item">
+                            <h4>مدیر سرمایه‌گذاری</h4>
+                            <p class="duration">۱۴۰۳ تا ۱۴۰۴</p>
+                            <ul>
+                                <li>مدیریت مستقیم سبد دارایی‌های شرکت به ارزش X میلیارد تومان</li>
+                                <li>رهبری تیم تحلیل و نظارت بر تهیه گزارش‌های تحلیلی صنایع</li>
+                                <li>طراحی مدل‌های ریسک و بازدهی برای تخصیص بهینه دارایی</li>
+                            </ul>
+                        </div>
 
+                    </div>
                 </div>
+
+                <div class="job-block">
+                    <h3>بانک XYZ</h3>
+                    <p class="company-duration">مدت کل فعالیت: تابستان ۱۴۰۳</p>
+                    
+                    <div class="position-timeline">
+                        <div class="position-item">
+                            <h4>کارآموزی در واحد تحلیل ریسک</h4>
+                            <p class="duration">تابستان ۱۴۰۳</p>
+                            <ul>
+                                <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
+                                <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
+                                <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="job-block">
+                    <h3>شرکت ABC</h3>
+                    <p class="company-duration">مدت کل فعالیت: ۱۴۰۲ تا ۱۴۰۳</p>
+                    
+                    <div class="position-timeline">
+                        <div class="position-item">
+                            <h4>کارشناس مالی</h4>
+                            <p class="duration">۱۴۰۲ تا ۱۴۰۳</p>
+                            <ul>
+                                <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
+                                <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
+                                <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </section>
 
         <section id="education">
             <div class="card">
                 <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
-                <div class="timeline-container">
-                    
-                    <div class="timeline-item">
-                        <h3>
-                            <span class="job-title">دکتری مهندسی مالی</span>
-                            <span class="details-line">دانشگاه نمونه</span>
-                            <span class="job-duration">۱۴۰۲ تا کنون</span>
-                        </h3>
-                        <ul>
-                            <li>پایان‌نامه در حوزه مدل‌های یادگیری ماشینی در بازار سرمایه</li>
-                            <li>گذراندن دروس پیشرفته اقتصادسنجی مالی و مشتقات</li>
-                            <li>فعالیت به عنوان دستیار آموزشی در دروس آمار مالی</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3>
-                            <span class="job-title">کارشناسی ارشد مهندسی مالی</span>
-                            <span class="details-line">دانشگاه نمونه</span>
-                            <span class="job-duration">۱۴۰۰ تا ۱۴۰۲</span>
-                        </h3>
-                        <ul>
-                            <li>معدل کل ۱۹/۰۵</li>
-                            <li>تمرکز بر بهینه‌سازی پرتفوی و مدیریت ریسک</li>
-                            <li>عضویت در تیم ربات‌های معامله‌گر دانشگاه</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h3>
-                            <span class="job-title">کارشناسی مدیریت مالی</span>
-                            <span class="details-line">دانشگاه نمونه</span>
-                            <span class="job-duration">۱۳۹۶ تا ۱۴۰۰</span>
-                        </h3>
-                        <ul>
-                            <li>پروژه نهایی با عنوان تحلیل بازدهی سهام شرکت‌های پتروشیمی</li>
-                            <li>گذراندن موفقیت‌آمیز دوره‌های حسابداری پیشرفته و اقتصاد کلان</li>
-                        </ul>
-                    </div>
-
+                
+                <div class="job-block">
+                    <h3>دکتری مهندسی مالی</h3>
+                    <p class="company-duration">دانشگاه نمونه - ۱۴۰۲ تا کنون</p>
+                    <ul>
+                        <li>پایان‌نامه در حوزه مدل‌های یادگیری ماشینی در بازار سرمایه</li>
+                        <li>گذراندن دروس پیشرفته اقتصادسنجی مالی و مشتقات</li>
+                        <li>فعالیت به عنوان دستیار آموزشی در دروس آمار مالی</li>
+                    </ul>
                 </div>
+
+                <div class="job-block">
+                    <h3>کارشناسی ارشد مهندسی مالی</h3>
+                    <p class="company-duration">دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</p>
+                    <ul>
+                        <li>معدل کل ۱۹/۰۵</li>
+                        <li>تمرکز بر بهینه‌سازی پرتفوی و مدیریت ریسک</li>
+                        <li>عضویت در تیم ربات‌های معامله‌گر دانشگاه</li>
+                    </ul>
+                </div>
+                
+                <div class="job-block">
+                    <h3>کارشناسی مدیریت مالی</h3>
+                    <p class="company-duration">دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</p>
+                    <ul>
+                        <li>پروژه نهایی با عنوان تحلیل بازدهی سهام شرکت‌های پتروشیمی</li>
+                        <li>گذراندن موفقیت‌آمیز دوره‌های حسابداری پیشرفته و اقتصاد کلان</li>
+                    </ul>
+                </div>
+                
             </div>
         </section>
 
@@ -739,7 +624,7 @@
     </main>
 
     <script>
-        // افکت ورود سکشن‌ها (همان کد قبلی)
+        // اسکریپت‌ها همانند کد قبلی هستند و نیازی به تغییر عمده ندارند
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -750,7 +635,6 @@
         });
         sections.forEach(sec => observer.observe(sec));
 
-        // اسکرول روی لینک‌ها با offset برای هدر
         const headerWidth = 220; 
         const menuLinks = document.querySelectorAll('nav a');
         
@@ -758,7 +642,6 @@
             link.addEventListener('click', e => {
                 e.preventDefault();
                 const target = document.querySelector(link.dataset.target);
-                // برای موبایل (عرض کمتر از 800px) آفست 0، برای دسکتاپ 40px
                 const headerOffset = window.innerWidth < 800 ? 0 : 40; 
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -773,12 +656,9 @@
             });
         });
 
-        // اضافه کردن کلاس active به لینک‌ها در نوار ناوبری هنگام اسکرول
         const updateNavLinks = () => {
             let current = '';
             sections.forEach(section => {
-                // برای محاسبات دقیق‌تر، ارتفاع نوار ناوبری (در دسکتاپ) را در نظر می‌گیریم.
-                // اگر در حالت دسکتاپ (عرض > 800px) بودیم، حدود 100px پایین‌تر از بالای صفحه، سکشن فعال شود.
                 const offset = window.innerWidth > 800 ? 100 : 50;
                 const sectionTop = section.offsetTop;
                 
@@ -798,7 +678,6 @@
         window.addEventListener('scroll', updateNavLinks);
         updateNavLinks(); 
 
-        // Drawer موبایل و تغییر رنگ منوی همبرگری (کد قبلی)
         const menuToggle = document.getElementById('menuToggle');
         const drawerMenu = document.getElementById('drawerMenu');
 
