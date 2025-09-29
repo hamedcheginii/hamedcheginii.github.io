@@ -75,13 +75,42 @@
             font-weight: bold;
         }
 
-        header.desktop p {
+        header.desktop p.title {
             font-size: 15px;
             color: #c4d0f0;
             text-align: center;
             margin-bottom: 30px;
         }
 
+        /* تماس در سایدبار */
+        header.desktop .contact-info {
+            width: 100%;
+            padding: 15px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 10px;
+        }
+        
+        header.desktop .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        header.desktop .contact-info a i {
+            color: var(--color-secondary);
+            font-size: 16px;
+        }
+
+        header.desktop .contact-info a:hover {
+            color: var(--color-secondary);
+        }
+        
+        /* ناوبری */
         header.desktop nav {
             width: 100%;
             display: flex;
@@ -214,18 +243,9 @@
             top: 5px;
         }
         
-        /* توضیحات تماس */
-        section#contact p::before {
-            content: "\f111"; /* دایره کوچک */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            font-size: 8px;
-            top: 8px;
-        }
-        
         /* --- استایل‌های ارتقاء شغلی (Job Block) --- */
         .job-block {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 1px solid #e5e7eb; /* خط جداکننده شرکت‌ها */
         }
@@ -300,27 +320,30 @@
             margin-bottom: 8px;
         }
         
-        .position-item ul {
-            padding-right: 0;
-            margin-top: 0;
-            border-right: none;
-        }
-        
-        .position-item ul li::before {
-            top: 5px;
-        }
-        
         /* --- پایان استایل‌های ارتقاء شغلی --- */
 
 
         /* مهارت‌ها */
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category h4 {
+            font-size: 18px;
+            color: var(--color-text);
+            margin-bottom: 10px;
+            padding-right: 10px;
+            border-right: 3px solid var(--color-primary);
+            font-weight: bold;
+        }
+
         .skills ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             padding: 0;
-            margin-top: 15px;
+            margin-top: 5px;
         }
 
         .skills li {
@@ -337,32 +360,39 @@
             background-color: var(--color-secondary);
             color: #fff;
         }
+        
+        /* --- تماس (در بخش اصلی) --- */
+        section#contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-right: 10px;
+            font-size: 16px;
+        }
+        
+        section#contact p i {
+            color: var(--color-primary);
+            font-size: 18px;
+        }
+        
+        section#contact a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: bold;
+        }
+        
+        section#contact a:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
 
 
         /* --- موبایل (Drawer و Toggle) --- */
 
         header.mobile {
             display: none;
-        }
-
-        #drawerMenu {
-            position: fixed;
-            top: 0;
-            right: -280px;
-            width: 280px;
-            height: 100%;
-            background: var(--color-primary);
-            color: #fff;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            transition: right 0.3s ease;
-            overflow-y: auto;
-        }
-
-        #drawerMenu.show {
-            right: 0;
         }
         
         /* Toggle Button */
@@ -382,11 +412,10 @@
             border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+        /* ... سایر استایل‌های موبایل ... */
 
         /* --- ریسپانسیو موبایل --- */
         @media(max-width:800px) {
-            
-            /* ... (استایل‌های موبایل قبلی) ... */
             
             main {
                 margin: 0;
@@ -427,6 +456,12 @@
             .position-item::before {
                 right: -6px;
             }
+            
+            /* تماس در موبایل */
+            #drawerMenu .contact-info {
+                display: block;
+                padding: 15px 0;
+            }
 
         }
     </style>
@@ -437,15 +472,22 @@
     <header class="desktop">
         <img src="profile.jpg" alt="عکس پروفایل">
         <h1>حامد چگینی</h1>
-        <p>مدیر سرمایه‌گذاری</p>
+        <p class="title">مدیر سرمایه‌گذاری</p>
         <nav>
             <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+            <a data-target="#courses"><i class="fa-solid fa-certificate"></i> دوره‌ها</a>
             <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
-            <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
         </nav>
+        
+        <div class="contact-info">
+            <a href="mailto:hamed@example.com"><i class="fa-solid fa-envelope"></i> hamed@example.com</a>
+            <a href="tel:09123456789"><i class="fa-solid fa-mobile-alt"></i> ۰۹۱۲ ۳۴۵ ۶۷۸۹</a>
+            <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a>
+        </div>
+
     </header>
 
     <div id="menuToggle">
@@ -455,15 +497,20 @@
     <div id="drawerMenu">
         <img src="profile.jpg" alt="عکس پروفایل">
         <h1>حامد چگینی</h1>
-        <p>مدیر سرمایه‌گذاری</p>
+        <p class="title">مدیر سرمایه‌گذاری</p>
         <nav>
             <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+            <a data-target="#courses"><i class="fa-solid fa-certificate"></i> دوره‌ها</a>
             <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
-            <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
         </nav>
+        <div class="contact-info">
+            <a href="mailto:hamed@example.com"><i class="fa-solid fa-envelope"></i> hamed@example.com</a>
+            <a href="tel:09123456789"><i class="fa-solid fa-mobile-alt"></i> ۰۹۱۲ ۳۴۵ ۶۷۸۹</a>
+            <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn Profile</a>
+        </div>
     </div>
 
     <main>
@@ -527,23 +574,6 @@
                     </div>
                 </div>
                 
-                <div class="job-block">
-                    <h3>شرکت ABC</h3>
-                    <p class="company-duration">مدت کل فعالیت: ۱۴۰۲ تا ۱۴۰۳</p>
-                    
-                    <div class="position-timeline">
-                        <div class="position-item">
-                            <h4>کارشناس مالی</h4>
-                            <p class="duration">۱۴۰۲ تا ۱۴۰۳</p>
-                            <ul>
-                                <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
-                                <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
-                                <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
             </div>
         </section>
 
@@ -557,7 +587,6 @@
                     <ul>
                         <li>پایان‌نامه در حوزه مدل‌های یادگیری ماشینی در بازار سرمایه</li>
                         <li>گذراندن دروس پیشرفته اقتصادسنجی مالی و مشتقات</li>
-                        <li>فعالیت به عنوان دستیار آموزشی در دروس آمار مالی</li>
                     </ul>
                 </div>
 
@@ -565,39 +594,76 @@
                     <h3>کارشناسی ارشد مهندسی مالی</h3>
                     <p class="company-duration">دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</p>
                     <ul>
-                        <li>معدل کل ۱۹/۰۵</li>
-                        <li>تمرکز بر بهینه‌سازی پرتفوی و مدیریت ریسک</li>
+                        <li>معدل کل ۱۹/۰۵ - تمرکز بر بهینه‌سازی پرتفوی و مدیریت ریسک</li>
                         <li>عضویت در تیم ربات‌های معامله‌گر دانشگاه</li>
-                    </ul>
-                </div>
-                
-                <div class="job-block">
-                    <h3>کارشناسی مدیریت مالی</h3>
-                    <p class="company-duration">دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</p>
-                    <ul>
-                        <li>پروژه نهایی با عنوان تحلیل بازدهی سهام شرکت‌های پتروشیمی</li>
-                        <li>گذراندن موفقیت‌آمیز دوره‌های حسابداری پیشرفته و اقتصاد کلان</li>
                     </ul>
                 </div>
                 
             </div>
         </section>
+        
+        <section id="courses">
+            <div class="card">
+                <h2><i class="fa-solid fa-certificate"></i> دوره‌ها و گواهینامه‌ها</h2>
+                
+                <div class="job-block">
+                    <h3>گواهینامه اصول بازار سرمایه</h3>
+                    <p class="company-duration">سازمان بورس و اوراق بهادار - ۱۴۰۱</p>
+                    <ul>
+                        <li>آشنایی کامل با قوانین و مقررات بازار سرمایه ایران</li>
+                    </ul>
+                </div>
+                
+                <div class="job-block">
+                    <h3>دوره تخصصی تحلیل داده‌های مالی با Python</h3>
+                    <p class="company-duration">آکادمی مالی (آنلاین) - ۱۴۰۲</p>
+                    <ul>
+                        <li>مسلط شدن به کتابخانه‌های Pandas، NumPy و Scikit-learn</li>
+                        <li>تمرکز بر مدل‌سازی سری‌های زمانی اقتصادی</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
 
         <section id="skills">
             <div class="card skills">
                 <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
-                <ul>
-                    <li>Python</li>
-                    <li>Pandas & NumPy</li>
-                    <li>Plotly & Matplotlib</li>
-                    <li>مدل‌سازی مالی</li>
-                    <li>بهینه‌سازی پرتفوی</li>
-                    <li>Excel & VBA</li>
-                    <li>Eviews</li>
-                    <li>Comfar</li>
-                    <li>تحلیل اقتصاد کلان</li>
-                    <li>مدیریت ریسک</li>
-                </ul>
+                
+                <div class="skill-category">
+                    <h4>مهارت‌های فنی و نرم‌افزاری</h4>
+                    <ul>
+                        <li>Python</li>
+                        <li>Pandas & NumPy</li>
+                        <li>Excel & VBA</li>
+                        <li>Eviews & Stata</li>
+                        <li>Comfar</li>
+                        <li>Plotly & Matplotlib</li>
+                        <li>SQL (مقدماتی)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>مهارت‌های مالی و تحلیلی</h4>
+                    <ul>
+                        <li>مدل‌سازی مالی پیشرفته</li>
+                        <li>بهینه‌سازی پرتفوی (Markowitz)</li>
+                        <li>تحلیل اقتصاد کلان</li>
+                        <li>مدیریت ریسک (VaR, ES)</li>
+                        <li>ارزشگذاری سهام (DCF, Multiples)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>مهارت‌های نرم و زبان‌ها</h4>
+                    <ul>
+                        <li>توانایی کار تیمی و رهبری</li>
+                        <li>حل مسئله و تفکر انتقادی</li>
+                        <li>زبان انگلیسی (آیلتس ۶.۵)</li>
+                        <li>ارائه و مذاکره حرفه‌ای</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
@@ -605,26 +671,27 @@
             <div class="card">
                 <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
                 <ul>
-                    <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
-                    <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
-                    <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
+                    <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - پیاده‌سازی الگوریتم‌های Machine Learning برای تخصیص دارایی در بورس تهران</li>
+                    <li><strong>طراحی داشبورد تحلیل مالی</strong> - ایجاد داشبورد مدیریتی جهت پایش عملکرد سبد دارایی‌ها با استفاده از Plotly و Python</li>
+                    <li><strong>مدل‌سازی ریسک نکول</strong> - توسعه مدل‌های اعتبارسنجی برای شرکت‌های کوچک و متوسط</li>
                 </ul>
             </div>
         </section>
 
         <section id="contact">
             <div class="card">
-                <h2><i class="fa-solid fa-phone"></i> تماس</h2>
-                <p>ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
-                <p>تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+                <h2><i class="fa-solid fa-phone"></i> تماس و ارتباط</h2>
+                <p><i class="fa-solid fa-envelope"></i> ایمیل: <a href="mailto:hamed@example.com">hamed@example.com</a></p>
+                <p><i class="fa-brands fa-linkedin"></i> لینکدین: <a href="https://www.linkedin.com/in/hamed-chegini-114621203/" target="_blank">linkedin.com/in/hamed-chegini-114621203/</a></p>
+                <p><i class="fa-solid fa-mobile-alt"></i> تلفن: ۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+                <p><i class="fa-solid fa-map-marker-alt"></i> محل سکونت: تهران، ایران</p>
             </div>
         </section>
 
     </main>
 
     <script>
-        // اسکریپت‌ها همانند کد قبلی هستند و نیازی به تغییر عمده ندارند
+        // اسکریپت‌های مربوط به افکت‌ها، اسکرول و منوی موبایل (بدون تغییر عمده)
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -635,7 +702,6 @@
         });
         sections.forEach(sec => observer.observe(sec));
 
-        const headerWidth = 220; 
         const menuLinks = document.querySelectorAll('nav a');
         
         menuLinks.forEach(link => {
