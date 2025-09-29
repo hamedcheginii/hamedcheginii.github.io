@@ -451,21 +451,21 @@
 
         
 
-        /* --- استایل‌های ارتقاء شغلی (Job Block) --- */
+        /* --- استایل‌های بلاک اصلی (Job/Edu/Cert Block) --- */
 
-        .job-block {
+        .data-block {
 
             margin-bottom: 40px;
 
             padding-bottom: 20px;
 
-            border-bottom: 1px solid #e5e7eb; /* خط جداکننده شرکت‌ها */
+            border-bottom: 1px solid #e5e7eb; /* خط جداکننده شرکت‌ها/دانشگاه‌ها */
 
         }
 
         
 
-        .job-block:last-child {
+        .data-block:last-child {
 
             border-bottom: none;
 
@@ -476,8 +476,8 @@
         }
 
         
-
-        .job-block > h3 {
+        /* برای بخش تحصیلات و دوره‌ها */
+        .data-block h3 {
 
             font-size: 20px;
 
@@ -489,9 +489,8 @@
 
         }
 
-
-
-        .job-block > p.company-duration {
+        /* برای توضیحات زمان و مکان */
+        .data-block > p.duration-info {
 
             font-size: 15px;
 
@@ -500,196 +499,62 @@
             margin-bottom: 15px;
 
         }
-
         
-
-        /* استایل برای هر سمت یا ارتقاء در داخل شرکت */
-
-        .position-timeline {
-
-            position: relative;
-
-            padding-right: 15px;
-
-            margin-top: 10px;
-
-        }
-
-        
-
-        /* خط عمودی برای ارتقاء‌ها در یک شرکت */
-
-        .position-timeline::before {
-
-            content: '';
-
-            position: absolute;
-
-            top: 0;
-
-            right: 0;
-
-            width: 2px;
-
-            height: 100%;
-
-            background-color: #d1d5db; /* رنگ خاکستری روشن */
-
-        }
-
-        
-
-        .position-item {
-
+        /* برای عناوین پروژه */
+        .project-item {
             margin-bottom: 20px;
-
-            padding-right: 20px;
-
-            position: relative;
-
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #e5e7eb;
         }
 
-
-
-        /* دایره نشانگر ارتقاء */
-
-        .position-item::before {
-
-            content: '';
-
-            position: absolute;
-
-            top: 8px;
-
-            right: -8px;
-
-            width: 10px;
-
-            height: 10px;
-
-            border-radius: 50%;
-
-            background-color: var(--color-secondary);
-
-            border: 2px solid var(--color-card-bg);
-
-            z-index: 1;
-
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
-        
-
-        .position-item h4 {
-
-            font-size: 16px;
-
-            color: var(--color-text);
-
+        .project-item h4 {
+            font-size: 18px;
+            color: var(--color-secondary);
             font-weight: bold;
-
-            margin-bottom: 3px;
-
+            margin-bottom: 5px;
         }
 
-
-
-        .position-item p.duration {
-
+        .project-item p.project-duration {
             font-size: 14px;
-
             color: #6b7280;
-
-            margin-bottom: 8px;
-
+            margin-bottom: 10px;
         }
-
         
-
-        .position-item ul {
-
-            padding-right: 0;
-
-            margin-top: 0;
-
-            border-right: none;
-
+        .project-item ul {
+            padding-right: 15px; 
+            margin-top: 5px;
         }
 
-        
-
-        .position-item ul li::before {
-
-            top: 5px;
-
-        }
-
-        
-
-        /* --- پایان استایل‌های ارتقاء شغلی --- */
-
-
-
-
-
-        /* مهارت‌ها */
-
-        .skills ul {
-
-            list-style: none;
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 12px;
-
-            padding: 0;
-
-            margin-top: 15px;
-
-        }
-
-
-
-        .skills li {
-
+        /* استایل‌های لینک‌ها در بخش دوره‌ها */
+        .cert-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 15px;
             background: #eef2ff;
-
             color: var(--color-primary);
-
-            padding: 8px 15px;
-
-            border-radius: 6px;
-
-            font-weight: bold;
-
             border: 1px solid var(--color-secondary);
-
-            transition: background-color 0.3s;
-            
-            /* حذف آیکون لیست برای تگ مهارت */
-            position: static !important; 
-            padding-right: 15px !important;
-
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
         
-        /* حذف آیکون پیش فرض از تگ مهارت */
-        .skills li::before {
-             content: none !important;
+        .cert-link i {
+            margin-left: 8px;
+            font-size: 14px;
         }
-
         
-
-        .skills li:hover {
-
-            background-color: var(--color-secondary);
-
+        .cert-link:hover {
+            background: var(--color-secondary);
             color: #fff;
-
         }
-
-
-
 
 
         /* ------------------------------------------- */
@@ -860,43 +725,6 @@
                 padding: 20px;
 
             }
-
-            
-
-            /* تنظیمات موبایل برای ارتقاء‌ها */
-
-            .position-timeline {
-
-                padding-right: 10px;
-
-            }
-
-            
-
-            .position-timeline::before {
-
-                right: 0;
-
-            }
-
-            
-
-            .position-item {
-
-                padding-right: 15px;
-
-            }
-
-
-
-            .position-item::before {
-
-                right: -6px;
-
-            }
-
-
-
         }
 
     </style>
@@ -925,7 +753,7 @@
 
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
 
-            <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
+            <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
 
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
 
@@ -951,7 +779,7 @@
             <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
-            <a data-target="#skills"><i class="fa-solid fa-gear"></i> مهارت‌ها</a>
+            <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
         </nav>
@@ -980,7 +808,6 @@
         </section>
 
 
-
         <section id="experience">
 
             <div class="card">
@@ -989,135 +816,87 @@
 
 
 
-                <div class="job-block">
+                <div class="data-block">
 
                     <h3>شرکت هلدینگ سرمایه‌گذاری طلوع</h3>
 
-                    <p class="company-duration">مدت کل فعالیت: ۱۴۰۳ تا کنون</p>
+                    <p class="duration-info">مدت کل فعالیت: ۱۴۰۳ تا کنون</p>
 
                     
-
                     <div class="position-timeline">
 
                         
-
                         <div class="position-item">
-
                             <h4>مدیر عامل</h4>
-
-                            <p class="duration">۱۴۰۴ تا کنون</p>
-
+                            <p class="duration-info">۱۴۰۴ تا کنون</p>
                             <ul>
-
                                 <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و توسعه کسب‌وکار</li>
-
                                 <li>مدیریت عملیات و منابع شرکت برای دستیابی به اهداف سودآوری</li>
-
                                 <li>نظارت بر تیم‌های مختلف مالی و سرمایه‌گذاری</li>
-
                             </ul>
-
                         </div>
-
 
 
                         <div class="position-item">
-
                             <h4>مدیر سرمایه‌گذاری</h4>
-
-                            <p class="duration">۱۴۰۳ تا ۱۴۰۴</p>
-
+                            <p class="duration-info">۱۴۰۳ تا ۱۴۰۴</p>
                             <ul>
-
                                 <li>مدیریت مستقیم سبد دارایی‌های شرکت به ارزش X میلیارد تومان</li>
-
                                 <li>رهبری تیم تحلیل و نظارت بر تهیه گزارش‌های تحلیلی صنایع</li>
-
                                 <li>طراحی مدل‌های ریسک و بازدهی برای تخصیص بهینه دارایی</li>
-
                             </ul>
-
                         </div>
-
 
 
                     </div>
-
                 </div>
 
 
 
-                <div class="job-block">
+                <div class="data-block">
 
                     <h3>بانک XYZ</h3>
 
-                    <p class="company-duration">مدت کل فعالیت: تابستان ۱۴۰۳</p>
+                    <p class="duration-info">مدت کل فعالیت: تابستان ۱۴۰۳</p>
 
                     
-
                     <div class="position-timeline">
-
                         <div class="position-item">
-
                             <h4>کارآموزی در واحد تحلیل ریسک</h4>
-
-                            <p class="duration">تابستان ۱۴۰۳</p>
-
+                            <p class="duration-info">تابستان ۱۴۰۳</p>
                             <ul>
-
                                 <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
-
                                 <li>جمع‌آوری و پردازش داده‌های مالی برای گزارش‌های داخلی</li>
-
                                 <li>شرکت در جلسات تیم سرمایه‌گذاری و ارائه پیشنهادات تحلیلی</li>
-
                             </ul>
-
                         </div>
-
                     </div>
-
                 </div>
 
                 
-                <div class="job-block">
+                <div class="data-block">
 
                     <h3>شرکت ABC</h3>
 
-                    <p class="company-duration">مدت کل فعالیت: ۱۴۰۲ تا ۱۴۰۳</p>
+                    <p class="duration-info">مدت کل فعالیت: ۱۴۰۲ تا ۱۴۰۳</p>
 
                     
-
                     <div class="position-timeline">
-
                         <div class="position-item">
-
                             <h4>کارشناس مالی</h4>
-
-                            <p class="duration">۱۴۰۲ تا ۱۴۰۳</p>
-
+                            <p class="duration-info">۱۴۰۲ تا ۱۴۰۳</p>
                             <ul>
-
                                 <li>مدیریت و پایش جریان نقدی و بودجه شرکت</li>
-
                                 <li>تهیه تحلیل‌های مالی برای تصمیم‌گیری مدیریت</li>
-
                                 <li>بهبود فرآیندهای گزارش‌دهی مالی با ابزارهای Excel و VBA</li>
-
                             </ul>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 
 
             </div>
-
         </section>
-
 
 
         <section id="education">
@@ -1127,125 +906,167 @@
                 <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
 
                 
-
-                <div class="job-block">
-
-                    <h3>دکتری مهندسی مالی</h3>
-
-                    <p class="company-duration">دانشگاه نمونه - ۱۴۰۲ تا کنون</p>
-
+                <div class="data-block">
+                    <h3>دانشگاه خوارزمی</h3>
+                    <p class="duration-info">کارشناسی ارشد، مهندسی مالی | سپتامبر ۲۰۲۱ - سپتامبر ۲۰۲۳</p>
                     <ul>
-
-                        <li>پایان‌نامه در حوزه مدل‌های یادگیری ماشینی در بازار سرمایه</li>
-
-                        <li>گذراندن دروس پیشرفته اقتصادسنجی مالی و مشتقات</li>
-
-                        <li>فعالیت به عنوان دستیار آموزشی در دروس آمار مالی</li>
-
+                        <li>**معدل (GPA):** ۴ از ۴</li>
+                        <li>**پایان‌نامه:** بهینه‌سازی پویای پرتفوی با خوشه‌بندی کوواریانس معکوس در بورس اوراق بهادار تهران</li>
+                        <li>**استاد راهنما:** احسان تایبی ثانی</li>
                     </ul>
-
                 </div>
 
-
-
-                <div class="job-block">
-
-                    <h3>کارشناسی ارشد مهندسی مالی</h3>
-
-                    <p class="company-duration">دانشگاه نمونه - ۱۴۰۰ تا ۱۴۰۲</p>
-
+                <div class="data-block">
+                    <h3>دانشگاه خوارزمی</h3>
+                    <p class="duration-info">کارشناسی، مهندسی صنایع | سپتامبر ۲۰۱۷ - سپتامبر ۲۰۲۱</p>
                     <ul>
-
-                        <li>معدل کل ۱۹/۰۵</li>
-
-                        <li>تمرکز بر بهینه‌سازی پرتفوی و مدیریت ریسک</li>
-
-                        <li>عضویت در تیم ربات‌های معامله‌گر دانشگاه</li>
-
+                        <li>**معدل (GPA):** ۳/۶۴ از ۴</li>
+                        <li>**پایان‌نامه:** نقش رمزارزها در بورس اوراق بهادار تهران</li>
+                        <li>**استاد راهنما:** حمیدرضا ایزدبخش</li>
+                        <li>**گرایش:** تحلیل مالی</li>
                     </ul>
-
                 </div>
-
                 
-
-                <div class="job-block">
-
-                    <h3>کارشناسی مدیریت مالی</h3>
-
-                    <p class="company-duration">دانشگاه نمونه - ۱۳۹۶ تا ۱۴۰۰</p>
-
+                <div class="data-block">
+                    <h3>دانشگاه علم و صنعت ایران</h3>
+                    <p class="duration-info">کارشناسی، مهندسی برق و الکترونیک | سپتامبر ۲۰۱۲ - سپتامبر ۲۰۱۶</p>
                     <ul>
-
-                        <li>پروژه نهایی با عنوان تحلیل بازدهی سهام شرکت‌های پتروشیمی</li>
-
-                        <li>گذراندن موفقیت‌آمیز دوره‌های حسابداری پیشرفته و اقتصاد کلان</li>
-
+                        <li>این مقطع تحصیلی در حوزه مهندسی برق و الکترونیک است.</li>
                     </ul>
-
                 </div>
-
                 
-
+                <div class="data-block">
+                    <h3>سازمان ملی پرورش استعدادهای درخشان (سمپاد)</h3>
+                    <p class="duration-info">دیپلم متوسطه، ریاضیات | سپتامبر ۲۰۰۸ - سپتامبر ۲۰۱۲</p>
+                    <ul>
+                        <li>**معدل:** ۱۹/۸۲ از ۲۰</li>
+                    </ul>
+                </div>
+                
             </div>
-
         </section>
 
 
+        <section id="certifications">
+            <div class="card">
+                <h2><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</h2>
 
-        <section id="skills">
+                <div class="data-block">
+                    <h3>تئوری بازی‌ها (Game Theory)</h3>
+                    <p class="duration-info">دانشگاه استنفورد (Coursera) | دریافت: مارس ۲۰۲۲</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
 
-            <div class="card skills">
-
-                <h2><i class="fa-solid fa-gear"></i> مهارت‌ها</h2>
-
-                <ul>
-
-                    <li>Python</li>
-
-                    <li>Pandas & NumPy</li>
-
-                    <li>Plotly & Matplotlib</li>
-
-                    <li>مدل‌سازی مالی</li>
-
-                    <li>بهینه‌سازی پرتفوی</li>
-
-                    <li>Excel & VBA</li>
-
-                    <li>Eviews</li>
-
-                    <li>Comfar</li>
-
-                    <li>تحلیل اقتصاد کلان</li>
-
-                    <li>مدیریت ریسک</li>
-
-                </ul>
+                <div class="data-block">
+                    <h3>مبانی حسابداری (Accounting Fundamentals)</h3>
+                    <p class="duration-info">Corporate Finance Institute (CFI) | دریافت: ژانویه ۲۰۲۲</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="data-block">
+                    <h3>مبانی مالی شرکتی (Corporate Finance Fundamentals)</h3>
+                    <p class="duration-info">Corporate Finance Institute (CFI) | دریافت: ژانویه ۲۰۲۲</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="data-block">
+                    <h3>برنامه‌نویسی علمی جولیا (Julia Scientific Programming)</h3>
+                    <p class="duration-info">دانشگاه کیپ تاون (Coursera) | دریافت: نوامبر ۲۰۲۱</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="data-block">
+                    <h3>استفاده از پایتون برای دسترسی به داده‌های وب</h3>
+                    <p class="duration-info">دانشگاه میشیگان (Coursera) | دریافت: مارس ۲۰۲۱</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="data-block">
+                    <h3>ساختارهای داده پایتون (Python Data Structures)</h3>
+                    <p class="duration-info">دانشگاه میشیگان (Coursera) | دریافت: فوریه ۲۰۲۱</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="data-block">
+                    <h3>برنامه‌نویسی برای همه (شروع کار با پایتون)</h3>
+                    <p class="duration-info">Coursera | دریافت: ژانویه ۲۰۲۱</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+                
+                <div class="data-block">
+                    <h3>دوره موج الیوت - فارکس و CFD</h3>
+                    <p class="duration-info">Udemy | دریافت: فوریه ۲۰۲۱</p>
+                    <a href="#" class="cert-link" target="_blank">مشاهده مدرک <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
 
             </div>
-
         </section>
-
 
 
         <section id="projects">
-
             <div class="card">
-
                 <h2><i class="fa-solid fa-folder-open"></i> پروژه‌ها</h2>
 
-                <ul>
+                <div class="project-item">
+                    <h4>معاملات کوانتگرال (Cointegration Pairs Trading)</h4>
+                    <p class="project-duration">سپتامبر ۲۰۲۱ - ژانویه ۲۰۲۲ | مرتبط با دانشگاه خوارزمی</p>
+                    <ul>
+                        <li>هدف پروژه، ثبت بازده مطلق بدون توجه به نوسانات بازار بود.</li>
+                        <li>از روش‌های **تحلیل مؤلفه‌های اصلی (PCA)** و **خوشه‌بندی K-means** برای یافتن سهام‌های کاندیدا برای معاملات جفتی استفاده شد. (تمام کدها در پایتون نوشته شده‌اند).</li>
+                        <li>سیگنال‌های معاملاتی با استفاده از **امتیاز Z (z-score)** ایجاد شدند.</li>
+                        <li>داده‌های مورد استفاده، سهام‌های موجود در **بورس نزدک (NASDAQ)** بود.</li>
+                    </ul>
+                </div>
 
-                    <li><strong>بهینه‌سازی پرتفوی دینامیک</strong> - داده‌های بورس تهران</li>
+                <div class="project-item">
+                    <h4>انتخاب پرتفوی (Portfolio Selection)</h4>
+                    <p class="project-duration">ژانویه ۲۰۲۲ - ژوئن ۲۰۲۲ | مرتبط با دانشگاه خوارزمی</p>
+                    <ul>
+                        <li>مبانی اصلی، مدل **مارکوویتز (MPT)** و بهینه‌سازی آن بود.</li>
+                        <li>تخمین ریسک برای هر دو موضوع **کاهش بُعد (Factor-based and shrinkage)** و **غیر ایستا (Arch and Garch)** انجام شد.</li>
+                        <li>مرز کارا (Efficient Frontier) پرتفوی با دارایی بدون ریسک و بدون آن و همچنین **پرتفوی حداقل واریانس (MVP)** محاسبه شد.</li>
+                        <li>الزامات محدودکننده سبد مانند تعداد دور، دوره نگهداری و ... اضافه شد.</li>
+                        <li>پرتفوی با بیمه **CPPI** (با حداکثر محدودیت نزولی) تجهیز شد.</li>
+                        <li>وزن‌دهی **CW (Capital Weighted)، EW (Equally Weighted) و SW (Smart Weighted)** مقایسه شدند.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <h4>بازگشت به میانگین (Mean Reversion)</h4>
+                    <p class="project-duration">ژانویه ۲۰۲۲ - ژوئن ۲۰۲۲ | مرتبط با دانشگاه خوارزمی</p>
+                    <ul>
+                        <li>ثابت شد که در این پروژه، در پیاده‌سازی تئوری **راه رفتن تصادفی (Brownian Motion)**، شاخص بورس ایران ناکارآمد است و به میانگین باز می‌گردد.</li>
+                        <li>از **آزمون ریشه واحد (Augmented Dickey Fuller Unit Root Test)** استفاده شد.</li>
+                    </ul>
+                </div>
 
-                    <li><strong>داشبورد تحلیل مالی</strong> - نمودارهای تعاملی با Plotly</li>
+                <div class="project-item">
+                    <h4>قیمت‌گذاری آپشن (Option Pricing)</h4>
+                    <p class="project-duration">اکتبر ۲۰۲۱ - ژانویه ۲۰۲۲ | مرتبط با دانشگاه خوارزمی</p>
+                    <ul>
+                        <li>پروژه در حوزه مدل‌سازی و قیمت‌گذاری مشتقات مالی است.</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <h4>مطالعات امکان‌سنجی تولید شمش منیزیم</h4>
+                    <p class="project-duration">مارس ۲۰۲۲ - آوریل ۲۰۲۲ | مرتبط با Patternic</p>
+                    <ul>
+                        <li>این پروژه شامل تحلیل‌های مالی و اقتصادی جامع برای ارزیابی امکان‌سنجی تولید محصول مورد نظر است.</li>
+                    </ul>
+                </div>
 
-                    <li><strong>پیش‌بینی قیمت طلا</strong> - مدل‌سازی آماری و پیش‌بینی</li>
-
-                </ul>
-
+                <div class="project-item">
+                    <h4>رویکرد سیستم دینامیک برای کنترل آلودگی هوا در تهران</h4>
+                    <p class="project-duration">فوریه ۲۰۲۱ - ژوئن ۲۰۲۱ | مرتبط با دانشگاه خوارزمی</p>
+                    <ul>
+                        <li>ابتدا، با استفاده از حلقه‌های علّی، رابطه بین پارامترهای مؤثر بر آلودگی هوا در تهران در نظر گرفته شد.</li>
+                        <li>سپس، این حلقه‌های علّی به دیاگرام‌های جریان تبدیل شدند.</li>
+                        <li>در نهایت، آن‌ها با نرم‌افزار **Vensim** شبیه‌سازی شدند تا نتیجه‌گیری شود که چگونه تغییر یک یا چند پارامتر بر پارامترهای دیگر تأثیر می‌گذارد.</li>
+                    </ul>
+                </div>
+                
             </div>
-
         </section>
 
 
