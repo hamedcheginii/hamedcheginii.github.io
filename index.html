@@ -40,8 +40,10 @@
 
             --color-card-bg: #ffffff; /* سفید خالص برای کارت‌ها */
 
-            --color-shadow: rgba(0, 0, 0, 0.1); /* سایه نرم‌تر */
+            --color-shadow: rgba(0, 0, 0, 0.08); /* سایه بسیار نرم و حرفه‌ای */
 
+            --color-highlight-bg: #fef3c7; /* پس‌زمینه روشن برای دستاوردها */
+            --color-highlight-text: #f59e0b; /* رنگ پررنگ برای دستاوردها */
         }
 
 
@@ -78,6 +80,9 @@
 
             font-size: 15px;
 
+            -webkit-font-smoothing: antialiased; /* بهبود رندر فونت در مرورگرهای وب‌کیت */
+            -moz-osx-font-smoothing: grayscale; 
+
         }
 
 
@@ -112,7 +117,7 @@
 
             overflow-y: auto;
 
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* سایه تیره تر */
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.4); /* سایه تیره تر */
 
         }
 
@@ -132,7 +137,7 @@
 
             border: 4px solid var(--color-secondary);
 
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 
         }
 
@@ -426,42 +431,61 @@
             top: 5px;
 
         }
+        
+        /* --- استایل برجسته کردن دستاوردها --- */
+        .card ul li.highlight-achievement {
+            font-weight: bold;
+            color: var(--color-primary);
+            background-color: var(--color-highlight-bg); 
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border-right: 3px solid var(--color-highlight-text);
+        }
+
+        .card ul li.highlight-achievement::before {
+            content: "\f005"; /* آیکون ستاره */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--color-highlight-text); 
+            font-size: 14px;
+            top: 4px;
+        }
 
         
         /* --- استایل جدید آیکون‌های تماس --- */
         
         section#contact p::before {
-             content: none; /* حذف استایل نقطه */
+             content: none; 
         }
 
         .contact-links {
             display: flex;
             flex-wrap: wrap;
-            gap: 25px; /* افزایش فاصله بین آیکون‌ها */
-            justify-content: center; /* مرکزیت آیکون‌ها */
+            gap: 25px; 
+            justify-content: center; 
             align-items: center;
-            margin-top: 25px; /* افزایش فاصله از عنوان */
+            margin-top: 25px; 
         }
 
         .contact-links a {
             text-decoration: none;
-            color: var(--color-primary); /* رنگ اصلی آیکون */
-            font-size: 0; /* متن را پنهان می‌کند */
+            color: var(--color-primary); 
+            font-size: 0; 
             display: flex;
             align-items: center;
             transition: color 0.3s ease;
         }
         
-        /* استایل خود آیکون */
         .contact-links a i {
-            font-size: 38px; /* بسیار بزرگ‌تر */
+            font-size: 38px; 
             color: var(--color-primary); 
             transition: color 0.3s ease, transform 0.3s ease;
         }
         
         .contact-links a:hover i {
-            color: var(--color-secondary); /* تغییر رنگ هنگام هاور */
-            transform: scale(1.15); /* افکت کوچک هاور */
+            color: var(--color-secondary); 
+            transform: scale(1.15); 
         }
         /* --- پایان استایل آیکون‌های تماس --- */
         
@@ -470,8 +494,8 @@
 
         /* --- استایل دهی تایم لاین سِمت‌های شغلی داخل یک شرکت --- */
         .data-block {
-            position: relative; /* برای قرار دادن خط تایم‌لاین */
-            padding-right: 20px; /* برای ایجاد فضا برای خط عمودی */
+            position: relative; 
+            padding-right: 20px; 
             margin-bottom: 40px;
             padding-bottom: 20px;
             border-bottom: 1px solid #e5e7eb;
@@ -482,10 +506,10 @@
             content: '';
             position: absolute;
             right: 0;
-            top: 40px; /* شروع خط از زیر عنوان شرکت */
+            top: 40px; 
             bottom: 20px;
             width: 2px;
-            background-color: #e5e7eb; /* رنگ خاکستری روشن */
+            background-color: #d1d5db; /* رنگ خاکستری کمی پررنگ تر */
         }
         
         .data-block:last-child {
@@ -499,7 +523,7 @@
             padding-right: 20px; 
             margin-bottom: 25px;
             margin-top: 15px;
-            border-bottom: 1px dashed #f3f4f6; /* جداکننده نازک بین سمت‌ها */
+            border-bottom: 1px dashed #f3f4f6; 
             padding-bottom: 15px;
         }
         
@@ -515,16 +539,24 @@
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             position: absolute;
-            right: -10px; /* قرار گرفتن در کنار خط عمودی */
+            right: -10px; 
             top: 5px;
             color: var(--color-secondary);
             font-size: 10px;
-            background: var(--color-card-bg); /* پس‌زمینه سفید برای برجستگی */
+            background: var(--color-card-bg); 
             border-radius: 50%;
             padding: 2px;
             line-height: 1;
         }
 
+        /* عنوان شرکت یا موسسه */
+        .data-block h3 {
+            font-size: 19px;
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
         /* عنوان سمت (مدیر عامل، مدیر سرمایه‌گذاری) */
         .position-item h4 {
             font-size: 17px;
@@ -562,7 +594,7 @@
 
             margin-bottom: 15px;
             
-            padding-right: 0; /* حذف پدینگ اضافی */
+            padding-right: 0; 
         }
         
         /* برای عناوین پروژه */
@@ -601,7 +633,7 @@
             display: inline-block;
             margin-top: 10px;
             padding: 6px 15px;
-            background: #ffe3d3; /* رنگ روشن نارنجی */
+            background: #ffe3d3; 
             color: var(--color-primary);
             border: 1px solid var(--color-secondary);
             border-radius: 6px;
@@ -619,6 +651,40 @@
         .cert-link:hover {
             background: var(--color-secondary);
             color: #fff;
+        }
+        
+        /* --- استایل نوار مهارت‌ها (Skill Bars) --- */
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-item h4 {
+            font-size: 16px;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .skill-item h4 span.level {
+            font-size: 14px;
+            color: var(--color-secondary);
+            font-weight: normal;
+        }
+
+        .skill-bar-container {
+            height: 10px;
+            background: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-bar {
+            height: 100%;
+            background-color: var(--color-secondary);
+            transition: width 1s ease-out;
+            border-radius: 5px;
         }
 
 
@@ -900,6 +966,11 @@
             .position-item {
                 padding-right: 0; 
             }
+            
+            /* برای موبایل، دستاورد برجسته را کمی کوچک‌تر می‌کنیم */
+            .card ul li.highlight-achievement {
+                font-size: 14px;
+            }
         }
 
     </style>
@@ -927,7 +998,7 @@
 
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
 
-            <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+            <a data-target="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</a> <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
 
             <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
             
@@ -956,7 +1027,7 @@
         <nav>
             <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
-            <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+            <a data-target="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</a> <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
             <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
             <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> 
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
@@ -980,7 +1051,7 @@
 
                 <p>انگیزه‌مند، سازمان‌یافته، خلاق و توانمند در کار تیمی، با مهارت در توسعه ابزارها و مدل‌های نوآورانه برای حل مسائل سرمایه‌گذاری و مدیریت ریسک. ارائه گزارش‌های تحلیلی و ایجاد داشبوردهای مدیریتی جهت پایش وضعیت بازار و صنایع مختلف. مسلط بر تحلیل داده‌ها و استفاده از روش‌های آماری شامل مصورسازی داده‌ها، مدل‌سازی خطی و تحلیل چندمتغیره.</p>
 
-                <p>مسلط بر زبان‌های برنامه‌نویسی مانند Python و نرم‌افزارهای مالی و آماری شامل Excel، Eviews و Comfar. توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
+                <p>مسلط بر زبان‌های برنامه‌نویسی مانند **Python** و نرم‌افزارهای مالی و آماری شامل **Excel**، **Eviews** و **Comfar**. توانایی جمع‌آوری داده‌ها از منابع متنوع و به‌کارگیری آن‌ها برای توسعه برنامه‌های سرمایه‌گذاری کوتاه‌مدت و بلندمدت در بخش‌های مختلف کسب‌وکار و ارائه تحلیل‌های جامع اقتصادی و مالی برای تصمیم‌گیری‌های بهینه.</p>
 
             </div>
 
@@ -1003,7 +1074,7 @@
                         <h4>مدیر سرمایه‌گذاری</h4>
                         <p class="duration-info">۱۴۰۴ تا کنون</p>
                         <ul>
-                            <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و ‌مدیریت پرتفو</li>
+                            <li class="highlight-achievement">تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و ‌مدیریت پرتفو (دستاورد کلیدی)</li>
                             <li>ایجاد داشبوردهای ‏‏تصمیم‌گیری، بررسی پرتفو و رصد بازار</li>
                             <li>نظارت بر تیم‌ تحلیل و سرمایه‌گذاری</li>
                             <li>ارائه گزارش‌های تحلیلی</li>
@@ -1053,9 +1124,9 @@
                 
                 <div class="data-block">
                     <h3>نماینده بیمه پارسیان</h3>
-                    <p class="duration-info">مدت کل فعالیت: 1398 تا 1399</p>
+                    <p class="duration-info">1399 تا 1398</p>
                     <div class="position-item">
-                        <h4>نمایندگی</h4>
+                        <h4>نماینده بیمه پارسیان</h4>
                         <p class="duration-info">1399 تا 1398</p>
                         <ul>
                             <li>فعالیت در حوزه مارکتینگ بیمه عمر و دریافت نمایندگی بیمه پارسیان</li>
@@ -1074,7 +1145,7 @@
                         <p class="duration-info">۱۳۹۱ تا ۱۳۹۶</p>
                         <ul>
                             <li>روش‌های تدریس مبتکرانه و تقویت مهارت حل مسئله</li>
-                            <li>آموزش و منتورینگ دانش‌آموزان و کسب رتبه‌های دو رقمی و سه رقمی در کنکور</li>
+                            <li class="highlight-achievement">آموزش و منتورینگ دانش‌آموزان و کسب رتبه‌های دو رقمی و سه رقمی در کنکور</li>
                         </ul>
                     </div>
                 </div>
@@ -1082,8 +1153,43 @@
 
             </div>
         </section>
+        
+        <section id="skills">
+            <div class="card">
+                <h2><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</h2>
+                
+                <div class="skill-item">
+                    <h4>Python (Pandas, Numpy, Quant Libraries) <span class="level">پیشرفته</span></h4>
+                    <div class="skill-bar-container"><div class="skill-bar" style="width: 90%;"></div></div>
+                </div>
 
+                <div class="skill-item">
+                    <h4>مدیریت و تحلیل پرتفوی (Portfolio Management & Analysis) <span class="level">متخصص</span></h4>
+                    <div class="skill-bar-container"><div class="skill-bar" style="width: 95%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <h4>تحلیل تکنیکال و فاندامنتال (Technical & Fundamental Analysis) <span class="level">متخصص</span></h4>
+                    <div class="skill-bar-container"><div class="skill-bar" style="width: 95%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <h4>Excel (Advanced Modeling & VBA) <span class="level">پیشرفته</span></h4>
+                    <div class="skill-bar-container"><div class="skill-bar" style="width: 90%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <h4>Eviews & Stata (Econometrics) <span class="level">متوسط</span></h4>
+                    <div class="skill-bar-container"><div class="skill-bar" style="width: 70%;"></div></div>
+                </div>
+                
+                <div class="skill-item">
+                    <h4>SQL & Power BI (Data Visualization) <span class="level">متوسط</span></h4>
+                    <div class="skill-bar-container"><div class="skill-bar" style="width: 75%;"></div></div>
+                </div>
 
+            </div>
+        </section>
         <section id="education">
 
             <div class="card">
@@ -1095,7 +1201,7 @@
                     <h3>دکتری مهندسی مالی</h3>
                     <p class="duration-info">دانشگاه تهران | ۱۴۰۴ - تا کنون</p>
                     <ul>
-                        <li>کسب رتبه ۲ در آزمون ورودی دکتری</li>
+                        <li class="highlight-achievement">کسب رتبه ۲ در آزمون ورودی دکتری</li>
                     </ul>
                 </div>
 
@@ -1103,7 +1209,7 @@
                     <h3>کارشناسی ارشد مهندسی مالی</h3>
                     <p class="duration-info">دانشگاه خوارزمی | ۱۴۰۰ تا ۱۴۰۳</p>
                     <ul>
-                        <li>معدل: ۲۰</li>
+                        <li class="highlight-achievement">معدل: ۲۰</li>
                         <li>ارشد مستقیم</li>
                         <li>پایان‌نامه: بهینه‌سازی پرتفوی پویا با استفاده از روش کوواریانس معکوس</li>
                         <li>استاد راهنما: دکتر احسان طیبی ثانی</li>
@@ -1132,7 +1238,7 @@
                     <h3>دیپلم- ریاضی و فیزیک</h3>
                     <p class="duration-info">سازمان ملی پرورش استعدادهای درخشان (سمپاد) | ۱۳۸۴ تا ۱۳۹۱</p>
                     <ul>
-                        <li>معدل: ۱۹/۸۲</li>
+                        <li class="highlight-achievement">معدل: ۱۹/۸۲</li>
                     </ul>
                 </div>
                 
