@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>حامد چگینی</title>
+    <title>حامد چگینی - رزومه</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -44,7 +44,7 @@
         }
 
 
-        /* --- Preloader Style (جدید) --- */
+        /* --- Preloader Style --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -990,6 +990,80 @@
                 padding-right: 0; 
             }
         }
+        
+        
+        /* ---------------------------------------------------- */
+        /* --- PRINT STYLES (جدید: برای چاپ حرفه‌ای) --- */
+        /* ---------------------------------------------------- */
+        @media print {
+            /* 1. مخفی کردن المان‌های غیرضروری برای چاپ */
+            header.desktop, 
+            #menuToggle, 
+            #drawerMenu, 
+            #mobile-overlay, 
+            #preloader,
+            .cert-link, /* لینک‌های مشاهده مدرک */
+            .download-link, /* لینک‌های دانلود گزارش */
+            .contact-links /* آیکون‌های تماس */
+            {
+                display: none !important;
+            }
+
+            /* 2. تنظیم مجدد طرح‌بندی اصلی */
+            body {
+                background: #fff;
+                color: #000;
+                margin: 0;
+                padding: 0;
+                /* اجبار به فونت خوانا برای چاپ */
+                font-family: Tahoma, sans-serif !important; 
+            }
+            
+            main {
+                /* حذف margin راست که برای سایدبار دسکتاپ بود */
+                margin-right: 0 !important; 
+                padding: 10mm 15mm; /* پدینگ مناسب برای حاشیه کاغذ */
+                width: 100%;
+                max-width: none;
+            }
+            
+            section {
+                width: 100%;
+                /* حذف انیمیشن‌ها برای چاپ */
+                opacity: 1 !important; 
+                transform: none !important; 
+                margin: 15px 0 !important;
+                padding-top: 0 !important;
+                /* جلوگیری از شکستن بخش‌ها (مثل کارت‌ها) در وسط صفحه */
+                page-break-inside: avoid; 
+            }
+
+            /* 3. بهبود استایل کارت‌ها و تایم‌لاین */
+            .card {
+                box-shadow: none !important;
+                /* برای نسخه چاپی، یک حاشیه خاکستری برای زیبایی اضافه می‌کنیم */
+                border: 1px solid #ccc; 
+                border-right: 6px solid #1f2937; /* استفاده از رنگ اصلی (مشکی) برای خط برجسته */
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            /* 4. مهارت‌ها - نمایش کامل نوارها بدون نیاز به جاوااسکریپت */
+            .skill-bar {
+                /* اطمینان از پر بودن نوارها هنگام چاپ */
+                width: 100% !important; 
+            }
+            .skill-bar-container {
+                 /* برای چاپ بهتر است نوارها را یک رنگ ساده کنید */
+                background: #eee; 
+            }
+            
+            /* 5. بازگرداندن لینک‌ها به حالت متنی قابل خواندن */
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+        }
 
     </style>
 
@@ -1510,7 +1584,7 @@
         const mobileOverlay = document.getElementById('mobile-overlay'); 
         const menuLinks = document.querySelectorAll('nav a');
         
-        /* --- 1. منطق Preloader (جدید) --- */
+        /* --- 1. منطق Preloader --- */
         const preloader = document.getElementById('preloader');
         
         window.onload = function() {
