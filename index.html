@@ -1048,7 +1048,7 @@
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
             <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
             <a data-target="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</a> <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
-            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> 
+            <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a>
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
         </nav>
@@ -1524,21 +1524,23 @@
         /* ------------------------------------- */
 
         
-        /* --- 2. انیمیشن نوار مهارت‌ها (جدید) --- */
-        const animateSkillBars = (skillsSection) => {
-            const skillBars = skillsSection.querySelectorAll('.skill-bar');
-            skillBars.forEach(bar => {
-                // خواندن درصد از data-level در HTML
-                const level = bar.dataset.level; 
-                bar.style.width = `${level}%`; // اعمال انیمیشن
-            });
-        };
-
+        // --- 2. انیمیشن نوار مهارت‌ها (اصلاح شده برای تکرار انیمیشن) ---
         const skillObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
+                const skillBars = entry.target.querySelectorAll('.skill-bar');
+                
                 if (entry.isIntersecting) {
-                    animateSkillBars(entry.target);
-                    skillObserver.unobserve(entry.target); // پس از یک بار اجرا، ناظر را متوقف می‌کند
+                    // انیمیشن: وقتی بخش وارد دید می‌شود، نوارها پر می‌شوند
+                    skillBars.forEach(bar => {
+                        const level = bar.dataset.level; 
+                        // اعمال سطح مهارت (پر کردن نوار)
+                        bar.style.width = `${level}%`; 
+                    });
+                } else {
+                    // ریست: وقتی بخش از دید خارج می‌شود، نوارها به ۰% باز می‌گردند
+                    skillBars.forEach(bar => {
+                        bar.style.width = '0%';
+                    });
                 }
             });
         }, {
@@ -1549,7 +1551,7 @@
         if (skillsSection) {
             skillObserver.observe(skillsSection);
         }
-        /* ------------------------------------- */
+        // -------------------------------------
 
 
         // Intersection Observer برای انیمیشن و visible
