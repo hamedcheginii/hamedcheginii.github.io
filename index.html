@@ -44,6 +44,44 @@
         }
 
 
+        /* --- Preloader Style (جدید) --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--color-background); /* استفاده از رنگ پس زمینه اصلی */
+            z-index: 9999; /* بالاترین لایه برای پوشاندن صفحه */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #preloader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(31, 41, 55, 0.2); /* var(--color-primary) */
+            border-top-color: var(--color-secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        /* ---------------------------------- */
+
 
         * {
 
@@ -667,6 +705,8 @@
             height: 100%;
             background-color: var(--color-secondary);
             transition: width 1s ease-out;
+            /* --- شروع انیمیشن از صفر (تغییر جدید) --- */
+            width: 0%; 
             border-radius: 5px;
         }
 
@@ -959,8 +999,9 @@
 
 <body>
 
-
-
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
     <header class="desktop">
 
         <img src="profile.jpg" alt="عکس پروفایل">
@@ -1195,34 +1236,34 @@
                 
                 <div class="skill-item">
                     <h4>مدیریت و تحلیل پرتفوی <span class="level">متخصص</span></h4>
-                    <div class="skill-bar-container"><div class="skill-bar" style="width: 90%;"></div></div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
                 </div>
                 
                 <div class="skill-item">
                     <h4>تحلیل بنیادی  <span class="level">متخصص</span></h4>
-                    <div class="skill-bar-container"><div class="skill-bar" style="width: 90%;"></div></div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
                 </div>
                 
                 <div class="skill-item">
                     <h4>زبان پایتون<span class="level">پیشرفته</span></h4>
-                    <div class="skill-bar-container"><div class="skill-bar" style="width: 80%;"></div></div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="80"></div></div>
                 </div>
 
                 
                 <div class="skill-item">
                     <h4>اکسل و آفیس <span class="level">متخصص</span></h4>
-                    <div class="skill-bar-container"><div class="skill-bar" style="width: 90%;"></div></div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
                 </div>
                 
                 
                 <div class="skill-item">
                     <h4>Power BI  <span class="level">پیشرفته</span></h4>
-                    <div class="skill-bar-container"><div class="skill-bar" style="width: 75%;"></div></div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="75"></div></div>
                 </div>
                 
                 <div class="skill-item">
                     <h4>تهیه گزارشات <span class="level">متخصص</span></h4>
-                    <div class="skill-bar-container"><div class="skill-bar" style="width: 90%;"></div></div>
+                    <div class="skill-bar-container"><div class="skill-bar" data-level="90"></div></div>
                 </div>
 
             </div>
@@ -1468,6 +1509,47 @@
         const drawerMenu = document.getElementById('drawerMenu');
         const mobileOverlay = document.getElementById('mobile-overlay'); 
         const menuLinks = document.querySelectorAll('nav a');
+        
+        /* --- 1. منطق Preloader (جدید) --- */
+        const preloader = document.getElementById('preloader');
+        
+        window.onload = function() {
+            // پس از بارگذاری کامل فونت و محتوا، Preloader را مخفی می‌کند
+            preloader.classList.add('hide');
+            // حذف کامل المنت بعد از اتمام انیمیشن برای آزاد کردن منابع
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 500); 
+        };
+        /* ------------------------------------- */
+
+        
+        /* --- 2. انیمیشن نوار مهارت‌ها (جدید) --- */
+        const animateSkillBars = (skillsSection) => {
+            const skillBars = skillsSection.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                // خواندن درصد از data-level در HTML
+                const level = bar.dataset.level; 
+                bar.style.width = `${level}%`; // اعمال انیمیشن
+            });
+        };
+
+        const skillObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars(entry.target);
+                    skillObserver.unobserve(entry.target); // پس از یک بار اجرا، ناظر را متوقف می‌کند
+                }
+            });
+        }, {
+            threshold: 0.5 // زمانی که ۵۰٪ از بخش مهارت‌ها دیده شد، اجرا شود
+        });
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillObserver.observe(skillsSection);
+        }
+        /* ------------------------------------- */
 
 
         // Intersection Observer برای انیمیشن و visible
