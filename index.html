@@ -41,9 +41,6 @@
             --color-card-bg: #ffffff; /* سفید خالص برای کارت‌ها */
 
             --color-shadow: rgba(0, 0, 0, 0.08); /* سایه بسیار نرم و حرفه‌ای */
-
-            --color-highlight-bg: #fef3c7; /* پس‌زمینه روشن برای دستاوردها */
-            --color-highlight-text: #f59e0b; /* رنگ پررنگ برای دستاوردها */
         }
 
 
@@ -407,7 +404,12 @@
             padding-right: 15px;
 
             font-size: 15px;
-
+            
+            /* بازگرداندن به حالت لیست ساده */
+            background-color: transparent;
+            font-weight: 500;
+            border-right: none;
+            padding: 0;
         }
 
 
@@ -429,29 +431,12 @@
             font-size: 12px;
 
             top: 5px;
+            
+            /* بازگرداندن به حالت چک‌مارک */
+            padding: 0;
+            background: transparent;
 
         }
-        
-        /* --- استایل برجسته کردن دستاوردها --- */
-        .card ul li.highlight-achievement {
-            font-weight: bold;
-            color: var(--color-primary);
-            background-color: var(--color-highlight-bg); 
-            padding: 5px 10px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            border-right: 3px solid var(--color-highlight-text);
-        }
-
-        .card ul li.highlight-achievement::before {
-            content: "\f005"; /* آیکون ستاره */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: var(--color-highlight-text); 
-            font-size: 14px;
-            top: 4px;
-        }
-
         
         /* --- استایل جدید آیکون‌های تماس --- */
         
@@ -574,11 +559,13 @@
         
         /* برای بخش تحصیلات و دوره‌ها - حذف پدینگ اضافی تایم‌لاین */
         #education .data-block, 
-        #certifications .data-block {
+        #certifications .data-block,
+        #skills .data-block {
             padding-right: 0;
         }
         #education .data-block::before,
-        #certifications .data-block::before {
+        #certifications .data-block::before,
+        #skills .data-block::before {
             content: none;
         }
         
@@ -966,11 +953,6 @@
             .position-item {
                 padding-right: 0; 
             }
-            
-            /* برای موبایل، دستاورد برجسته را کمی کوچک‌تر می‌کنیم */
-            .card ul li.highlight-achievement {
-                font-size: 14px;
-            }
         }
 
     </style>
@@ -998,10 +980,10 @@
 
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
 
-            <a data-target="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</a> <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
-
-            <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
+            <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
             
+            <a data-target="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</a> <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
+
             <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a>
 
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
@@ -1027,8 +1009,8 @@
         <nav>
             <a data-target="#about"><i class="fa-solid fa-user"></i> درباره من</a>
             <a data-target="#experience"><i class="fa-solid fa-briefcase"></i> تجربه‌ها</a>
-            <a data-target="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</a> <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
-            <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
+            <a data-target="#education"><i class="fa-solid fa-graduation-cap"></i> تحصیلات</a>
+            <a data-target="#skills"><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</a> <a data-target="#certifications"><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</a>
             <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a> 
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
@@ -1074,7 +1056,7 @@
                         <h4>مدیر سرمایه‌گذاری</h4>
                         <p class="duration-info">۱۴۰۴ تا کنون</p>
                         <ul>
-                            <li class="highlight-achievement">تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و ‌مدیریت پرتفو (دستاورد کلیدی)</li>
+                            <li>تعیین و اجرای استراتژی‌های کلان سرمایه‌گذاری و ‌مدیریت پرتفو</li>
                             <li>ایجاد داشبوردهای ‏‏تصمیم‌گیری، بررسی پرتفو و رصد بازار</li>
                             <li>نظارت بر تیم‌ تحلیل و سرمایه‌گذاری</li>
                             <li>ارائه گزارش‌های تحلیلی</li>
@@ -1145,7 +1127,7 @@
                         <p class="duration-info">۱۳۹۱ تا ۱۳۹۶</p>
                         <ul>
                             <li>روش‌های تدریس مبتکرانه و تقویت مهارت حل مسئله</li>
-                            <li class="highlight-achievement">آموزش و منتورینگ دانش‌آموزان و کسب رتبه‌های دو رقمی و سه رقمی در کنکور</li>
+                            <li>آموزش و منتورینگ دانش‌آموزان و کسب رتبه‌های دو رقمی و سه رقمی در کنکور</li>
                         </ul>
                     </div>
                 </div>
@@ -1153,7 +1135,64 @@
 
             </div>
         </section>
-        
+
+
+        <section id="education">
+
+            <div class="card">
+
+                <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
+
+                
+                <div class="data-block">
+                    <h3>دکتری مهندسی مالی</h3>
+                    <p class="duration-info">دانشگاه تهران | ۱۴۰۴ - تا کنون</p>
+                    <ul>
+                        <li>کسب رتبه ۲ در آزمون ورودی دکتری</li>
+                    </ul>
+                </div>
+
+                <div class="data-block">
+                    <h3>کارشناسی ارشد مهندسی مالی</h3>
+                    <p class="duration-info">دانشگاه خوارزمی | ۱۴۰۰ تا ۱۴۰۳</p>
+                    <ul>
+                        <li>معدل: ۲۰</li>
+                        <li>ارشد مستقیم</li>
+                        <li>پایان‌نامه: بهینه‌سازی پرتفوی پویا با استفاده از روش کوواریانس معکوس</li>
+                        <li>استاد راهنما: دکتر احسان طیبی ثانی</li>
+                    </ul>
+                </div>
+
+                <div class="data-block">
+                    <h3>کارشناسی مهندسی صنایع</h3>
+                    <p class="duration-info">دانشگاه خوارزمی | ۱۳۹۶ تا ۱۴۰۰</p>
+                    <ul>
+                        <li>معدل: ۱۷٫۳۸</li>
+                        <li>پایان‌نامه: نقش رمزارزها در بورس اوراق بهادار تهران</li>
+                        <li>استاد راهنما: دکتر حمید ایزدبخش</li>
+                    </ul>
+                </div>
+                
+                <div class="data-block">
+                    <h3>کارشناسی مهندسی برق</h3>
+                    <p class="duration-info">دانشگاه علم و صنعت ایران | ۱۳۹۱ تا ۱۳۹۵</p>
+                    <ul>
+                        <li>انصراف از تحصیل به علت علاقه شدید به فضای مالی و تحصیل مجدد در زمینه مالی</li>
+                    </ul>
+                </div>
+                
+                <div class="data-block">
+                    <h3>دیپلم- ریاضی و فیزیک</h3>
+                    <p class="duration-info">سازمان ملی پرورش استعدادهای درخشان (سمپاد) | ۱۳۸۴ تا ۱۳۹۱</p>
+                    <ul>
+                        <li>معدل: ۱۹/۸۲</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </section>
+
+
         <section id="skills">
             <div class="card">
                 <h2><i class="fa-solid fa-screwdriver-wrench"></i> مهارت‌ها</h2>
@@ -1190,62 +1229,6 @@
 
             </div>
         </section>
-        <section id="education">
-
-            <div class="card">
-
-                <h2><i class="fa-solid fa-graduation-cap"></i> تحصیلات</h2>
-
-                
-                <div class="data-block">
-                    <h3>دکتری مهندسی مالی</h3>
-                    <p class="duration-info">دانشگاه تهران | ۱۴۰۴ - تا کنون</p>
-                    <ul>
-                        <li class="highlight-achievement">کسب رتبه ۲ در آزمون ورودی دکتری</li>
-                    </ul>
-                </div>
-
-                <div class="data-block">
-                    <h3>کارشناسی ارشد مهندسی مالی</h3>
-                    <p class="duration-info">دانشگاه خوارزمی | ۱۴۰۰ تا ۱۴۰۳</p>
-                    <ul>
-                        <li class="highlight-achievement">معدل: ۲۰</li>
-                        <li>ارشد مستقیم</li>
-                        <li>پایان‌نامه: بهینه‌سازی پرتفوی پویا با استفاده از روش کوواریانس معکوس</li>
-                        <li>استاد راهنما: دکتر احسان طیبی ثانی</li>
-                    </ul>
-                </div>
-
-                <div class="data-block">
-                    <h3>کارشناسی مهندسی صنایع</h3>
-                    <p class="duration-info">دانشگاه خوارزمی | ۱۳۹۶ تا ۱۴۰۰</p>
-                    <ul>
-                        <li>معدل: ۱۷٫۳۸</li>
-                        <li>پایان‌نامه: نقش رمزارزها در بورس اوراق بهادار تهران</li>
-                        <li>استاد راهنما: دکتر حمید ایزدبخش</li>
-                    </ul>
-                </div>
-                
-                <div class="data-block">
-                    <h3>کارشناسی مهندسی برق</h3>
-                    <p class="duration-info">دانشگاه علم و صنعت ایران | ۱۳۹۱ تا ۱۳۹۵</p>
-                    <ul>
-                        <li>انصراف از تحصیل به علت علاقه شدید به فضای مالی و تحصیل مجدد در زمینه مالی</li>
-                    </ul>
-                </div>
-                
-                <div class="data-block">
-                    <h3>دیپلم- ریاضی و فیزیک</h3>
-                    <p class="duration-info">سازمان ملی پرورش استعدادهای درخشان (سمپاد) | ۱۳۸۴ تا ۱۳۹۱</p>
-                    <ul>
-                        <li class="highlight-achievement">معدل: ۱۹/۸۲</li>
-                    </ul>
-                </div>
-                
-            </div>
-        </section>
-
-
         <section id="certifications">
             <div class="card">
                 <h2><i class="fa-solid fa-medal"></i> دوره‌ها و مدارک</h2>
