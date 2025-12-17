@@ -1087,139 +1087,6 @@
                 margin-top: 20px;
             }
         }
-        
-        /* --- استایل دکمه چاپ در حالت نمایش (جدید) --- */
-        .print-button {
-            margin-top: 10px; /* فاصله از بقیه لینک‌ها */
-            background: var(--color-secondary) !important;
-            border-right: 4px solid #fff !important;
-            color: #fff !important;
-            font-weight: bold !important;
-        }
-
-        .print-button i {
-            color: #fff !important;
-        }
-
-        .print-button:hover {
-            background: #e46000 !important; /* رنگ کمی تیره تر هنگام هاور */
-            transform: none !important;
-        }
-        
-        /* ------------------------------------------- */
-        /* --- استایل‌های ویژه چاپ (Print Styles) --- */
-        /* ------------------------------------------- */
-        @media print {
-            
-            /* ۱. مخفی کردن المان‌های غیرضروری */
-            header.desktop, 
-            #menuToggle, 
-            #mobile-overlay, 
-            #drawerMenu, 
-            #preloader, 
-            .contact-links, /* لینک‌های تماس */
-            .download-link, /* دکمه‌های دانلود گزارش */
-            .cert-link, /* دکمه‌های مشاهده مدرک */
-            .print-button { 
-                display: none !important;
-            }
-            
-            /* ۲. بازگرداندن صفحه به حالت بدون سایدبار */
-            body {
-                background: #fff; /* پس‌زمینه سفید برای چاپ */
-                color: #000;
-                direction: rtl;
-                padding-top: 0 !important;
-                width: 100%;
-            }
-            
-            main {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: block;
-            }
-            
-            section {
-                width: 100%;
-                max-width: none;
-                margin: 20px 0;
-                opacity: 1; 
-                transform: none;
-                padding: 0;
-                /* اطمینان از شکستن صفحه بین سکشن‌ها */
-                page-break-before: auto;
-            }
-
-            /* ۳. بهینه‌سازی کارت‌ها و محتوا */
-            .card {
-                box-shadow: none; /* حذف سایه */
-                border: 1px solid #ccc; /* یک خط نازک برای جدا کردن بخش‌ها */
-                border-right: 5px solid var(--color-secondary); /* نگه داشتن خط رنگی کناری */
-                padding: 15px 20px;
-                margin-bottom: 20px;
-            }
-            
-            section h2 {
-                border-bottom-color: #ccc !important; /* رنگ خط زیر عنوان را ملایم‌تر کن */
-                font-size: 20px;
-                margin-bottom: 10px;
-            }
-            
-            /* حذف خط چین‌ها و نقاط تایم‌لاین برای چاپ تمیزتر */
-            .position-item {
-                border-bottom: none !important;
-                padding-bottom: 5px;
-            }
-            .position-item::before, .data-block::before {
-                content: none !important;
-            }
-            
-            /* اطمینان از رنگ متن مشکی برای خوانایی */
-            p, li, h3, h4, .duration-info {
-                color: #000 !important; 
-                font-weight: normal !important;
-                font-size: 11pt !important;
-            }
-            
-            /* پنهان کردن نوارهای مهارت (فقط نام و سطح باقی می‌ماند) */
-            .skill-bar-container {
-                display: none;
-            }
-            .skill-item h4 {
-                margin-bottom: 0;
-            }
-
-            /* گزارشات را به حالت لیست عمودی درمی‌آوریم */
-            .reports-container {
-                display: block;
-                overflow-x: visible;
-                white-space: normal;
-                padding-bottom: 0;
-            }
-            
-            .report-item {
-                flex: none;
-                width: 100%;
-                margin-bottom: 10px;
-                border: none;
-                border-top: 2px solid var(--color-secondary);
-                box-shadow: none;
-                padding: 10px 0;
-                height: auto;
-            }
-            
-            .report-item p.report-desc {
-                height: auto;
-                overflow: visible;
-                margin-bottom: 5px;
-            }
-            
-            /* تنظیم فونت و اندازه برای کل محتوا */
-            * {
-                font-size: 11pt; /* اندازه استاندارد فونت برای چاپ */
-            }
-        }
 
     </style>
 
@@ -1255,8 +1122,6 @@
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
 
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
-            
-            <a onclick="window.print()" class="print-button"><i class="fa-solid fa-print"></i> چاپ رزومه</a>
 
         </nav>
 
@@ -1282,8 +1147,6 @@
             <a data-target="#reports"><i class="fa-solid fa-chart-line"></i> گزارشات</a>
             <a data-target="#projects"><i class="fa-solid fa-folder-open"></i> پروژه‌ها</a>
             <a data-target="#contact"><i class="fa-solid fa-phone"></i> تماس</a>
-            
-            <a onclick="window.print()" class="print-button"><i class="fa-solid fa-print"></i> چاپ رزومه</a>
         </nav>
     </div>
 
@@ -1859,28 +1722,25 @@
 
         // کلیک روی لینک‌های منو (بستن منو بعد از کلیک)
         menuLinks.forEach(link => {
-            // اطمینان از اینکه فقط لینک‌های ناوبری، نه دکمه پرینت، این منطق را اجرا کنند
-            if (!link.classList.contains('print-button')) {
-                 link.addEventListener('click', e => {
-                    e.preventDefault();
-                    const target = document.querySelector(link.dataset.target);
-                    // افست ۶۰ پیکسل برای جبران دکمه تاگل ثابت در موبایل
-                    const headerOffset = window.innerWidth < 800 ? 60 : 40; 
-    
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth"
-                    });
-    
-                    // بستن منو در موبایل
-                    if (window.innerWidth < 800) {
-                        closeDrawer();
-                    }
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.dataset.target);
+                // افست ۶۰ پیکسل برای جبران دکمه تاگل ثابت در موبایل
+                const headerOffset = window.innerWidth < 800 ? 60 : 40; 
+
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
                 });
-            }
+
+                // بستن منو در موبایل
+                if (window.innerWidth < 800) {
+                    closeDrawer();
+                }
+            });
         });
 
 
@@ -1908,7 +1768,7 @@
 
             menuLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.dataset.target && link.dataset.target.substring(1) === current) {
+                if (link.dataset.target.substring(1) === current) {
                     link.classList.add('active');
                 }
             });
