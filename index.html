@@ -1088,6 +1088,349 @@
             }
         }
 
+
+        /* --- دکمه دانلود رزومه --- */
+        #resumePdfButton {
+            position: fixed;
+            left: 22px;
+            bottom: 22px;
+            z-index: 1200;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 18px;
+            background: var(--color-secondary);
+            color: #fff;
+            font-family: 'IRANSansXFaNum', Tahoma, sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        #resumePdfButton:hover {
+            background: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        /* --- نسخه مخصوص چاپ و ذخیره PDF در اندازه A4 --- */
+        @page {
+            size: A4;
+            margin: 11mm 10mm 12mm 10mm;
+        }
+
+        @media print {
+            html, body {
+                width: 210mm;
+                min-height: 297mm;
+                background: #fff !important;
+                color: var(--color-text) !important;
+                direction: rtl;
+                print-color-adjust: exact !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+
+            body {
+                display: block !important;
+                font-size: 10.5pt;
+                line-height: 1.65;
+            }
+
+            #preloader,
+            header.desktop,
+            #menuToggle,
+            #mobile-overlay,
+            #drawerMenu,
+            #contactModal,
+            #resumePdfButton {
+                display: none !important;
+            }
+
+            main {
+                display: block !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+            }
+
+            section,
+            section.visible {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 0 7mm 0 !important;
+                padding: 0 !important;
+                opacity: 1 !important;
+                transform: none !important;
+                page-break-inside: auto;
+                break-inside: auto;
+            }
+
+            .card {
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 7mm 7mm 6mm 7mm !important;
+                border-radius: 4mm !important;
+                border-right: 1.8mm solid var(--color-secondary) !important;
+                box-shadow: 0 1.5mm 4mm rgba(0, 0, 0, 0.08) !important;
+                background: #fff !important;
+                transform: none !important;
+                page-break-inside: auto;
+                break-inside: auto;
+            }
+
+            .card:hover,
+            .report-item:hover {
+                transform: none !important;
+            }
+
+            section h2 {
+                font-size: 16pt !important;
+                margin-bottom: 5mm !important;
+                padding-bottom: 2.5mm !important;
+                border-bottom: 0.6mm solid var(--color-secondary) !important;
+            }
+
+            section h2 i {
+                font-size: 16pt !important;
+            }
+
+            p, li {
+                font-size: 10.2pt !important;
+                line-height: 1.65 !important;
+                orphans: 3;
+                widows: 3;
+            }
+
+            .data-block,
+            .position-item,
+            .project-item,
+            .skill-item,
+            .report-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .data-block {
+                margin-bottom: 6mm !important;
+                padding-bottom: 4mm !important;
+            }
+
+            .position-item {
+                margin-bottom: 4mm !important;
+                padding-bottom: 3mm !important;
+            }
+
+            .data-block h3 {
+                font-size: 13pt !important;
+            }
+
+            .position-item h4,
+            .project-item h4 {
+                font-size: 11.5pt !important;
+            }
+
+            .duration-info,
+            .project-duration {
+                font-size: 9.4pt !important;
+            }
+
+            .skill-bar-container {
+                height: 2.2mm !important;
+            }
+
+            .skill-bar {
+                transition: none !important;
+                width: var(--print-level, 0%);
+            }
+
+            .reports-container {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 4mm !important;
+                overflow: visible !important;
+                white-space: normal !important;
+                padding: 0 !important;
+            }
+
+            .report-item {
+                width: auto !important;
+                min-width: 0 !important;
+                flex: none !important;
+                padding: 4mm !important;
+                box-shadow: none !important;
+            }
+
+            .report-item p.report-desc {
+                height: auto !important;
+                overflow: visible !important;
+            }
+
+            .download-link,
+            .cert-link {
+                color: var(--color-primary) !important;
+                background: #fff !important;
+                border: 0.4mm solid var(--color-secondary) !important;
+                text-decoration: none !important;
+            }
+
+            a {
+                color: inherit !important;
+                text-decoration: none !important;
+            }
+
+            .contact-links {
+                gap: 8mm !important;
+                margin-top: 4mm !important;
+            }
+
+            .contact-links a i {
+                font-size: 22pt !important;
+            }
+        }
+
+
+        /* هدر حرفه‌ای مخصوص نسخه PDF */
+        #printResumeHeader {
+            display: none;
+        }
+
+        @media print {
+            #printResumeHeader {
+                display: flex !important;
+                align-items: center;
+                gap: 8mm;
+                width: 100%;
+                margin: 0 0 8mm 0;
+                padding: 8mm;
+                background: var(--color-primary) !important;
+                color: #fff !important;
+                border-radius: 4mm;
+                border-bottom: 2.2mm solid var(--color-secondary);
+                box-shadow: 0 1.5mm 4mm rgba(0, 0, 0, 0.12);
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            #printResumeHeader .print-profile {
+                flex: 0 0 33mm;
+                width: 33mm;
+                height: 33mm;
+            }
+
+            #printResumeHeader .print-profile img {
+                width: 33mm;
+                height: 33mm;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 1.5mm solid var(--color-secondary);
+                background: #fff;
+                display: block;
+            }
+
+            #printResumeHeader .print-identity {
+                flex: 1;
+                min-width: 0;
+            }
+
+            #printResumeHeader h1 {
+                margin: 0 0 1mm 0;
+                font-size: 23pt;
+                line-height: 1.2;
+                color: #fff !important;
+                text-align: right;
+            }
+
+            #printResumeHeader h3 {
+                margin: 0 0 4mm 0;
+                font-size: 12.5pt;
+                font-weight: 500;
+                color: #f3f4f6 !important;
+                text-align: right;
+            }
+
+            .print-contact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2.2mm 6mm;
+                direction: ltr;
+                text-align: left;
+            }
+
+            .print-contact-grid span {
+                display: flex;
+                align-items: center;
+                gap: 2mm;
+                color: #f9fafb !important;
+                font-size: 8.6pt;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .print-contact-grid i {
+                width: 4mm;
+                color: var(--color-secondary) !important;
+                text-align: center;
+                font-size: 9.5pt;
+            }
+
+            /* حذف تکرار بخش تماس در انتهای PDF چون اطلاعات آن در هدر آمده است */
+            #contact {
+                display: none !important;
+            }
+
+            /* شروع منظم بخش اول زیر هدر */
+            #about {
+                margin-top: 0 !important;
+            }
+
+            /* حفظ ظاهر کارت‌ها اما با فاصله و صفحه‌بندی تمیزتر */
+            section {
+                margin-bottom: 6mm !important;
+            }
+
+            section h2 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            .card ul li {
+                padding-right: 6mm !important;
+                margin-bottom: 1.7mm !important;
+            }
+
+            .card ul li::before {
+                top: 1.5mm !important;
+            }
+
+            /* جلوگیری از جدا شدن عنوان یک آیتم از محتوایش */
+            .data-block h3,
+            .position-item h4,
+            .project-item h4 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            /* گزارش‌ها در PDF به شکل کارت‌های منظم دو ستونه */
+            .reports-container {
+                align-items: stretch;
+            }
+
+            .report-item {
+                display: flex !important;
+                flex-direction: column;
+                min-height: 42mm;
+            }
+
+            .report-item .download-link {
+                margin-top: auto;
+                align-self: flex-start;
+            }
+        }
+
     </style>
 
 </head>
@@ -1153,6 +1496,23 @@
 
 
     <main>
+
+        <div id="printResumeHeader">
+            <div class="print-profile">
+                <img src="profile.jpg" alt="عکس پروفایل حامد چگینی">
+            </div>
+            <div class="print-identity">
+                <h1>حامد چگینی</h1>
+                <h3>مدیر سرمایه‌گذاری</h3>
+                <div class="print-contact-grid">
+                    <span><i class="fa-solid fa-envelope"></i> hamedcheginii91@gmail.com</span>
+                    <span><i class="fa-solid fa-phone"></i> 09125610574</span>
+                    <span><i class="fa-brands fa-linkedin"></i> linkedin.com/in/hamed-chegini-114621203</span>
+                    <span><i class="fa-brands fa-telegram"></i> t.me/finbaan</span>
+                </div>
+            </div>
+        </div>
+
 
 
 
@@ -1612,6 +1972,12 @@
 
     </main>
     
+
+    <button id="resumePdfButton" type="button" aria-label="دانلود رزومه PDF">
+        <i class="fa-solid fa-file-pdf"></i>
+        دانلود رزومه PDF
+    </button>
+
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -1860,6 +2226,21 @@
         });
 
         /* --- پایان منطق Modal --- */
+
+
+        // دانلود نسخه PDF با استفاده از چاپ استاندارد مرورگر
+        const resumePdfButton = document.getElementById('resumePdfButton');
+
+        if (resumePdfButton) {
+            resumePdfButton.addEventListener('click', () => {
+                // تثبیت مقدار نوار مهارت‌ها در نسخه چاپی
+                document.querySelectorAll('.skill-bar').forEach(bar => {
+                    bar.style.setProperty('--print-level', `${bar.dataset.level}%`);
+                });
+
+                window.print();
+            });
+        }
 
     </script>
 
