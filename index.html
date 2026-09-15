@@ -1431,6 +1431,65 @@
             }
         }
 
+        /* زیر‌بخش مشاوره در تجربه‌ها */
+        .experience-subsection {
+            margin: 10px 0 35px;
+            padding-top: 5px;
+        }
+        .experience-subsection-title {
+            font-size: 20px;
+            color: var(--color-secondary);
+            margin: 0 0 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .experience-subsection-title i { margin-left: 8px; }
+
+        @media print {
+            /* جلوگیری از بزرگ‌تر شدن صفحه از A4 و بریده‌شدن سمت راست/چپ */
+            html, body {
+                width: auto !important;
+                min-height: 0 !important;
+                overflow: visible !important;
+            }
+            main {
+                max-width: 190mm !important;
+                margin: 0 auto !important;
+            }
+            .card {
+                box-shadow: none !important;
+            }
+            /* یک شرکت بزرگ می‌تواند بین صفحات ادامه پیدا کند؛ هر سمت تا حد ممکن یک‌تکه می‌ماند */
+            .data-block {
+                break-inside: auto !important;
+                page-break-inside: auto !important;
+            }
+            .position-item, .project-item, .skill-item, .report-item {
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            .experience-subsection {
+                break-inside: auto !important;
+                page-break-inside: auto !important;
+            }
+            .experience-subsection-title {
+                font-size: 13pt !important;
+                margin-bottom: 4mm !important;
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            /* لینک‌های بلند در PDF از کادر بیرون نمی‌زنند */
+            a, .print-contact-grid span, .report-item, .card {
+                overflow-wrap: anywhere !important;
+                word-break: break-word !important;
+            }
+            /* مرورگر برای چاپ، انیمیشن/ترنزیشن اجرا نکند */
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
     </style>
 
 </head>
@@ -1588,15 +1647,42 @@
                         <h4>کارشناس توسعه و برنامه‌نویسی</h4>
                         <p class="duration-info">۱۴۰۰ تا ۱۴۰۱</p>
                         <ul>
-                            <li>ارائه روش‌های نوین معاملات الگوریتمی و پیاده سازی روش‌های مذکور</li>
                             <li>کمک به تحلیل ریسک و بازدهی پرتفوی مشتریان</li>
                             <li>جمع‌آوری و پردازش داده‌های مالی در بازار رمزارزها</li>
-                            <li>توسعه ربات تلگرامی برای مجموعه</li>
+                            <li>توسعه ربات تلگرامی برای مجموعه و مدیریت محتوا</li>
                         </ul>
                     </div>
                 </div>
                 
-                
+
+                <div class="experience-subsection">
+                    <h3 class="experience-subsection-title"><i class="fa-solid fa-handshake-angle"></i> مشاوره</h3>
+
+                    <div class="data-block">
+                        <h3>شرکت آتیه سازان امید نسل امروز</h3>
+                        <div class="position-item">
+                            <h4>مشاور سرمایه‌گذاری</h4>
+                            <p class="duration-info">۱۴۰۴ تا کنون</p>
+                        </div>
+                    </div>
+
+                    <div class="data-block">
+                        <h3>موسسه فرهنگی پیام آزادگان</h3>
+                        <div class="position-item">
+                            <h4>مشاور سرمایه‌گذاری</h4>
+                            <p class="duration-info">از سال ۱۴۰۵</p>
+                        </div>
+                    </div>
+
+                    <div class="data-block">
+                        <h3>شرکت سرمایه‌گذاری امین مهرگان</h3>
+                        <div class="position-item">
+                            <h4>عضو کمیته سرمایه‌گذاری</h4>
+                            <p class="duration-info">۱۴۰۵ تا کنون</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="data-block">
                     <h3>نماینده بیمه پارسیان</h3>
                     <p class="duration-info">1399 تا 1398</p>
